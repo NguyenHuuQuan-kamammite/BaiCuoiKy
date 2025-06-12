@@ -61245,6 +61245,9 @@ MonoBehaviour:
   secondaryWallCheck: {fileID: 0}
   battleMoveSpeed: 3
   attackDistance: 2
+  battleTimeDuration: 5
+  minRetreatDistance: 1
+  retreatVelocity: {x: 3, y: 0}
   moveSpeed: 1.4
   idleTime: 2
   moveAnimSpeedMultiplier: 1

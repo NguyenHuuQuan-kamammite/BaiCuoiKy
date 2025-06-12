@@ -16,7 +16,7 @@ public abstract class EntityState
 
 
     }
-     public virtual void Enter()
+    public virtual void Enter()
     {
         anim.SetBool(animBoolName, true);
         triggerCalled = false;
@@ -25,6 +25,7 @@ public abstract class EntityState
     public virtual void Update()
     {
         stateTimer -= Time.deltaTime;
+        UpdateAnimationParameters();
     }
 
     public virtual void Exit()
@@ -35,5 +36,9 @@ public abstract class EntityState
     public void CallAnimationTrigger()
     {
         triggerCalled = true;
+    }
+    public virtual void UpdateAnimationParameters()
+    {
+
     }
 }

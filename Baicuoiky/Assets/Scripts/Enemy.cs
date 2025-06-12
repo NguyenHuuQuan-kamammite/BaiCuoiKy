@@ -10,6 +10,9 @@ public class Enemy : Entity
     [Header("Battle Details")]
     public float battleMoveSpeed = 3f;
     public float attackDistance = 2f;
+    public float battleTimeDuration = 5f;
+    public float minRetreatDistance = 1f;
+    public Vector2 retreatVelocity ;
 
     [Header("Movement Details")]
     public float moveSpeed = 1.4f;
@@ -23,6 +26,7 @@ public class Enemy : Entity
     [SerializeField] private LayerMask whatIsPlayer;
     [SerializeField] private Transform playerCheck;
     [SerializeField] private float playerCheckDistance = 10f;
+  
     public RaycastHit2D PlayerDetected()
 
     {
@@ -32,8 +36,8 @@ public class Enemy : Entity
             Debug.DrawRay(playerCheck.position, Vector2.right * facingDir * playerCheckDistance, Color.red);
             return default;
         }
-        
-       return hit;
+
+        return hit;
     }
     protected override void OnDrawGizmos()
     {
@@ -42,5 +46,7 @@ public class Enemy : Entity
         Gizmos.DrawLine(playerCheck.position, new Vector3(playerCheck.position.x + (playerCheckDistance * facingDir), playerCheck.position.y));
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(playerCheck.position, new Vector3(playerCheck.position.x + (attackDistance * facingDir), playerCheck.position.y));
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(playerCheck.position, new Vector3(playerCheck.position.x + (minRetreatDistance * facingDir), playerCheck.position.y));
     }
 }
