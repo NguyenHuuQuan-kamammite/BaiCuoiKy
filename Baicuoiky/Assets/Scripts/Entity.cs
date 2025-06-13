@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Entity : MonoBehaviour
@@ -26,21 +27,23 @@ public class Entity : MonoBehaviour
     [SerializeField] private Transform secondaryWallCheck;
     public bool groundDetected { get; private set; }
     public bool wallDetected { get; private set; }
-
+    // knockback variables
+    private Coroutine knockbackCoroutine;
+    private bool isKnocked;
     protected virtual void Awake()
     {
         anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
 
         stateMachine = new StateMachine();
-        
+
     }
 
-    
 
+    
     protected virtual void Start()
     {
-       
+
     }
 
     protected virtual void Update()
@@ -48,7 +51,23 @@ public class Entity : MonoBehaviour
         HandleCollisionDetection();
         stateMachine.UpdateActiveState();
     }
-
+    public void ReceiveKnockback(Vector2 knockback, float duration)
+    {
+     
+        if (knockbackCoroutine != null)
+        {
+            StopCoroutine(knockbackCoroutine);
+        }
+        knockbackCoroutine = StartCoroutine(knockbackCo(knockback, duration));
+    }
+    private IEnumerator knockbackCo(Vector2 knockback, float duration)
+    {
+        isKnocked = true;
+        rb.linearVelocity = knockback;
+        yield return new WaitForSeconds(duration);
+        rb.linearVelocity = Vector2.zero; // Reset velocity after knockback
+        isKnocked = false;
+    }
 
     public void CallAnimationTrigger()
     {
@@ -57,6 +76,7 @@ public class Entity : MonoBehaviour
 
     public void SetVelocity(float xVelocity, float yVelocity)
     {
+        if (isKnocked) return; // Prevents setting velocity during knockback
         rb.linearVelocity = new Vector2(xVelocity, yVelocity);
         HandleFlip(xVelocity);
     }
