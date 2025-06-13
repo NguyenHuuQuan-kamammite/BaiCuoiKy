@@ -45,7 +45,7 @@ public class Entity_Health : MonoBehaviour
     {
         isDead = true;
 
-        Debug.Log(" has died.");
+        entity.EntityDeath();
     }
     private Vector2 CalculateKnockbackDirection(float damage, Transform damageDealer)
     {
@@ -61,7 +61,7 @@ public class Entity_Health : MonoBehaviour
     }
     private bool IsHeavyDamage(float damage)
     {
-        float healthPercentTaken = maxHp / maxHp;
+        float healthPercentTaken = damage / maxHp;
         return healthPercentTaken > heavyKnockbackThreshold;
     }
 }

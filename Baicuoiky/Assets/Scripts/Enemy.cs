@@ -3,17 +3,18 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
-   
+
     public Enemy_IdleState idleState;
     public Enemy_MoveState moveState;
     public Enemy_AttackState attackState;
     public Enemy_BattleState battleState;
+    public Enemy_DeadState deadState;
     [Header("Battle Details")]
     public float battleMoveSpeed = 3f;
     public float attackDistance = 2f;
     public float battleTimeDuration = 5f;
     public float minRetreatDistance = 1f;
-    public Vector2 retreatVelocity ;
+    public Vector2 retreatVelocity;
 
     [Header("Movement Details")]
     public float moveSpeed = 1.4f;
@@ -28,17 +29,27 @@ public class Enemy : Entity
     [SerializeField] private Transform playerCheck;
     [SerializeField] private float playerCheckDistance = 10f;
     public Transform player { get; private set; }
-    
+
 
     public void TryEnterBattleState(Transform player)
     {
-        if (stateMachine.currentState == battleState || stateMachine.currentState == attackState )
+        if (stateMachine.currentState == battleState || stateMachine.currentState == attackState)
         {
             return; // Already in battle or attack state
         }
         this.player = player;
         stateMachine.ChangeState(battleState);
 
+    }
+
+    public override void EntityDeath()
+    {
+        base.EntityDeath();
+        stateMachine.ChangeState(deadState);
+    }
+    private void HandlePlayerDeath()
+    {
+        stateMachine.ChangeState(idleState);
     }
     public Transform GetPlayerReference()
     {
@@ -69,5 +80,13 @@ public class Enemy : Entity
         Gizmos.DrawLine(playerCheck.position, new Vector3(playerCheck.position.x + (attackDistance * facingDir), playerCheck.position.y));
         Gizmos.color = Color.green;
         Gizmos.DrawLine(playerCheck.position, new Vector3(playerCheck.position.x + (minRetreatDistance * facingDir), playerCheck.position.y));
+    }
+    private void OnEnable()
+    {
+        Player.OnPlayerDeath += HandlePlayerDeath;
+    }
+    private void OnDisable()
+    {
+        Player.OnPlayerDeath -= HandlePlayerDeath;
     }
 }

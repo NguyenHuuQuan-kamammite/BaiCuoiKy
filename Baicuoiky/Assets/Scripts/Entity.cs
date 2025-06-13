@@ -74,6 +74,12 @@ public class Entity : MonoBehaviour
         stateMachine.currentState.CallAnimationTrigger();
     }
 
+    public virtual void EntityDeath()
+    {
+
+    }
+
+
     public void SetVelocity(float xVelocity, float yVelocity)
     {
         if (isKnocked) return; // Prevents setting velocity during knockback
@@ -91,7 +97,7 @@ public class Entity : MonoBehaviour
 
     public void Flip()
     {
-        Debug.Log(rb.linearVelocity.x);
+        
         transform.Rotate(0, 180, 0);
         facingRight = !facingRight;
         facingDir = facingDir * -1;
