@@ -440,7 +440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6073007df04525f4bb95695c4cd0242b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 35
+  damage: 10
   targetCheck: {fileID: 2138203158}
   targetCheckRadius: 1
   WhatIsTarget:
@@ -461,10 +461,10 @@ MonoBehaviour:
   maxHp: 100
   isDead: 0
   knockbackDuration: 0.2
-  onDamageKnockback: {x: 1.5, y: 1.5}
+  onDamageKnockback: {x: 1.5, y: 2.5}
   heavyKnockbackThreshold: 0.3
   heavyKnockbackDuration: 0.5
-  onHeavyKnockback: {x: 7, y: 5}
+  onHeavyKnockback: {x: 7, y: 7}
 --- !u!114 &274070549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60595,7 +60595,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.5, y: 2}
+  m_Size: {x: 2.0625, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -61282,8 +61282,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.10922455, y: -0.05042773}
-  m_Size: {x: 0.6747814, y: 1.5084187}
+  m_Offset: {x: -0.10922455, y: -0.046811793}
+  m_Size: {x: 0.6747814, y: 1.5011866}
   m_Direction: 0
 --- !u!50 &1985380632
 Rigidbody2D:
@@ -61376,7 +61376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6073007df04525f4bb95695c4cd0242b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 25
   targetCheck: {fileID: 1555725039}
   targetCheckRadius: 1
   WhatIsTarget:

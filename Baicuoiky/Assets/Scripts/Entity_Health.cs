@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Entity_Health : MonoBehaviour
+public class Entity_Health : MonoBehaviour, IDamgable
 {
     private Entity_VFX entityVFX;
     private Entity entity;
