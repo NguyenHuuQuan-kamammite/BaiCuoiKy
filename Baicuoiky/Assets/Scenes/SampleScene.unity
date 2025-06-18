@@ -301,7 +301,7 @@ GameObject:
   - component: {fileID: 274070543}
   - component: {fileID: 274070545}
   - component: {fileID: 274070546}
-  - component: {fileID: 274070547}
+  - component: {fileID: 274070550}
   - component: {fileID: 274070548}
   - component: {fileID: 274070549}
   m_Layer: 7
@@ -428,24 +428,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.34319735}
   m_Size: {x: 0.77, y: 1.9736052}
   m_Direction: 0
---- !u!114 &274070547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 274070542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6073007df04525f4bb95695c4cd0242b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 10
-  targetCheck: {fileID: 2138203158}
-  targetCheckRadius: 1
-  WhatIsTarget:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!114 &274070548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -458,7 +440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f1b5386c5ac65847bddc728ba93a507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 100
+  maxHp: 1000
   isDead: 0
   knockbackDuration: 0.2
   onDamageKnockback: {x: 1.5, y: 2.5}
@@ -479,6 +461,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onDamageMaterial: {fileID: 2100000, guid: 6e215e3484f9c3a48acc00ff71b5bbed, type: 2}
   onDamageVfxDuration: 0.15
+--- !u!114 &274070550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274070542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b47ee2a5e800af14ebabadd2563e1a6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  targetCheck: {fileID: 2138203158}
+  targetCheckRadius: 1
+  WhatIsTarget:
+    serializedVersion: 2
+    m_Bits: 256
+  counterRecovery: 0.25
 --- !u!1 &344415102
 GameObject:
   m_ObjectHideFlags: 0
@@ -60618,7 +60619,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1225561762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61679,7 +61680,7 @@ MonoBehaviour:
   playerCheck: {fileID: 1985380634}
   playerCheckDistance: 10
   stunnedDuration: 1
-  stunnedVelocity: {x: 7, y: 7}
+  stunnedVelocity: {x: 4, y: 4}
   canBeStunned: 0
 --- !u!4 &1985380634
 Transform:
@@ -61731,7 +61732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8f61882fd672946b8a13684083896c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 100
+  maxHp: 1000
   isDead: 0
   knockbackDuration: 0.2
   onDamageKnockback: {x: 1.5, y: 2.5}

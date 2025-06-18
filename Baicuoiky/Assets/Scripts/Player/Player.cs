@@ -41,6 +41,7 @@ public class Player : Entity
     public Player_BasicAttackState basicAttackState { get; private set; }
     public Player_JumpAttackState jumpAttackState { get; private set; }
     public Player_Dead deadState { get; private set; }
+    public Player_CounterAttackState counterAttackState { get; private set; }
     public Vector2 moveInput { get; private set; }
     protected override void Awake()
     {
@@ -58,6 +59,7 @@ public class Player : Entity
         basicAttackState = new Player_BasicAttackState(this, stateMachine, "basicAttack");
         jumpAttackState = new Player_JumpAttackState(this, stateMachine, "jumpAttack");
         deadState = new Player_Dead(this, stateMachine, "dead");
+        counterAttackState = new Player_CounterAttackState(this, stateMachine, "counterAttack");
 
     }
     protected override void Start()

@@ -12,7 +12,6 @@ public class Enemy_StunnedState : EnemyState
     {
         base.Enter();
         enemyVFX.EnableAttackAlert(false);
-
         enemy.EnableCounterWindows(false);
         stateTimer = enemy.stunnedDuration;
         rb.linearVelocity = new Vector2(enemy.stunnedVelocity.x * -enemy.facingDir, enemy.stunnedVelocity.y);
