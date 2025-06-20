@@ -5,7 +5,7 @@ public class Stat
 {
 
     [SerializeField] private float baseValue;
-    public float GetVValue()
+    public float GetValue()
     {
         return baseValue;
     }

@@ -379,6 +379,7 @@ GameObject:
   - component: {fileID: 274070550}
   - component: {fileID: 274070548}
   - component: {fileID: 274070549}
+  - component: {fileID: 274070551}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -517,7 +518,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHp: 0
-  maxHp: 200
   isDead: 0
   knockbackDuration: 0.2
   onDamageKnockback: {x: 1.5, y: 2.5}
@@ -559,6 +559,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   counterRecovery: 0.25
+--- !u!114 &274070551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274070542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18da7123e85db79479a6b2f2b4f36694, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp:
+    baseValue: 100
+  vitality:
+    baseValue: 7
 --- !u!1 &312220861
 GameObject:
   m_ObjectHideFlags: 0
@@ -62442,6 +62458,7 @@ GameObject:
   - component: {fileID: 1985380635}
   - component: {fileID: 1985380636}
   - component: {fileID: 1985380637}
+  - component: {fileID: 1985380638}
   m_Layer: 8
   m_Name: Enemy_skeleton
   m_TagString: Untagged
@@ -62601,7 +62618,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHp: 0
-  maxHp: 100
   isDead: 0
   knockbackDuration: 0.2
   onDamageKnockback: {x: 1.5, y: 2.5}
@@ -62625,6 +62641,22 @@ MonoBehaviour:
   hitVfx: {fileID: 7274362693920113760, guid: eeac29f4e2682694a8d110964229a77a, type: 3}
   hitVfxColor: {r: 0.8867924, g: 0.10457456, b: 0.10457456, a: 1}
   attackAlert: {fileID: 430517671}
+--- !u!114 &1985380638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985380630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18da7123e85db79479a6b2f2b4f36694, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp:
+    baseValue: 100
+  vitality:
+    baseValue: 0
 --- !u!1 &2064473430
 GameObject:
   m_ObjectHideFlags: 0
