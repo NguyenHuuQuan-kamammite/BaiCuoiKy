@@ -36,6 +36,16 @@ public class Enemy : Entity
     public float stunnedDuration = 1f;
     public Vector2 stunnedVelocity  = new Vector2(7, 7);
     [SerializeField]protected bool canBeStunned;
+    [HideInInspector] public GameObject healthBarUI;
+   
+
+   protected override void Awake()
+    {
+         base.Awake();
+        // Find the child named "HealthBar_UI"
+        healthBarUI = transform.Find("HealthBar_UI")?.gameObject;
+    }
+
 
     public void TryEnterBattleState(Transform player)
     {

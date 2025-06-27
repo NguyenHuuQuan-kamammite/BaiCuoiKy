@@ -4,15 +4,19 @@ public class Entity_Combat : MonoBehaviour
 {
     public float damage = 10f;
     private Entity_VFX vfx;
+
+    private Entity_Stats stats;
  
     [Header(("Target detection"))]
     [SerializeField] private Transform targetCheck;
     [SerializeField] private float targetCheckRadius = 1f;
     [SerializeField] private LayerMask WhatIsTarget;
+
+    
     private void Awake()
     {
         vfx = GetComponent<Entity_VFX>();
-        
+        stats = GetComponent<Entity_Stats>();
     }
 
     public void PerformAttack()
@@ -21,9 +25,10 @@ public class Entity_Combat : MonoBehaviour
         {
             IDamgable damagable = target.GetComponent<IDamgable>();
             if (damagable == null) continue;
-            
-            damagable.TakeDamage(damage, transform);
-            vfx.CreateOnHitVFX(target.transform);
+            float damage = stats.GetPhysicalDamage(out bool isCrit);
+            bool targetGotHit = damagable.TakeDamage(damage, transform);
+            if (targetGotHit) 
+             vfx.CreateOnHitVFX(target.transform, isCrit);
         }
     }
     protected Collider2D[] GetDetectedColliders()

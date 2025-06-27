@@ -430,7 +430,7 @@ Transform:
   m_GameObject: {fileID: 274070542}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.31, y: 0.39, z: 0}
+  m_LocalPosition: {x: -3.29, y: 0.46, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -540,6 +540,7 @@ MonoBehaviour:
   onDamageVfxDuration: 0.15
   hitVfx: {fileID: 7274362693920113760, guid: eeac29f4e2682694a8d110964229a77a, type: 3}
   hitVfxColor: {r: 0.8962264, g: 0.8701884, b: 0.13950695, a: 1}
+  critHitVfx: {fileID: 2780956947099957769, guid: 7aa5e6d8acbec0a408a97eaa022f0f1e, type: 3}
 --- !u!114 &274070550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -572,7 +573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp:
-    baseValue: 100
+    baseValue: 1000
   major:
     strength:
       baseValue: 0
@@ -581,13 +582,15 @@ MonoBehaviour:
     intelligence:
       baseValue: 0
     vitality:
-      baseValue: 10
+      baseValue: 0
   offense:
     damage:
       baseValue: 10
     critPower:
-      baseValue: 0
+      baseValue: 250
     critChance:
+      baseValue: 60
+    armorReduction:
       baseValue: 0
     fireDamage:
       baseValue: 0
@@ -1117,7 +1120,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.33439, y: -0.94703853, z: 22.692577}
+  m_LocalPosition: {x: -6.31439, y: -0.8770385, z: 22.692577}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -61330,6 +61333,7 @@ MonoBehaviour:
   onDamageVfxDuration: 0.2
   hitVfx: {fileID: 0}
   hitVfxColor: {r: 1, g: 1, b: 1, a: 1}
+  critHitVfx: {fileID: 0}
 --- !u!1 &1347643539
 GameObject:
   m_ObjectHideFlags: 0
@@ -61568,7 +61572,7 @@ Transform:
   m_GameObject: {fileID: 1454656417}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.33439, y: -0.94703853, z: 22.692577}
+  m_LocalPosition: {x: -6.31439, y: -0.8770385, z: 22.692577}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -62597,6 +62601,7 @@ MonoBehaviour:
   stunnedDuration: 1
   stunnedVelocity: {x: 4, y: 4}
   canBeStunned: 0
+  healthBarUI: {fileID: 0}
 --- !u!4 &1985380634
 Transform:
   m_ObjectHideFlags: 0
@@ -62606,7 +62611,7 @@ Transform:
   m_GameObject: {fileID: 1985380630}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.29, y: -0.07, z: 0}
+  m_LocalPosition: {x: -13.25, y: -0.04, z: 0}
   m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -62671,6 +62676,7 @@ MonoBehaviour:
   onDamageVfxDuration: 0.2
   hitVfx: {fileID: 7274362693920113760, guid: eeac29f4e2682694a8d110964229a77a, type: 3}
   hitVfxColor: {r: 0.8867924, g: 0.10457456, b: 0.10457456, a: 1}
+  critHitVfx: {fileID: 2780956947099957769, guid: 7aa5e6d8acbec0a408a97eaa022f0f1e, type: 3}
   attackAlert: {fileID: 430517671}
 --- !u!114 &1985380638
 MonoBehaviour:
@@ -62697,10 +62703,12 @@ MonoBehaviour:
       baseValue: 0
   offense:
     damage:
-      baseValue: 10
+      baseValue: 150
     critPower:
       baseValue: 0
     critChance:
+      baseValue: 0
+    armorReduction:
       baseValue: 0
     fireDamage:
       baseValue: 0
