@@ -8,6 +8,65 @@ public class Entity_Stats : MonoBehaviour
     public Stat_MajorGroup major;
     public Stat_OffenseGroup offense;
     public Stat_DefenseGroup defense;
+    public float GetElementalDamage(out ElementType element)
+    {
+        float fireDamage = offense.fireDamage.GetValue();
+        float iceDamage = offense.iceDamage.GetValue();
+        float lightningDamage = offense.lightningDamage.GetValue();
+
+        float bonusElementalDamage = major.intelligence.GetValue(); // each point of intelligence increases elemental damage by 1
+
+        float highestElementalDamage = fireDamage;
+        element = ElementType.Fire; // default to fire
+        if (iceDamage > highestElementalDamage)
+        {
+            highestElementalDamage = iceDamage;
+            element = ElementType.Ice;
+        }
+        if (lightningDamage > highestElementalDamage)
+        {
+            highestElementalDamage = lightningDamage;
+            element = ElementType.Lightning;
+        }
+        if (highestElementalDamage < 0)
+        {
+            element = ElementType.None;
+            return 0; // ensure no negative damage
+        }
+
+        float bonusFire =(fireDamage == highestElementalDamage) ? 0 : fireDamage * 0.5f; // if fire damage is not the highest, give it a bonus
+        float bonusIce = (iceDamage == highestElementalDamage) ? 0 : iceDamage * 0.5f; // if ice damage is not the highest, give it a bonus
+        float bonusLightning = (lightningDamage == highestElementalDamage) ? 0 : lightningDamage * 0.5f; // if lightning damage is not the highest, give it a bonus
+
+        float weakerElementalDamage = bonusFire + bonusIce + bonusLightning; // sum of weaker elemental damages
+        float finalDamage = highestElementalDamage + weakerElementalDamage + bonusElementalDamage;
+        return finalDamage;
+    }
+    public float GetElementalResistance(ElementType element)
+    {
+        float baseResistance = 0f;
+        float bonusResistance = major.intelligence.GetValue() * 0.5f;
+
+        switch (element)
+        {
+            case ElementType.Fire:
+                baseResistance = defense.fireRes.GetValue();
+                break;
+            case ElementType.Ice:
+                baseResistance = defense.iceRes.GetValue();
+                break;
+            case ElementType.Lightning:
+                baseResistance = defense.lightningRes.GetValue();
+                break;
+            default:
+                return 0f; // no resistance for other elements
+        }
+
+        float resistance = baseResistance + bonusResistance;
+        float resistanceCap = 0.75f;
+        float finalResistance = Mathf.Clamp(resistance, 0, resistanceCap); // cap resistance at 75%
+        return finalResistance;
+    }
 
     public float GetPhysicalDamage(out bool isCritical)
     {
@@ -24,7 +83,7 @@ public class Entity_Stats : MonoBehaviour
         float bonusCritPower = major.strength.GetValue() * 0.5f;
         float critPower = (baseCritPower + bonusCritPower) / 100f; // each point of strength increases crit power by 0.5%
 
-        isCritical =  UnityEngine.Random.Range(0f, 100f) < critChance;
+        isCritical = UnityEngine.Random.Range(0f, 100f) < critChance;
         float finalDamage = isCritical ? totalDamage * critPower : totalDamage;
 
         return finalDamage;

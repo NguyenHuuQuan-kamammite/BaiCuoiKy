@@ -33,7 +33,7 @@ public class Entity_Health : MonoBehaviour, IDamgable
         UpdateHealthBar();
     }
 
-    public virtual bool TakeDamage(float damage, Transform damageDealer)
+    public virtual bool TakeDamage(float damage,float elementalDamage,ElementType element, Transform damageDealer)
     {
         if (isDead) return false;
         if (AttackEvaded())
@@ -43,19 +43,28 @@ public class Entity_Health : MonoBehaviour, IDamgable
         }
         Entity_Stats attackerStats = damageDealer.GetComponent<Entity_Stats>();
         float armorReduction = attackerStats != null ? attackerStats.GetArmorReduction() : 0f;
+        
         float mitigation = stats.GetArmorMitigation(armorReduction);
 
-        float finalDamage = damage * (1 - mitigation);
-        float duration = CalcutateKnockbackDuration(finalDamage);
-        Vector2 knockback = CalculateKnockbackDirection(finalDamage, damageDealer);
+        float physicalDamageTaken = damage * (1 - mitigation);
+        float resistance = stats.GetElementalResistance(element);
 
-        entityVFX?.PlayOnDamageVFX();
-        entity?.ReceiveKnockback(knockback, duration);
-        ReduceHp(finalDamage);
-        Debug.Log($"{gameObject.name} took {finalDamage} ");
+        float elementalDamageTaken = elementalDamage * (1 - resistance);
+
+
+        TakeKnockback(damageDealer, physicalDamageTaken);
+        ReduceHp (physicalDamageTaken + elementalDamageTaken);
+        
         return true;
     }
+    private void TakeKnockback(Transform damageDealer, float physicalDamageTaken)
+    {
+        float duration = CalcutateKnockbackDuration(physicalDamageTaken);
 
+        Vector2 knockback = CalculateKnockbackDirection (physicalDamageTaken, damageDealer);
+
+        entity?.ReceiveKnockback(knockback, duration);
+    }
 
     private bool AttackEvaded()
     {
@@ -63,6 +72,7 @@ public class Entity_Health : MonoBehaviour, IDamgable
     }
     protected void ReduceHp(float damage)
     {
+        entityVFX?.PlayOnDamageVFX();
         currentHp -= damage;
         UpdateHealthBar();
         if (currentHp <= 0)

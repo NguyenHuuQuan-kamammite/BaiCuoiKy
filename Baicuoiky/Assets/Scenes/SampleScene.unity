@@ -604,7 +604,7 @@ MonoBehaviour:
     evasion:
       baseValue: 0
     fireRes:
-      baseValue: 0
+      baseValue: 65
     iceRes:
       baseValue: 0
     lightningRes:
@@ -62703,7 +62703,7 @@ MonoBehaviour:
       baseValue: 0
   offense:
     damage:
-      baseValue: 150
+      baseValue: 10
     critPower:
       baseValue: 0
     critChance:
@@ -62711,11 +62711,11 @@ MonoBehaviour:
     armorReduction:
       baseValue: 0
     fireDamage:
-      baseValue: 0
+      baseValue: 100
     iceDamage:
-      baseValue: 0
+      baseValue: 25
     lightningDamage:
-      baseValue: 0
+      baseValue: 5
   defense:
     armor:
       baseValue: 0
