@@ -43,7 +43,7 @@ public class Entity_Health : MonoBehaviour, IDamgable
         }
         Entity_Stats attackerStats = damageDealer.GetComponent<Entity_Stats>();
         float armorReduction = attackerStats != null ? attackerStats.GetArmorReduction() : 0f;
-        
+
         float mitigation = stats.GetArmorMitigation(armorReduction);
 
         float physicalDamageTaken = damage * (1 - mitigation);
@@ -51,8 +51,10 @@ public class Entity_Health : MonoBehaviour, IDamgable
 
         float elementalDamageTaken = elementalDamage * (1 - resistance);
 
+        Debug.Log($"{gameObject.name} took {physicalDamageTaken} physical damage and {elementalDamageTaken} elemental damage from {damageDealer.name} + total damage: {physicalDamageTaken + elementalDamageTaken}");
 
         TakeKnockback(damageDealer, physicalDamageTaken);
+        
         ReduceHp (physicalDamageTaken + elementalDamageTaken);
         
         return true;
