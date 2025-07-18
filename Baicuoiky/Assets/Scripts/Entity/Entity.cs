@@ -31,6 +31,8 @@ public class Entity : MonoBehaviour
     public bool wallDetected { get; private set; }
     // knockback variables
     private Coroutine knockbackCoroutine;
+
+    public Coroutine slowDownCoroutine;
     private bool isKnocked;
     protected virtual void Awake()
     {
@@ -80,7 +82,19 @@ public class Entity : MonoBehaviour
     {
 
     }
-
+    public virtual void SlowDownEntity(float duration, float slowMultiplier)
+    {
+       if (slowDownCoroutine != null)
+        {
+            StopCoroutine(slowDownCoroutine);
+        }
+        slowDownCoroutine = StartCoroutine(SlowDownEntityCo(duration, slowMultiplier));
+       
+    }
+    protected virtual IEnumerator SlowDownEntityCo(float duration, float slowMultiplier)
+    {
+        yield return null;
+    }
 
     public void SetVelocity(float xVelocity, float yVelocity)
     {

@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -37,11 +38,27 @@ public class Enemy : Entity
     public Vector2 stunnedVelocity  = new Vector2(7, 7);
     [SerializeField]protected bool canBeStunned;
     [HideInInspector] public GameObject healthBarUI;
-   
 
+    protected override IEnumerator SlowDownEntityCo(float duration, float slowMultiplier)
+    {
+        float originalSpeed = moveSpeed;
+        float originalBattleSpeed = battleMoveSpeed;
+        float originalAnimSpeed = anim.speed;
+
+        float speedMultiplier = 1f - slowMultiplier;
+
+        moveSpeed *= speedMultiplier;
+        battleMoveSpeed *= speedMultiplier;
+        anim.speed *= speedMultiplier;
+        yield return new WaitForSeconds(duration);
+        moveSpeed = originalSpeed;
+        battleMoveSpeed = originalBattleSpeed;
+        anim.speed = originalAnimSpeed;
+
+    }
    protected override void Awake()
     {
-         base.Awake();
+        base.Awake();
         // Find the child named "HealthBar_UI"
         healthBarUI = transform.Find("HealthBar_UI")?.gameObject;
     }
