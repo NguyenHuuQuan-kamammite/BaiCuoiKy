@@ -63,8 +63,7 @@ public class Entity_VFX : MonoBehaviour
         if (hitVfx == null) return;
         GameObject hitPrefab = isCrit ? critHitVfx : hitVfx;
         GameObject vfx = Instantiate(hitPrefab, target.position, Quaternion.identity);
-        if (isCrit == false)
-            vfx.GetComponentInChildren<SpriteRenderer>().color = hitVfxColor;
+        vfx.GetComponentInChildren<SpriteRenderer>().color = hitVfxColor;
         if (entity.facingDir == -1 && isCrit)
             vfx.transform.Rotate(0f, 180f, 0f);
     }

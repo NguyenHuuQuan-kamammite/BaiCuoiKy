@@ -540,7 +540,7 @@ MonoBehaviour:
   onDamageMaterial: {fileID: 2100000, guid: 6e215e3484f9c3a48acc00ff71b5bbed, type: 2}
   onDamageVfxDuration: 0.15
   hitVfx: {fileID: 7274362693920113760, guid: eeac29f4e2682694a8d110964229a77a, type: 3}
-  hitVfxColor: {r: 0.8962264, g: 0.8701884, b: 0.13950695, a: 1}
+  hitVfxColor: {r: 0.8980392, g: 0.21361189, b: 0.14117646, a: 1}
   critHitVfx: {fileID: 2780956947099957769, guid: 7aa5e6d8acbec0a408a97eaa022f0f1e, type: 3}
   chillVfx: {r: 0, g: 1, b: 1, a: 1}
 --- !u!114 &274070550
@@ -62712,7 +62712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp:
-    baseValue: 100000
+    baseValue: 10000
   major:
     strength:
       baseValue: 0
@@ -62724,7 +62724,7 @@ MonoBehaviour:
       baseValue: 0
   offense:
     damage:
-      baseValue: 10
+      baseValue: 1
     critPower:
       baseValue: 0
     critChance:
@@ -62734,7 +62734,7 @@ MonoBehaviour:
     fireDamage:
       baseValue: 0
     iceDamage:
-      baseValue: 255
+      baseValue: 100
     lightningDamage:
       baseValue: 5
   defense:
