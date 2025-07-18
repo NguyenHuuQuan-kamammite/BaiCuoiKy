@@ -1,2 +1,12 @@
 fileFormatVersion: 2
 guid: e8e831a318b6dbd45a7cbda514b3949c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - electricVfx: {fileID: 4078757023487117090, guid: b2983a67687057c4ab30287f7062f4a6, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -15,9 +15,12 @@ public class Entity_VFX : MonoBehaviour
     [SerializeField] private Color hitVfxColor = Color.white;
     [SerializeField] private GameObject critHitVfx;
     [Header("Elemental Color")]
-    [SerializeField] private Color chillVfx = Color.cyan;
-    private Color originaltHitVfxColor;
 
+    [SerializeField] private Color burnVfx = Color.red;
+    [SerializeField] private Color chillVfx = Color.cyan;
+    [SerializeField] private Color electricVfx = Color.yellow;
+    private Color originaltHitVfxColor;
+    private Coroutine statusVFXCo;
 
     private void Awake()
     {
@@ -33,10 +36,22 @@ public class Entity_VFX : MonoBehaviour
         {
             StartCoroutine(PlayStatusVfxCO(chillVfx, duration));
         }
-        else
+        if( element == ElementType.Fire)
         {
-            Debug.LogWarning("No status effect VFX defined for this element type.");
+            StartCoroutine(PlayStatusVfxCO(burnVfx, duration));
         }
+        if (element == ElementType.Lightning)
+        {
+            StartCoroutine(PlayStatusVfxCO(electricVfx, duration));
+        }
+       
+       
+    }
+    public void StopAllVfx()
+    {
+        StopAllCoroutines();
+        sr.color = Color.white; // Reset to original color
+        sr.material = originalMaterial; // Reset to original material
     }
    
     private IEnumerator PlayStatusVfxCO(Color effectColor, float duration)
@@ -73,7 +88,17 @@ public class Entity_VFX : MonoBehaviour
         {
             hitVfxColor = chillVfx;
         }
-     if (element == ElementType.None )
+
+    if (element == ElementType.Fire)
+        {
+            hitVfxColor = burnVfx;
+        }
+
+    if (element == ElementType.Lightning)
+        {
+            hitVfxColor = electricVfx;
+        }
+     if (element == ElementType.None)
         {
             hitVfxColor = originaltHitVfxColor;
         }

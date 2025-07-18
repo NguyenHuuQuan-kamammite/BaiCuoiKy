@@ -5,21 +5,28 @@ public class Entity_StatusHandler : MonoBehaviour
 {
     private Entity entity;
     private Entity_Stats stats;
+    private Entity_Health entityHealth;
     private Entity_VFX entityVFX;
     private ElementType currentElement = ElementType.None;
-    
+    [Header("Electric Effect Details")]
+    [SerializeField] private GameObject electricVfx;
+    [SerializeField] private float currentCharge;
+    [SerializeField] private float maxCharge = 1f;
+    private Coroutine electricCo;
     private void Awake()
     {
         stats = GetComponent<Entity_Stats>();
         entity = GetComponent<Entity>();
         entityVFX = GetComponent<Entity_VFX>();
+        entityHealth = GetComponent<Entity_Health>();
     }
     public void ApplyChillEffect(float duration, float slowMultiplier)
-    {   float iceResistance = stats.GetElementalResistance(ElementType.Ice);
-        float reducedDuration = duration * (1 - iceResistance); // Apply resistance to the duration
+    {
+        float iceResistance = stats.GetElementalResistance(ElementType.Ice);
+        float finalDuration = duration * (1 - iceResistance); // Apply resistance to the duration
 
         Debug.Log("Chill effect applied.");
-        StartCoroutine(ChillEffectCo(reducedDuration, slowMultiplier));
+        StartCoroutine(ChillEffectCo(finalDuration, slowMultiplier));
     }
 
     private IEnumerator ChillEffectCo(float duration, float slowMultiplier)
@@ -31,9 +38,82 @@ public class Entity_StatusHandler : MonoBehaviour
 
         currentElement = ElementType.None; // Reset the element after the effect duration
     }
-   public bool CanBeApplied(ElementType element)
+    public void ApplyBurnEffect(float duration, float fireDamage)
     {
+        float fireResistance = stats.GetElementalResistance(ElementType.Fire);
+        float finalDamage = fireDamage * (1 - fireResistance); // Apply resistance to the duration
 
+        Debug.Log("Burn effect applied.");
+        StartCoroutine(BurnEffectCo(duration, finalDamage));
+    }
+    private IEnumerator BurnEffectCo(float duration, float totalDamage)
+    {
+        currentElement = ElementType.Fire;
+        entityVFX.PlayOnStatusVFX(duration, ElementType.Fire); // Play burn effect VFX
+
+        int tickersPerSecond = 2; // Number of damage ticks per second
+        int tickCount = Mathf.RoundToInt(duration * tickersPerSecond);
+        float damagePerTick = totalDamage / tickCount;
+        float tickInterval = 1f / tickersPerSecond;
+
+
+        for (int i = 0; i < tickCount; i++)
+        {
+            entityHealth.ReduceHp(damagePerTick);
+            yield return new WaitForSeconds(tickInterval);
+        }
+
+        currentElement = ElementType.None; // Reset the element after the effect duration
+    }
+    public void ApplyElectricEffect(float duration, float damage, float charge)
+    {
+        float lightningResistance = stats.GetElementalResistance(ElementType.Lightning);
+        float finalCharge = charge * (1 - lightningResistance); // Apply resistance to the charge
+
+        currentCharge = currentCharge + finalCharge;
+        if (currentCharge >= maxCharge)
+        {
+            DoLightningStrike(damage);
+            StopElectricEffect();
+            return;
+        }
+
+        
+        if (electricCo != null)
+        {
+            StopCoroutine(electricCo);
+        }
+        electricCo = StartCoroutine(ElectricEffectCo(duration));
+       
+    }
+    private void StopElectricEffect()
+    {
+        currentElement = ElementType.None;
+        currentCharge = 0f;
+        entityVFX.StopAllVfx(); // Stop any ongoing VFX
+    }
+    private void DoLightningStrike(float damage)
+    {
+        Instantiate(electricVfx, transform.position, Quaternion.identity);
+        entityHealth.ReduceHp(damage);
+    }
+    
+     private IEnumerator ElectricEffectCo(float duration)
+    {
+        currentElement = ElementType.Lightning;
+        entityVFX.PlayOnStatusVFX(duration, ElementType.Lightning); // Play electric effect VFX
+        yield return new WaitForSeconds(duration); // Duration of the electric effect
+        
+
+        StopElectricEffect();
+    }
+
+    public bool CanBeApplied(ElementType element)
+    {
+        if (element == ElementType.Lightning && currentElement == ElementType.Lightning)
+        {
+            return true; // Lightning effect is already applied
+        }
         return currentElement == ElementType.None;
     }
 }
