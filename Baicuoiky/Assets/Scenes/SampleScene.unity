@@ -518,6 +518,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f1b5386c5ac65847bddc728ba93a507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  regenInterval: 1
+  canRegenerateHealth: 1
   currentHp: 0
   isDead: 0
   knockbackDuration: 0.2
@@ -581,8 +583,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18da7123e85db79479a6b2f2b4f36694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp:
-    baseValue: 1000
+  resources:
+    maxHealth:
+      baseValue: 0
+    healthRegen:
+      baseValue: 0
   major:
     strength:
       baseValue: 0
@@ -593,6 +598,8 @@ MonoBehaviour:
     vitality:
       baseValue: 0
   offense:
+    attackSpeed:
+      baseValue: 1
     damage:
       baseValue: 0
     critPower:
@@ -62686,6 +62693,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8f61882fd672946b8a13684083896c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  regenInterval: 1
+  canRegenerateHealth: 1
   currentHp: 0
   isDead: 0
   knockbackDuration: 0.2
@@ -62726,8 +62735,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18da7123e85db79479a6b2f2b4f36694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp:
-    baseValue: 10000
+  resources:
+    maxHealth:
+      baseValue: 0
+    healthRegen:
+      baseValue: 0
   major:
     strength:
       baseValue: 0
@@ -62738,6 +62750,8 @@ MonoBehaviour:
     vitality:
       baseValue: 0
   offense:
+    attackSpeed:
+      baseValue: 1
     damage:
       baseValue: 10
     critPower:
@@ -62762,7 +62776,7 @@ MonoBehaviour:
     iceRes:
       baseValue: 0
     lightningRes:
-      baseValue: 30
+      baseValue: 0
 --- !u!114 &1985380639
 MonoBehaviour:
   m_ObjectHideFlags: 0

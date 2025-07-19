@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Entity_Stats : MonoBehaviour
 {
-    public Stat maxHp;
+    public Stat_Resources resources;
 
     public Stat_MajorGroup major;
     public Stat_OffenseGroup offense;
@@ -68,7 +68,7 @@ public class Entity_Stats : MonoBehaviour
         return finalResistance;
     }
 
-    public float GetPhysicalDamage(out bool isCritical, float scaleFactor= 1f)
+    public float GetPhysicalDamage(out bool isCritical, float scaleFactor = 1f)
     {
         float baseDamage = offense.damage.GetValue();
         float bonusDamage = major.strength.GetValue(); // each point of strength increases physical damage by 1
@@ -92,7 +92,7 @@ public class Entity_Stats : MonoBehaviour
 
     public float GetMaxHealth()
     {
-        float baseHp = maxHp.GetValue();
+        float baseHp = resources.maxHealth.GetValue();
         float bonusHp = major.vitality.GetValue() * 5f; //each point of vitality increases max hp by 5
         float totalHp = baseHp + bonusHp;
         return totalHp;

@@ -9,8 +9,9 @@ public class Entity_Health : MonoBehaviour, IDamgable
 
     private Entity_Stats stats;
 
-
-
+    [Header("Health regen")]
+    [SerializeField] private float regenInterval = 1f;
+    [SerializeField] private bool canRegenerateHealth = true;
 
     [SerializeField] protected float currentHp;
     
@@ -31,6 +32,7 @@ public class Entity_Health : MonoBehaviour, IDamgable
         healthBar = GetComponentInChildren<Slider>();
         currentHp = stats.GetMaxHealth();
         UpdateHealthBar();
+        InvokeRepeating(nameof(RegenerateHealth),0, regenInterval);
     }
 
     public virtual bool TakeDamage(float damage,float elementalDamage,ElementType element, Transform damageDealer)
@@ -59,18 +61,25 @@ public class Entity_Health : MonoBehaviour, IDamgable
         
         return true;
     }
-    private void TakeKnockback(Transform damageDealer, float physicalDamageTaken)
+
+    public void IncreaseHealth(float healthAmount)
     {
-        float duration = CalcutateKnockbackDuration(physicalDamageTaken);
-
-        Vector2 knockback = CalculateKnockbackDirection (physicalDamageTaken, damageDealer);
-
-        entity?.ReceiveKnockback(knockback, duration);
+        if (isDead) return;
+        float newHealth = currentHp + healthAmount;
+        float maxHealth = stats.GetMaxHealth();
+        currentHp = Mathf.Min(newHealth, maxHealth);
+        UpdateHealthBar();
     }
+    private void RegenerateHealth()
+    {
+        if (isDead || !canRegenerateHealth) return;
 
+        float regenAmount = stats.resources.healthRegen.GetValue();
+        IncreaseHealth(regenAmount);
+    }
     private bool AttackEvaded()
     {
-       return Random.Range(0f, 100f) < stats.GetEvasion();
+        return Random.Range(0f, 100f) < stats.GetEvasion();
     }
     public void ReduceHp(float damage)
     {
@@ -96,6 +105,15 @@ public class Entity_Health : MonoBehaviour, IDamgable
         healthBar.value = currentHp / stats.GetMaxHealth();
     }
 
+
+ private void TakeKnockback(Transform damageDealer, float physicalDamageTaken)
+    {
+        float duration = CalcutateKnockbackDuration(physicalDamageTaken);
+
+        Vector2 knockback = CalculateKnockbackDirection (physicalDamageTaken, damageDealer);
+
+        entity?.ReceiveKnockback(knockback, duration);
+    }
     private Vector2 CalculateKnockbackDirection(float damage, Transform damageDealer)
     {
 
