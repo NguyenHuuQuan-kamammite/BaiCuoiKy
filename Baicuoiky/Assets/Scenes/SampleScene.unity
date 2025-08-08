@@ -431,7 +431,7 @@ Transform:
   m_GameObject: {fileID: 274070542}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.29, y: 0.46, z: 0}
+  m_LocalPosition: {x: -13.07, y: 0.38, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -542,7 +542,7 @@ MonoBehaviour:
   onDamageMaterial: {fileID: 2100000, guid: 6e215e3484f9c3a48acc00ff71b5bbed, type: 2}
   onDamageVfxDuration: 0.15
   hitVfx: {fileID: 7274362693920113760, guid: eeac29f4e2682694a8d110964229a77a, type: 3}
-  hitVfxColor: {r: 0.8200944, g: 0.8980392, b: 0.14117646, a: 1}
+  hitVfxColor: {r: 0.8980392, g: 0.38774183, b: 0.14117646, a: 1}
   critHitVfx: {fileID: 2780956947099957769, guid: 7aa5e6d8acbec0a408a97eaa022f0f1e, type: 3}
   burnVfx: {r: 1, g: 0, b: 0, a: 1}
   chillVfx: {r: 0, g: 1, b: 1, a: 1}
@@ -583,48 +583,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18da7123e85db79479a6b2f2b4f36694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultStatSetup: {fileID: 11400000, guid: d316131e553473d4596beb24eb2b8d12, type: 2}
   resources:
     maxHealth:
       baseValue: 100
+      modifiers: []
     healthRegen:
       baseValue: 0
-  major:
-    strength:
-      baseValue: 0
-    agility:
-      baseValue: 0
-    intelligence:
-      baseValue: 0
-    vitality:
-      baseValue: 0
+      modifiers: []
   offense:
     attackSpeed:
       baseValue: 1
+      modifiers: []
     damage:
-      baseValue: 0
+      baseValue: 10
+      modifiers: []
     critPower:
-      baseValue: 200
+      baseValue: 10
+      modifiers: []
     critChance:
-      baseValue: 60
+      baseValue: 0
+      modifiers: []
     armorReduction:
       baseValue: 0
+      modifiers: []
     fireDamage:
       baseValue: 0
+      modifiers: []
     iceDamage:
       baseValue: 0
+      modifiers: []
     lightningDamage:
-      baseValue: 30
+      baseValue: 0
+      modifiers: []
   defense:
     armor:
       baseValue: 0
+      modifiers: []
     evasion:
       baseValue: 0
+      modifiers: []
     fireRes:
       baseValue: 0
+      modifiers: []
     iceRes:
       baseValue: 0
+      modifiers: []
     lightningRes:
       baseValue: 0
+      modifiers: []
+  major:
+    strength:
+      baseValue: 0
+      modifiers: []
+    agility:
+      baseValue: 0
+      modifiers: []
+    intelligence:
+      baseValue: 0
+      modifiers: []
+    vitality:
+      baseValue: 0
+      modifiers: []
 --- !u!114 &274070552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1151,7 +1171,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.31439, y: -0.8770385, z: 22.692577}
+  m_LocalPosition: {x: -16.09439, y: -0.9570385, z: 22.692577}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -61606,7 +61626,7 @@ Transform:
   m_GameObject: {fileID: 1454656417}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.31439, y: -0.8770385, z: 22.692577}
+  m_LocalPosition: {x: -16.09439, y: -0.9570385, z: 22.692577}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -62646,7 +62666,7 @@ Transform:
   m_GameObject: {fileID: 1985380630}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.25, y: -0.04, z: 0}
+  m_LocalPosition: {x: -7.48, y: 0.06, z: 0}
   m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -62717,7 +62737,7 @@ MonoBehaviour:
   onDamageMaterial: {fileID: 2100000, guid: 6e215e3484f9c3a48acc00ff71b5bbed, type: 2}
   onDamageVfxDuration: 0.2
   hitVfx: {fileID: 7274362693920113760, guid: eeac29f4e2682694a8d110964229a77a, type: 3}
-  hitVfxColor: {r: 0.8867924, g: 0.10457456, b: 0.10457456, a: 1}
+  hitVfxColor: {r: 0.8862745, g: 0.7848414, b: 0.10588237, a: 1}
   critHitVfx: {fileID: 2780956947099957769, guid: 7aa5e6d8acbec0a408a97eaa022f0f1e, type: 3}
   burnVfx: {r: 1, g: 0, b: 0, a: 1}
   chillVfx: {r: 0, g: 1, b: 1, a: 1}
@@ -62735,48 +62755,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18da7123e85db79479a6b2f2b4f36694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultStatSetup: {fileID: 11400000, guid: 042254f8b1e7ba6488fdcac50fb5228a, type: 2}
   resources:
     maxHealth:
-      baseValue: 0
+      baseValue: 100
+      modifiers: []
     healthRegen:
       baseValue: 0
-  major:
-    strength:
-      baseValue: 0
-    agility:
-      baseValue: 0
-    intelligence:
-      baseValue: 0
-    vitality:
-      baseValue: 0
+      modifiers: []
   offense:
     attackSpeed:
       baseValue: 1
+      modifiers: []
     damage:
       baseValue: 10
+      modifiers: []
     critPower:
       baseValue: 0
+      modifiers: []
     critChance:
       baseValue: 0
+      modifiers: []
     armorReduction:
       baseValue: 0
+      modifiers: []
     fireDamage:
       baseValue: 0
+      modifiers: []
     iceDamage:
       baseValue: 0
+      modifiers: []
     lightningDamage:
       baseValue: 0
+      modifiers: []
   defense:
     armor:
       baseValue: 0
+      modifiers: []
     evasion:
       baseValue: 0
+      modifiers: []
     fireRes:
       baseValue: 0
+      modifiers: []
     iceRes:
       baseValue: 0
+      modifiers: []
     lightningRes:
       baseValue: 0
+      modifiers: []
+  major:
+    strength:
+      baseValue: 0
+      modifiers: []
+    agility:
+      baseValue: 0
+      modifiers: []
+    intelligence:
+      baseValue: 0
+      modifiers: []
+    vitality:
+      baseValue: 0
+      modifiers: []
 --- !u!114 &1985380639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62973,6 +63013,91 @@ Transform:
   m_Children: []
   m_Father: {fileID: 274070544}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &4496028759167162962
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1539565821817168326, guid: f53c74a8b8a9b004580726913fdaeb32, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -10.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1539565821817168326, guid: f53c74a8b8a9b004580726913fdaeb32, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1539565821817168326, guid: f53c74a8b8a9b004580726913fdaeb32, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1539565821817168326, guid: f53c74a8b8a9b004580726913fdaeb32, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1539565821817168326, guid: f53c74a8b8a9b004580726913fdaeb32, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1539565821817168326, guid: f53c74a8b8a9b004580726913fdaeb32, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1539565821817168326, guid: f53c74a8b8a9b004580726913fdaeb32, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1539565821817168326, guid: f53c74a8b8a9b004580726913fdaeb32, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1539565821817168326, guid: f53c74a8b8a9b004580726913fdaeb32, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1539565821817168326, guid: f53c74a8b8a9b004580726913fdaeb32, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4255086005716825981, guid: f53c74a8b8a9b004580726913fdaeb32, type: 3}
+      propertyPath: m_Name
+      value: Object-Buff
+      objectReference: {fileID: 0}
+    - target: {fileID: 4255086005716825981, guid: f53c74a8b8a9b004580726913fdaeb32, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7976165410994163162, guid: f53c74a8b8a9b004580726913fdaeb32, type: 3}
+      propertyPath: canBeUsed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7976165410994163162, guid: f53c74a8b8a9b004580726913fdaeb32, type: 3}
+      propertyPath: buffs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7976165410994163162, guid: f53c74a8b8a9b004580726913fdaeb32, type: 3}
+      propertyPath: buffs.Array.data[0].type
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7976165410994163162, guid: f53c74a8b8a9b004580726913fdaeb32, type: 3}
+      propertyPath: buffs.Array.data[1].type
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 7976165410994163162, guid: f53c74a8b8a9b004580726913fdaeb32, type: 3}
+      propertyPath: buffs.Array.data[0].value
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7976165410994163162, guid: f53c74a8b8a9b004580726913fdaeb32, type: 3}
+      propertyPath: buffs.Array.data[1].value
+      value: 30
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f53c74a8b8a9b004580726913fdaeb32, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -62985,3 +63110,4 @@ SceneRoots:
   - {fileID: 1985380634}
   - {fileID: 1225561765}
   - {fileID: 1474492653}
+  - {fileID: 4496028759167162962}

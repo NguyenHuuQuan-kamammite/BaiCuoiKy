@@ -14,10 +14,10 @@ public class Stat
 
         if (isModified)
         {
-            finalValue = GetFinalValue(); 
-            isModified = false;    
+            finalValue = GetFinalValue();
+            isModified = false;
         }
-       
+
         return finalValue;
     }
     public void AddModifier(float value, string source)
@@ -40,6 +40,10 @@ public class Stat
         }
         return finalValue;
     }
+    
+
+    public void SetBaseValue(float value) => baseValue = value;
+   
 }
     [Serializable]
     public class StatModifier

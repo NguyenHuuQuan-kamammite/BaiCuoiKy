@@ -3,11 +3,12 @@ using UnityEngine;
 
 public class Entity_Stats : MonoBehaviour
 {
+    public Stat_SetupSO defaultStatSetup;
     public Stat_Resources resources;
 
-    public Stat_MajorGroup major;
     public Stat_OffenseGroup offense;
     public Stat_DefenseGroup defense;
+    public Stat_MajorGroup major;
     public float GetElementalDamage(out ElementType element, float scaleFactor)
     {
         float fireDamage = offense.fireDamage.GetValue();
@@ -16,24 +17,24 @@ public class Entity_Stats : MonoBehaviour
 
         float bonusElementalDamage = major.intelligence.GetValue(); // each point of intelligence increases elemental damage by 1
 
-    if (fireDamage <= 0 && iceDamage <= 0 && lightningDamage <= 0)
+        if (fireDamage <= 0 && iceDamage <= 0 && lightningDamage <= 0)
         {
             element = ElementType.None;
             return 0;
         }
 
-    float highestElementalDamage = fireDamage;
-    element = ElementType.Fire;
-    if (iceDamage > highestElementalDamage)
-    {
-        highestElementalDamage = iceDamage;
-        element = ElementType.Ice;
-    }
-    if (lightningDamage > highestElementalDamage)
-    {
-        highestElementalDamage = lightningDamage;
-        element = ElementType.Lightning;
-    }
+        float highestElementalDamage = fireDamage;
+        element = ElementType.Fire;
+        if (iceDamage > highestElementalDamage)
+        {
+            highestElementalDamage = iceDamage;
+            element = ElementType.Ice;
+        }
+        if (lightningDamage > highestElementalDamage)
+        {
+            highestElementalDamage = lightningDamage;
+            element = ElementType.Lightning;
+        }
 
         float bonusFire = (fireDamage == highestElementalDamage) ? 0 : fireDamage * 0.5f; // if fire damage is not the highest, give it a bonus
         float bonusIce = (iceDamage == highestElementalDamage) ? 0 : iceDamage * 0.5f; // if ice damage is not the highest, give it a bonus
@@ -130,6 +131,7 @@ public class Entity_Stats : MonoBehaviour
         return finalReduction;
     }
     public Stat GetStatByType(Stats_Type type)
+
     {
         switch (type)
         {
@@ -175,5 +177,40 @@ public class Entity_Stats : MonoBehaviour
                 Debug.LogWarning($"Stat of type {type} not found.");
                 return null;
         }
+    }
+
+
+[ContextMenu("Update Default Stat Setup")]
+    public void ApplyDefaultStatSetup()
+    {
+        if (defaultStatSetup == null)
+        {
+            Debug.LogWarning("Default Stat Setup is not assigned.");
+            return;
+        }
+        resources.maxHealth.SetBaseValue(defaultStatSetup.maxHealth);
+        resources.healthRegen.SetBaseValue(defaultStatSetup.healthRegen);
+
+        major.strength.SetBaseValue(defaultStatSetup.strength);
+        major.agility.SetBaseValue(defaultStatSetup.agility);
+        major.intelligence.SetBaseValue(defaultStatSetup.intelligence);
+        major.vitality.SetBaseValue(defaultStatSetup.vitality);
+
+        offense.attackSpeed.SetBaseValue(defaultStatSetup.attackSpeed);
+        offense.damage.SetBaseValue(defaultStatSetup.damage);
+        offense.critChance.SetBaseValue(defaultStatSetup.critChance);
+        offense.critPower.SetBaseValue(defaultStatSetup.critPower);
+        offense.armorReduction.SetBaseValue(defaultStatSetup.armorReduction);
+
+        offense.fireDamage.SetBaseValue(defaultStatSetup.fireDamage);
+        offense.iceDamage.SetBaseValue(defaultStatSetup.iceDamage);
+        offense.lightningDamage.SetBaseValue(defaultStatSetup.lightningDamage);
+
+        defense.armor.SetBaseValue(defaultStatSetup.armor);
+        defense.evasion.SetBaseValue(defaultStatSetup.evasion);
+
+        defense.fireRes.SetBaseValue(defaultStatSetup.fireResistance);
+        defense.iceRes.SetBaseValue(defaultStatSetup.iceResistance);
+        defense.lightningRes.SetBaseValue(defaultStatSetup.lightningResistance);
     }
 }
