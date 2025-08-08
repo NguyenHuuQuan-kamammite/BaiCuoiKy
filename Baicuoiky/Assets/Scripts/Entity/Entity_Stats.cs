@@ -4,7 +4,7 @@ using UnityEngine;
 public class Entity_Stats : MonoBehaviour
 {
     public Stat_Resources resources;
-    
+
     public Stat_MajorGroup major;
     public Stat_OffenseGroup offense;
     public Stat_DefenseGroup defense;
@@ -16,25 +16,26 @@ public class Entity_Stats : MonoBehaviour
 
         float bonusElementalDamage = major.intelligence.GetValue(); // each point of intelligence increases elemental damage by 1
 
-        float highestElementalDamage = fireDamage;
-        element = ElementType.Fire; // default to fire
-        if (iceDamage > highestElementalDamage)
-        {
-            highestElementalDamage = iceDamage;
-            element = ElementType.Ice;
-        }
-        if (lightningDamage > highestElementalDamage)
-        {
-            highestElementalDamage = lightningDamage;
-            element = ElementType.Lightning;
-        }
-        if (highestElementalDamage < 0)
+    if (fireDamage <= 0 && iceDamage <= 0 && lightningDamage <= 0)
         {
             element = ElementType.None;
-            return 0; // ensure no negative damage
+            return 0;
         }
 
-        float bonusFire =(fireDamage == highestElementalDamage) ? 0 : fireDamage * 0.5f; // if fire damage is not the highest, give it a bonus
+    float highestElementalDamage = fireDamage;
+    element = ElementType.Fire;
+    if (iceDamage > highestElementalDamage)
+    {
+        highestElementalDamage = iceDamage;
+        element = ElementType.Ice;
+    }
+    if (lightningDamage > highestElementalDamage)
+    {
+        highestElementalDamage = lightningDamage;
+        element = ElementType.Lightning;
+    }
+
+        float bonusFire = (fireDamage == highestElementalDamage) ? 0 : fireDamage * 0.5f; // if fire damage is not the highest, give it a bonus
         float bonusIce = (iceDamage == highestElementalDamage) ? 0 : iceDamage * 0.5f; // if ice damage is not the highest, give it a bonus
         float bonusLightning = (lightningDamage == highestElementalDamage) ? 0 : lightningDamage * 0.5f; // if lightning damage is not the highest, give it a bonus
 
@@ -106,13 +107,13 @@ public class Entity_Stats : MonoBehaviour
         float finalEvasion = Mathf.Clamp(totalEvasion, 0, evasionCap);
         return finalEvasion;
     }
-    public float GetArmorMitigation(float armorReduction )
+    public float GetArmorMitigation(float armorReduction)
     {
         float baseArmor = defense.armor.GetValue();
         float bonusArmor = major.strength.GetValue(); // each point of strength increases armor by 1
         float totalArmor = baseArmor + bonusArmor;
 
-        float reductionMultiplier = Math.Clamp(1 - armorReduction,0,1 ); // convert armor reduction percentage to a multiplier
+        float reductionMultiplier = Math.Clamp(1 - armorReduction, 0, 1); // convert armor reduction percentage to a multiplier
         float effectiveArmor = totalArmor * reductionMultiplier; // apply armor reduction to total armor
 
         float mitigration = effectiveArmor / (effectiveArmor + 100f); // armor mitigation formula
@@ -127,5 +128,52 @@ public class Entity_Stats : MonoBehaviour
     {
         float finalReduction = offense.armorReduction.GetValue() / 100f; // armor reduction is a percentage
         return finalReduction;
+    }
+    public Stat GetStatByType(Stats_Type type)
+    {
+        switch (type)
+        {
+            case Stats_Type.MaxHealth:
+                return resources.maxHealth;
+            case Stats_Type.HealthRegen:
+                return resources.healthRegen;
+            case Stats_Type.Strength:
+                return major.strength;
+            case Stats_Type.Agility:
+                return major.agility;
+            case Stats_Type.Intelligence:
+                return major.intelligence;
+            case Stats_Type.Vitality:
+                return major.vitality;
+            case Stats_Type.AttackSpeed:
+                return offense.attackSpeed;
+            case Stats_Type.Damage:
+                return offense.damage;
+            case Stats_Type.CritChance:
+                return offense.critChance;
+            case Stats_Type.CritPower:
+                return offense.critPower;
+            case Stats_Type.ArmorReduction:
+                return offense.armorReduction;
+            case Stats_Type.FireDamage:
+                return offense.fireDamage;
+            case Stats_Type.IceDamage:
+                return offense.iceDamage;
+            case Stats_Type.LightningDamage:
+                return offense.lightningDamage;
+            case Stats_Type.Armor:
+                return defense.armor;
+            case Stats_Type.Evasion:
+                return defense.evasion;
+            case Stats_Type.IceResistance:
+                return defense.iceRes;
+            case Stats_Type.FireResistance:
+                return defense.fireRes;
+            case Stats_Type.LightningResistance:
+                return defense.lightningRes;
+            default:
+                Debug.LogWarning($"Stat of type {type} not found.");
+                return null;
+        }
     }
 }

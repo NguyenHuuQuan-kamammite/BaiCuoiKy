@@ -1,10 +1,23 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
+
+[Serializable]
+public class Buff
+
+{ 
+    public Stats_Type type;
+    public float value;
+}
 public class Object_Buff : MonoBehaviour
-{   
+{
     private SpriteRenderer sr;
+    private Entity_Stats statsToModify;
     [Header("Buff Settings")]
+    [SerializeField] private Buff[] buffs;
+
+    [SerializeField] private string buffName;
     [SerializeField] private float buffDuration = 5f;
     [SerializeField] private bool canBeUsed = true;
 
@@ -14,8 +27,8 @@ public class Object_Buff : MonoBehaviour
     private Vector3 startPosition;
     private void Awake()
     {
-        startPosition = transform.position;
         sr = GetComponentInChildren<SpriteRenderer>();
+        startPosition = transform.position;
     }
     private void Update()
     {
@@ -26,15 +39,28 @@ public class Object_Buff : MonoBehaviour
     {
         if (canBeUsed == false)
             return;
+        statsToModify = collision.GetComponent<Entity_Stats>();
         StartCoroutine(BuffCo(buffDuration));
     }
     private IEnumerator BuffCo(float duration)
     {
         canBeUsed = false;
         sr.color = Color.yellow;
-        Debug.Log("Buff activated for " + duration + " seconds.");
+        sr.enabled = false; // hides the sprite
+        GetComponent<BoxCollider2D>().enabled = false;
+        ApplyBuffs(true);
         yield return new WaitForSeconds(duration);
-        Debug.Log("Buff is over.");
+        ApplyBuffs(false);
         Destroy(gameObject);
+    }
+    private void ApplyBuffs(bool apply)
+    {
+        foreach (var buff in buffs)
+        {
+            if (apply)
+                statsToModify.GetStatByType(buff.type).AddModifier(buff.value, buffName);
+            else
+                statsToModify.GetStatByType(buff.type).RemoveModifier(buffName);
+        }
     }
 }

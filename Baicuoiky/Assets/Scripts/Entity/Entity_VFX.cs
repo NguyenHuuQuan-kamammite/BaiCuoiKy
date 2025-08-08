@@ -84,24 +84,21 @@ public class Entity_VFX : MonoBehaviour
     }
     public void UpdateOnHitColor(ElementType element)
     {
-      if (element == ElementType.Ice)
-        {
+      switch (element)
+    {
+        case ElementType.Ice:
             hitVfxColor = chillVfx;
-        }
-
-    if (element == ElementType.Fire)
-        {
+            break;
+        case ElementType.Fire:
             hitVfxColor = burnVfx;
-        }
-
-    if (element == ElementType.Lightning)
-        {
+            break;
+        case ElementType.Lightning:
             hitVfxColor = electricVfx;
-        }
-     if (element == ElementType.None)
-        {
-            hitVfxColor = originaltHitVfxColor;
-        }
+            break;
+        default: // ElementType.None
+            hitVfxColor = originaltHitVfxColor; // Always go back to the true original
+            break;
+    }
       
     }
    
