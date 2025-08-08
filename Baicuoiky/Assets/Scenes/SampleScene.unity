@@ -585,7 +585,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resources:
     maxHealth:
-      baseValue: 0
+      baseValue: 100
     healthRegen:
       baseValue: 0
   major:

@@ -4,7 +4,7 @@ using UnityEngine;
 public class Entity_Stats : MonoBehaviour
 {
     public Stat_Resources resources;
-
+    
     public Stat_MajorGroup major;
     public Stat_OffenseGroup offense;
     public Stat_DefenseGroup defense;
