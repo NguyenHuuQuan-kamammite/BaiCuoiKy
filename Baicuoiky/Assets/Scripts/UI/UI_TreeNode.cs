@@ -4,26 +4,22 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
+    private UI ui;
+    private RectTransform rect;
+
     [SerializeField] private Skill_DataSo skillData;
     [SerializeField] private string skillName;
     [SerializeField] private Image skillIcon;
-    [SerializeField] private string lockColorHex = "9F9292";
+    [SerializeField] private string lockColorHex = "#9F9292";
     private Color lastColor;
     public bool isUnlocked;
     public bool isLocked;
-
-   private void OnValidate()
-{
-    if (skillData == null)
-        return;
-
-    skillName = skillData.skillName;
-    skillIcon.sprite = skillData.icon;
-    gameObject.name = "UI_TreeNode - " + skillData.skillName;
-}
-
+    
     private void Awake()
     {
+        ui = GetComponentInParent<UI>();
+        rect = GetComponent<RectTransform>();
+
         UpdateIconColor(GetColorByHex(lockColorHex));
     }
     private void Unlock()
@@ -51,6 +47,7 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        ui.skillToolTip.ShowToolTip(true, rect, skillData);
         if (isUnlocked == false)
             UpdateIconColor(Color.white * .9f);
     }
@@ -69,7 +66,8 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     }
 
     public void OnPointerExit(PointerEventData eventData)
-    {
+    {   
+        ui.skillToolTip.ShowToolTip(false, rect);
         if (isUnlocked == false)
         {
             UpdateIconColor(lastColor);
@@ -77,9 +75,21 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     }
     private Color GetColorByHex(string hex)
     {
-        ColorUtility.TryParseHtmlString(hex, out Color color);
+       if (ColorUtility.TryParseHtmlString(hex, out Color color))
         return color;
-        
-       
+
+        Debug.LogWarning("Invalid hex color: " + hex);
+        return Color.white; // fallback
+
+
     }
+    private void OnValidate()
+{
+    if (skillData == null)
+        return;
+
+    skillName = skillData.skillName;
+    skillIcon.sprite = skillData.icon;
+    gameObject.name = "UI_TreeNode - " + skillData.skillName;
+}
 }
