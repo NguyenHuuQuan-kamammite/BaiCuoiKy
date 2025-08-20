@@ -11,21 +11,19 @@ public class UI_TreeConnectConnectionDetail
 }
 public class UI_TreeConnectHandler : MonoBehaviour
 {
-    private RectTransform myRect;
+    private RectTransform myRect => GetComponent<RectTransform>();
     [SerializeField] private UI_TreeConnectConnectionDetail[] connectionDetail;
     [SerializeField] private UI_TreeConnection[] connections;
 
     private void OnValidate()
     {
-        if (myRect == null)
-        {
-            myRect = GetComponent<RectTransform>();
-        }
-      if (connectionDetail.Length != connections.Length)
-        {
-            Debug.LogError("ConnectionDetail and Connections arrays must have the same length. " + gameObject.name);
+        if (connectionDetail.Length <= 0)
             return;
-        }
+        if (connectionDetail.Length != connections.Length)
+            {
+                Debug.LogError("ConnectionDetail and Connections arrays must have the same length. " + gameObject.name);
+                return;
+            }
         UpdateConnections();
     }
     private void UpdateConnections()
@@ -36,7 +34,7 @@ public class UI_TreeConnectHandler : MonoBehaviour
             var detail = connectionDetail[i];
             Vector2 targetPosition = connection.GetConnectionPoint(myRect);
             connection.DirectConnection(detail.direction, detail.length);
-            detail.childNode.SetPosition(targetPosition);
+            detail.childNode?.SetPosition(targetPosition);
         }
     }
     public void SetPosition(Vector2 position) => myRect.anchoredPosition = position;
