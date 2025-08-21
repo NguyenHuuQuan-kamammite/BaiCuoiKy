@@ -1,26 +1,29 @@
 using UnityEngine;
-
+using UnityEngine.UI; 
 public class UI_TreeConnection : MonoBehaviour
 {
     [SerializeField] private RectTransform rotationPoint;
     [SerializeField] private RectTransform connectLength;
     [SerializeField] private RectTransform childNodeConnectionPoint;
-    public void DirectConnection(NodeDirectionType direction, float length)
+    public void DirectConnection(NodeDirectionType direction, float length,float offset)
     {
         bool shouldBeActive = direction != NodeDirectionType.None;
         float finalLength = shouldBeActive ? length : 0f;
         float angle = GetDirectionAngle(direction);
 
-        rotationPoint.localRotation = Quaternion.Euler(0, 0, angle);
+        rotationPoint.localRotation = Quaternion.Euler(0, 0, angle + offset);
         connectLength.sizeDelta = new Vector2(finalLength, connectLength.sizeDelta.y);
     }
+    public Image GetConnectionImage() => connectLength.GetComponent<Image>();
+   
+
 public Vector2 GetConnectionPoint(RectTransform rect)
     {
         RectTransformUtility.ScreenPointToLocalPointInRectangle
         (
             rect.parent as RectTransform,
            childNodeConnectionPoint.position,
-            null, 
+            null,
             out Vector2 localPosition
         );
         return localPosition;
