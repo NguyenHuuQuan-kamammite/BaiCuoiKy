@@ -6,6 +6,7 @@ public class Player : Entity
 {
 
     public static event Action OnPlayerDeath;
+    private UI ui;
     [Header("Attack details")]
     public Vector2[] attackVelocity;
     public Vector2 jumpAttackVelocity;
@@ -46,6 +47,7 @@ public class Player : Entity
     protected override void Awake()
     {
         base.Awake();
+        ui = FindAnyObjectByType<UI>();
         input = new PlayerInputSet();
 
 
@@ -60,6 +62,7 @@ public class Player : Entity
         jumpAttackState = new Player_JumpAttackState(this, stateMachine, "jumpAttack");
         deadState = new Player_Dead(this, stateMachine, "dead");
         counterAttackState = new Player_CounterAttackState(this, stateMachine, "counterAttack");
+
 
     }
     protected override void Start()
@@ -129,6 +132,7 @@ public class Player : Entity
 
         input.Player.Movement.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         input.Player.Movement.canceled += ctx => moveInput = Vector2.zero;
+        input.Player.ToggleSkillTreeUI.performed += ctx => ui.ToggleSkillTree();
     }
 
     private void OnDisable()

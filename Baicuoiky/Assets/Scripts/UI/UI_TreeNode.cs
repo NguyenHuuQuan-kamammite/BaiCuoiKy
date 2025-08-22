@@ -98,11 +98,10 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void OnPointerEnter(PointerEventData eventData)
     {
         ui.skillToolTip.ShowToolTip(true, rect, this);
-        if (isUnlocked || isLocked)
-            return;
+        if (isUnlocked == false || isLocked == false)
+            ToggleNodeHighlight(true);
         
-        Color color = Color.white * .9f; color.a = 1f; // Semi-transparent color
-        UpdateIconColor(color);
+   
         
     }
 
@@ -121,30 +120,49 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void OnPointerExit(PointerEventData eventData)
     {   
         ui.skillToolTip.ShowToolTip(false, rect);
-        if (isUnlocked || isLocked)
-            return;
-        
-        UpdateIconColor(lastColor);
-        
+      
+        if (isUnlocked == false || isLocked == false)
+            ToggleNodeHighlight(false);
+
+
     }
+
+    private void ToggleNodeHighlight(bool highlight)
+    {
+        Color highlightColor = Color.white * .9f; highlightColor.a = 1f;
+        Color colorToApply = highlight ? highlightColor : lastColor;
+        UpdateIconColor(colorToApply);
+    }
+
     private Color GetColorByHex(string hex)
     {
-       if (ColorUtility.TryParseHtmlString(hex, out Color color))
-        return color;
+        if (ColorUtility.TryParseHtmlString(hex, out Color color))
+            return color;
 
         Debug.LogWarning("Invalid hex color: " + hex);
         return Color.white; // fallback
 
 
     }
+    private void OnDisable()
+    {
+        if (isLocked)
+        {
+            UpdateIconColor(GetColorByHex(lockColorHex));
+        }
+        if (isUnlocked)
+        {
+            UpdateIconColor(Color.white);
+        }
+    }
     private void OnValidate()
-{
-    if (skillData == null)
-        return;
+    {
+        if (skillData == null)
+            return;
 
-    skillName = skillData.skillName;
-    skillIcon.sprite = skillData.icon;
-    skillCost = skillData.cost;
-    gameObject.name = "UI_TreeNode - " + skillData.skillName;
-}
+        skillName = skillData.skillName;
+        skillIcon.sprite = skillData.icon;
+        skillCost = skillData.cost;
+        gameObject.name = "UI_TreeNode - " + skillData.skillName;
+    }
 }
