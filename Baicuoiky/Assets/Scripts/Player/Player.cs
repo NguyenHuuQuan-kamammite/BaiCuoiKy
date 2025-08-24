@@ -7,6 +7,7 @@ public class Player : Entity
 
     public static event Action OnPlayerDeath;
     private UI ui;
+    public Player_SkillManager skillManager { get; private set; }
     [Header("Attack details")]
     public Vector2[] attackVelocity;
     public Vector2 jumpAttackVelocity;
@@ -30,8 +31,9 @@ public class Player : Entity
     public float dashSpeed = 20;
 
     public PlayerInputSet input { get; private set; }
+    public Vector2 moveInput { get; private set; }
 
-
+    #region States
     public Player_IdleState idleState { get; private set; }
     public Player_MoveState moveState { get; private set; }
     public Player_JumpState jumpState { get; private set; }
@@ -43,13 +45,13 @@ public class Player : Entity
     public Player_JumpAttackState jumpAttackState { get; private set; }
     public Player_Dead deadState { get; private set; }
     public Player_CounterAttackState counterAttackState { get; private set; }
-    public Vector2 moveInput { get; private set; }
+    #endregion
     protected override void Awake()
     {
         base.Awake();
         ui = FindAnyObjectByType<UI>();
         input = new PlayerInputSet();
-
+        skillManager = GetComponent<Player_SkillManager>();
 
         idleState = new Player_IdleState(this, stateMachine, "idle");
         moveState = new Player_MoveState(this, stateMachine, "move");
