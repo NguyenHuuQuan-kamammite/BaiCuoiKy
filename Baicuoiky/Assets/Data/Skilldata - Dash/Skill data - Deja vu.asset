@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   skillType: 0
-  unlockType: 2
+  upgradeData:
+    upgradeType: 2
+    cooldown: 3
   skillName: Deja vu
   description: "Create a time echo on arrival.\n(Inherits all upgrades of Time Echo
     Skill Tree)\L"

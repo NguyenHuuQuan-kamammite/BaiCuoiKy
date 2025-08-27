@@ -8,6 +8,7 @@ public class Player : Entity
     public static event Action OnPlayerDeath;
     private UI ui;
     public Player_SkillManager skillManager { get; private set; }
+    public Player_Vfx vfx { get; private set; }
     [Header("Attack details")]
     public Vector2[] attackVelocity;
     public Vector2 jumpAttackVelocity;
@@ -52,6 +53,7 @@ public class Player : Entity
         ui = FindAnyObjectByType<UI>();
         input = new PlayerInputSet();
         skillManager = GetComponent<Player_SkillManager>();
+        vfx = GetComponent<Player_Vfx>();
 
         idleState = new Player_IdleState(this, stateMachine, "idle");
         moveState = new Player_MoveState(this, stateMachine, "move");

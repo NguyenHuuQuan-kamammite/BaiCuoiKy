@@ -1023,10 +1023,10 @@ GameObject:
   - component: {fileID: 274070546}
   - component: {fileID: 274070550}
   - component: {fileID: 274070548}
-  - component: {fileID: 274070549}
   - component: {fileID: 274070551}
   - component: {fileID: 274070552}
   - component: {fileID: 274070553}
+  - component: {fileID: 274070554}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -1174,26 +1174,6 @@ MonoBehaviour:
   heavyKnockbackThreshold: 0.3
   heavyKnockbackDuration: 0.5
   onHeavyKnockback: {x: 7, y: 7}
---- !u!114 &274070549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 274070542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c81a86b1f20d9ad46b7fe3baaad7c79f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onDamageMaterial: {fileID: 2100000, guid: 6e215e3484f9c3a48acc00ff71b5bbed, type: 2}
-  onDamageVfxDuration: 0.15
-  hitVfx: {fileID: 7274362693920113760, guid: eeac29f4e2682694a8d110964229a77a, type: 3}
-  hitVfxColor: {r: 0.8980392, g: 0.38774183, b: 0.14117646, a: 1}
-  critHitVfx: {fileID: 2780956947099957769, guid: 7aa5e6d8acbec0a408a97eaa022f0f1e, type: 3}
-  burnVfx: {r: 1, g: 0, b: 0, a: 1}
-  chillVfx: {r: 0, g: 1, b: 1, a: 1}
-  electricVfx: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!114 &274070550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1319,6 +1299,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e333f70cfa43d4b9afe6558ff4a1a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &274070554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274070542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2624628cc2af7949b1d794bca7e550d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onDamageMaterial: {fileID: 2100000, guid: 6e215e3484f9c3a48acc00ff71b5bbed, type: 2}
+  onDamageVfxDuration: 0.15
+  hitVfx: {fileID: 7274362693920113760, guid: eeac29f4e2682694a8d110964229a77a, type: 3}
+  hitVfxColor: {r: 1, g: 1, b: 1, a: 1}
+  critHitVfx: {fileID: 2780956947099957769, guid: 7aa5e6d8acbec0a408a97eaa022f0f1e, type: 3}
+  burnVfx: {r: 1, g: 0, b: 0, a: 1}
+  chillVfx: {r: 0, g: 1, b: 1, a: 1}
+  electricVfx: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  timeEchoInterval: 0.08
+  imageEchoPrefab: {fileID: 4866617466196419028, guid: 9588b0a61846ac94eb5092b365e38db0, type: 3}
 --- !u!1 &304273414
 GameObject:
   m_ObjectHideFlags: 0
@@ -2970,7 +2972,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &532388231
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3239,10 +3241,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 519783658}
-  - {fileID: 912831395}
   - {fileID: 1983003073}
   - {fileID: 111509928}
   - {fileID: 1733084473}
+  - {fileID: 912831395}
   m_Father: {fileID: 532388231}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}

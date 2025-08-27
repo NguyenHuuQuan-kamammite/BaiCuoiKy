@@ -11,9 +11,10 @@ public class Skill_Base : MonoBehaviour
     {
         lastTimeUsed = -coolDown; // So that the skill can be used immediately at the start
     }
-    public void SetSkillUnlock(SkillUnlock_Type unlock)
+    public void SetSkillUnlock(UpgradeData unlock)
     {
-       unlockType = unlock;
+       unlockType = unlock.upgradeType;
+       coolDown = unlock.cooldown;
     }
     public bool CanUseSkill()
     {
@@ -24,6 +25,8 @@ public class Skill_Base : MonoBehaviour
         }
         return true;
     }
+
+protected bool Unlocked(SkillUnlock_Type upgradeToCheck) => unlockType == upgradeToCheck;
 
     private bool OnCoolDown() => Time.time < lastTimeUsed + coolDown;
     public void SetSkillOnCooldown() => lastTimeUsed = Time.time;

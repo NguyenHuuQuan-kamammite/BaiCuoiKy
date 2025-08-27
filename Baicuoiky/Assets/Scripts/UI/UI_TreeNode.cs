@@ -47,7 +47,7 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         skillTree.RemoveSkillPoint(skillData.cost);
         LockConflictNode();
         connectHandler.UnlockConnectionImage(true);
-        skillTree.skillManager.GetSkillByType(skillData.skillType).SetSkillUnlock(skillData.unlockType);
+        skillTree.skillManager.GetSkillByType(skillData.skillType).SetSkillUnlock(skillData.upgradeData);
     }
     private bool CanBeUnlocked()
     {

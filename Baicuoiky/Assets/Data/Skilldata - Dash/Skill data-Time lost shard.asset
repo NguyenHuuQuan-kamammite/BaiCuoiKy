@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 2
   skillType: 0
-  unlockType: 3
+  upgradeData:
+    upgradeType: 3
+    cooldown: 3
   skillName: Time lost shard
   description: "Create a time shard behind after dashing.\L(Inherits all upgrades
     of Time Echo Skill Tree)"
