@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,23 +21,24 @@ public class UI_TreeConnectHandler : MonoBehaviour
     private Color originalColor;
     private void Awake()
     {
-        if(connectionImage != null)
+        if (connectionImage != null)
         {
             originalColor = connectionImage.color;
         }
     }
-
-    private void OnValidate()
+    public UI_TreeNode[] GetChildNodes()
     {
-        if (connectionDetail.Length <= 0)
-            return;
-        if (connectionDetail.Length != connections.Length)
+        List<UI_TreeNode> childrentToReturn = new List<UI_TreeNode>();
+        foreach (var node in connectionDetail)
         {
-            Debug.LogError("ConnectionDetail and Connections arrays must have the same length. " + gameObject.name);
-            return;
+            if (node.childNode != null)
+            {
+                childrentToReturn.Add(node.childNode.GetComponent<UI_TreeNode>());
+            }
         }
-        UpdateConnections();
+        return childrentToReturn.ToArray();
     }
+
     public void UpdateConnections()
     {
         for (int i = 0; i < connectionDetail.Length; i++)
@@ -74,8 +76,21 @@ public class UI_TreeConnectHandler : MonoBehaviour
     }
 
     public void SetConnectionImage(Image image) => connectionImage = image;
-   
-   
+
+
     public void SetPosition(Vector2 position) => myRect.anchoredPosition = position;
+    
+
+    private void OnValidate()
+    {
+        if (connectionDetail.Length <= 0)
+            return;
+        if (connectionDetail.Length != connections.Length)
+        {
+            Debug.LogError("ConnectionDetail and Connections arrays must have the same length. " + gameObject.name);
+            return;
+        }
+        UpdateConnections();
+    }
 
 }

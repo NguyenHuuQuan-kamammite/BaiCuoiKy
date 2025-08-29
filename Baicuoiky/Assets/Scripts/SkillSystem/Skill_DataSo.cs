@@ -4,6 +4,7 @@ using System;
 public class Skill_DataSo : ScriptableObject
 {
     public int cost;
+    public bool unlockByDefault;
     public Skill_Type skillType;
     public UpgradeData upgradeData;
    

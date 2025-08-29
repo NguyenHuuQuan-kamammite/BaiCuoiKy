@@ -18,6 +18,10 @@ public class Skill_Base : MonoBehaviour
     }
     public bool CanUseSkill()
     {
+        if (unlockType == SkillUnlock_Type.None)
+        {
+            return false;
+        }
         if (OnCoolDown())
         {
             Debug.Log("Skill on cooldown");

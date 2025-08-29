@@ -22,7 +22,7 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     [SerializeField] private int skillCost;
     [SerializeField] private string lockColorHex = "#9F9292";
     private Color lastColor;
-    
+
     private void Awake()
     {
         ui = GetComponentInParent<UI>();
@@ -31,12 +31,20 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         connectHandler = GetComponent<UI_TreeConnectHandler>();
         UpdateIconColor(GetColorByHex(lockColorHex));
     }
+    private void Start()
+    {
+        
+        if(skillData.unlockByDefault)
+        {
+            Unlock();
+        }
+    }
     public void Refund()
     {
         isUnlocked = false;
         isLocked = false;
         UpdateIconColor(GetColorByHex(lockColorHex));
-        
+
         skillTree.AddSkillPoint(skillData.cost);
         connectHandler.UnlockConnectionImage(false);
     }
@@ -60,6 +68,7 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             Debug.Log("Not enough skill points to unlock " + skillName);
             return false;
         }
+        
        
         foreach (var node in neededNodes)
         {
@@ -78,12 +87,22 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         }
         return true;
     }
+
+    private void LockChildNode()
+    {
+        isLocked = true;
+        foreach (var node in connectHandler.GetChildNodes())
+        {
+            node.LockChildNode();
+        }
+    }
     private void LockConflictNode()
     {
         foreach (var node in conflictNodes)
         {
             node.isLocked = true;
-           
+            node.LockChildNode();
+
         }
     }
     private void UpdateIconColor(Color color)
