@@ -3,7 +3,7 @@ using UnityEngine;
 public class Skill_Base : MonoBehaviour
 {
     [Header("General details")]
-    [SerializeField] private float coolDown;
+    [SerializeField] protected float coolDown;
     [SerializeField] protected Skill_Type skillType;
     [SerializeField] protected SkillUnlock_Type unlockType;
     private float lastTimeUsed;
@@ -11,10 +11,16 @@ public class Skill_Base : MonoBehaviour
     {
         lastTimeUsed = -coolDown; // So that the skill can be used immediately at the start
     }
+
+
+    public virtual void TryToUseSkill()
+    {
+        
+    }
     public void SetSkillUnlock(UpgradeData unlock)
     {
-       unlockType = unlock.upgradeType;
-       coolDown = unlock.cooldown;
+        unlockType = unlock.upgradeType;
+        coolDown = unlock.cooldown;
     }
     public bool CanUseSkill()
     {
