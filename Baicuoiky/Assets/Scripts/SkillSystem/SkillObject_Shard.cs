@@ -3,6 +3,7 @@ using System;
 
 public class SkillObject_Shard : SkillObject_Base
 {
+    public event Action OnExplode;
     [SerializeField] private GameObject vfxPrefab;
 
     private Transform target;
@@ -18,13 +19,14 @@ public class SkillObject_Shard : SkillObject_Base
         target = FindClosestTarget();
         this.speed = speed;
     }
-    public void SetupShard(float detinationTime)
+    public void SetupShard(float detinationTime)    
     {
         Invoke(nameof(Explode), detinationTime);
     }
-    private void Explode()
+    public void Explode()
     {
         DamageEnemiesInRadius(transform, targetCheckRadius);
+        OnExplode?.Invoke();
         Instantiate(vfxPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
