@@ -1615,6 +1615,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+  basicAttackScale:
+    physical: 1
+    elemental: 1
+    chillDuration: 3
+    chillSlowMultiplier: 0.2
+    burnDuration: 3
+    burnDamageScale: 1
+    shockDuration: 3
+    shockDamageScale: 1
+    shockCharge: 0.4
   targetCheck: {fileID: 2138203158}
   targetCheckRadius: 1
   WhatIsTarget:
@@ -1669,7 +1679,7 @@ MonoBehaviour:
       baseValue: 0
       modifiers: []
     lightningDamage:
-      baseValue: 0
+      baseValue: 100
       modifiers: []
   defense:
     armor:
@@ -1914,7 +1924,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1740303615401344093, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2389275548146833267, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1960,13 +1970,17 @@ PrefabInstance:
       propertyPath: offense.damage.baseValue
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 2948427220601988860, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: resources.maxHealth.baseValue
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 4876009190493526105, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4876009190493526105, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -68501,9 +68515,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1045979670}
-  - {fileID: 1249988572}
   - {fileID: 2090213307}
   - {fileID: 2081536290}
+  - {fileID: 1249988572}
   - {fileID: 1440067159}
   m_Father: {fileID: 532388231}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

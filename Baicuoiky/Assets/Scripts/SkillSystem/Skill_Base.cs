@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Skill_Base : MonoBehaviour
 {
+    public DamageScaleData damageScaleData { get; private set; }
     public Player player { get; private set; }
     [Header("General details")]
     [SerializeField] protected float coolDown;
@@ -24,6 +25,7 @@ public class Skill_Base : MonoBehaviour
     {
         unlockType = unlock.upgradeType;
         coolDown = unlock.cooldown;
+        damageScaleData = unlock.damageScale;
     }
     public bool CanUseSkill()
     {

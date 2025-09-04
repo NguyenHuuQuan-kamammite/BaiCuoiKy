@@ -131,7 +131,7 @@ public class Skill_Shard : Skill_Base
         float detonationTime = GetDetonateTime();
         GameObject shard = Instantiate(shardPrefab, transform.position, Quaternion.identity);
         currentShard = shard.GetComponent<SkillObject_Shard>();
-        currentShard.SetupShard(detonationTime);
+        currentShard.SetupShard(this);
         if (Unlocked(SkillUnlock_Type.Shard_Teleport) || Unlocked(SkillUnlock_Type.Shard_TeleportHPRewind))
         {
             currentShard.OnExplode += ForceCooldown;
