@@ -1,18 +1,17 @@
 using UnityEngine;
 
-using System;
-[Serializable]
+
 public class ElementalEffectData 
 {
     public float chillDuration;
-public float chillSlowMultiplier;
+    public float chillSlowMultiplier;
 
-public float burnDuration;
-public float totalBurnDamage;
+    public float burnDuration;
+    public float totalBurnDamage;
 
-public float shockDuration;
-public float shockDamage;
-public float shockCharge;
+    public float shockDuration;
+    public float shockDamage;
+    public float shockCharge;
 
     public ElementalEffectData(Entity_Stats entityStats, DamageScaleData damageScale)
     {
