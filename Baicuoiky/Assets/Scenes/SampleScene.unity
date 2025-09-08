@@ -833,9 +833,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   neededNodes:
   - {fileID: 519783659}
+  - {fileID: 1045979672}
   conflictNodes:
   - {fileID: 1733084474}
-  - {fileID: 912831396}
   isUnlocked: 0
   isLocked: 0
   skillData: {fileID: 11400000, guid: 2415f7097684abb47982d360f0276e31, type: 2}
@@ -1630,11 +1630,6 @@ MonoBehaviour:
   WhatIsTarget:
     serializedVersion: 2
     m_Bits: 256
-  defaultDuration: 3
-  chillSlowMultiplier: 0.5
-  electricCharge: 0.5
-  fireScale: 0.8
-  lightningScale: 2.5
   counterRecovery: 0.4
 --- !u!114 &274070551
 MonoBehaviour:
@@ -1924,7 +1919,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1740303615401344093, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2389275548146833267, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1976,11 +1971,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4876009190493526105, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4876009190493526105, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3487,7 +3482,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &532388231
 RectTransform:
   m_ObjectHideFlags: 0
@@ -65283,7 +65278,7 @@ MonoBehaviour:
   skillData: {fileID: 11400000, guid: b854fde0717d69f448ef39e265da2a68, type: 2}
   skillName: Time Shard
   skillIcon: {fileID: 10648513}
-  skillCost: 0
+  skillCost: 1
   lockColorHex: '#9F9292'
 --- !u!1 &1049620038
 GameObject:

@@ -12,13 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93c17b8d31291a64eb2f76c77e0d1e28, type: 3}
   m_Name: Skill data-Quick Dash
   m_EditorClassIdentifier: 
-  cost: 1
-  skillType: 0
-  upgradeData:
-    upgradeType: 0
-    cooldown: 3
   skillName: Quick Dash
   description: 'Dash to avoid attacks.
 
     You cannot take damage while dashing.'
   icon: {fileID: 136639846, guid: 8b91d8dde6c55504a95c06632a759734, type: 3}
+  cost: 1
+  unlockByDefault: 1
+  skillType: 0
+  upgradeData:
+    upgradeType: 1
+    cooldown: 3
+    damageScale:
+      physical: 1
+      elemental: 1
+      chillDuration: 3
+      chillSlowMultiplier: 0.2
+      burnDuration: 3
+      burnDamageScale: 1
+      shockDuration: 3
+      shockDamageScale: 1
+      shockCharge: 0.4

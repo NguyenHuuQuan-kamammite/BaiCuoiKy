@@ -33,6 +33,9 @@ public class Player : Entity
 
     public PlayerInputSet input { get; private set; }
     public Vector2 moveInput { get; private set; }
+    public Entity_Health health { get; private set; }
+    public Entity_StatusHandler statusHandler { get; private set; }
+    public Vector2 mousePosition { get; private set; }
 
     #region States
     public Player_IdleState idleState { get; private set; }
@@ -46,14 +49,20 @@ public class Player : Entity
     public Player_JumpAttackState jumpAttackState { get; private set; }
     public Player_Dead deadState { get; private set; }
     public Player_CounterAttackState counterAttackState { get; private set; }
+    public Player_ThrowSwordState throwSwordState { get; private set; }
     #endregion
     protected override void Awake()
     {
         base.Awake();
         ui = FindAnyObjectByType<UI>();
-        input = new PlayerInputSet();
         skillManager = GetComponent<Player_SkillManager>();
         vfx = GetComponent<Player_Vfx>();
+        health = GetComponent<Entity_Health>();
+        statusHandler = GetComponent<Entity_StatusHandler>();
+
+
+        input = new PlayerInputSet();
+
 
         idleState = new Player_IdleState(this, stateMachine, "idle");
         moveState = new Player_MoveState(this, stateMachine, "move");
@@ -66,7 +75,7 @@ public class Player : Entity
         jumpAttackState = new Player_JumpAttackState(this, stateMachine, "jumpAttack");
         deadState = new Player_Dead(this, stateMachine, "dead");
         counterAttackState = new Player_CounterAttackState(this, stateMachine, "counterAttack");
-
+        throwSwordState = new Player_ThrowSwordState(this, stateMachine, "swordThrow");
 
     }
     protected override void Start()
@@ -137,6 +146,8 @@ public class Player : Entity
     {
         input.Enable();
 
+
+        input.Player.Mouse.performed += ctx => mousePosition = ctx.ReadValue<Vector2>();
         input.Player.Movement.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         input.Player.Movement.canceled += ctx => moveInput = Vector2.zero;
         input.Player.ToggleSkillTreeUI.performed += ctx => ui.ToggleSkillTree();
