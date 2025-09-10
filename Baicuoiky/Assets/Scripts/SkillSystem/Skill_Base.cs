@@ -14,9 +14,10 @@ public class Skill_Base : MonoBehaviour
     protected virtual void Awake()
     {
 
-        skillManager =GetComponentInParent<Player_SkillManager>();
+        skillManager = GetComponentInParent<Player_SkillManager>();
         player = GetComponentInParent<Player>();
         lastTimeUsed = -coolDown; // So that the skill can be used immediately at the start
+        damageScaleData = new DamageScaleData();
 
     }
 
@@ -31,7 +32,7 @@ public class Skill_Base : MonoBehaviour
         coolDown = unlock.cooldown;
         damageScaleData = unlock.damageScale;
     }
-    public bool CanUseSkill()
+    public virtual bool CanUseSkill()
     {
         if (unlockType == SkillUnlock_Type.None)
         {

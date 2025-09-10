@@ -2167,7 +2167,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 132
-        width: 69
+        width: 74
         height: 44
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -2187,12 +2187,12 @@ TextureImporter:
       name: Warrior_Sheet-Effect_79
       rect:
         serializedVersion: 2
-        x: 69
+        x: 74
         y: 132
-        width: 69
+        width: 21
         height: 44
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5478857, y: 0.48510602}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
