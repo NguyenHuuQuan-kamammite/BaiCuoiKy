@@ -10,6 +10,18 @@ public class Skill_SwordThrow : Skill_Base
     [SerializeField] private float throwPower = 5f;
     [SerializeField] private GameObject swordPrefab;
 
+    [Header("Peirce Sword Upgrade")]
+    [SerializeField] private GameObject peirceSwordPrefab;
+     public int peirceAmount = 2;
+
+
+
+    [Header("Spin Sword Upgrade")]
+    [SerializeField] private GameObject spinSwordPrefab;
+    public int maxDistance = 5;
+    public float attackPerSecond = 6f;
+    public float maxSpinDuration = 3f;
+
     [Header("Trajectory Prediction")]
 
     
@@ -44,11 +56,24 @@ public class Skill_SwordThrow : Skill_Base
 
     private Vector2 GetThrowPower() => confirmDirection * (throwPower * 10f);
     public void ThrowSword()
-    {
+    {   
+        GameObject swordPrefab = GetSwordPrefab();
         GameObject newSword = Instantiate(swordPrefab, dots[1].position, Quaternion.identity);
         currentSword = newSword.GetComponent<SkillObject_Sword>();
         currentSword.SetUpSword(this, GetThrowPower());
       
+    }
+    private GameObject GetSwordPrefab()
+    {
+        if (Unlocked(SkillUnlock_Type.SwordThrow))
+            return swordPrefab;
+
+        if (Unlocked(SkillUnlock_Type.SwordThrow_Pierce))
+            return peirceSwordPrefab;
+        if (Unlocked(SkillUnlock_Type.SwordThrow_Spin))
+            return spinSwordPrefab;
+        Debug.Log("No valid sword upgrade found."); 
+        return null;
     }
 
     public void PredictTrajectory(Vector2 direction)

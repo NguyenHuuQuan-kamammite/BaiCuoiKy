@@ -1410,7 +1410,7 @@ MonoBehaviour:
   connectionDetail:
   - childNode: {fileID: 1873905743}
     direction: 5
-    length: 230
+    length: 221
     rotation: -0.8
   - childNode: {fileID: 1277570628}
     direction: 6
@@ -1418,7 +1418,7 @@ MonoBehaviour:
     rotation: 3
   - childNode: {fileID: 1469706241}
     direction: 4
-    length: 195
+    length: 192
     rotation: 0
   connections:
   - {fileID: 336915687}
@@ -2290,7 +2290,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1740303615401344093, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2389275548146833267, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2342,11 +2342,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4876009190493526105, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4876009190493526105, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2554,7 +2554,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0.0048217773, y: 1.1704469}
-  m_SizeDelta: {x: 230, y: 5}
+  m_SizeDelta: {x: 221, y: 5}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &366698647
 MonoBehaviour:
@@ -4351,6 +4351,7 @@ MonoBehaviour:
   - {fileID: 1730080110}
   - {fileID: 519783660}
   - {fileID: 1045979671}
+  - {fileID: 241971801}
 --- !u!1 &535212614
 GameObject:
   m_ObjectHideFlags: 0
@@ -4635,14 +4636,14 @@ RectTransform:
   m_Children:
   - {fileID: 519783658}
   - {fileID: 1983003073}
-  - {fileID: 912831395}
   - {fileID: 111509928}
   - {fileID: 1733084473}
+  - {fileID: 912831395}
   m_Father: {fileID: 532388231}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1571, y: 61}
+  m_AnchoredPosition: {x: -1790, y: 83}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &603407886
@@ -5619,7 +5620,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 68374097, guid: 8b91d8dde6c55504a95c06632a759734, type: 3}
+  m_Sprite: {fileID: -963764997, guid: 8b91d8dde6c55504a95c06632a759734, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -65789,7 +65790,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0.0048217773, y: 1.1704469}
-  m_SizeDelta: {x: 195, y: 5}
+  m_SizeDelta: {x: 192, y: 5}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &896968142
 MonoBehaviour:
@@ -67808,7 +67809,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -578.9055, y: -58.004883}
+  m_AnchoredPosition: {x: -336, y: -61}
   m_SizeDelta: {x: 435.8208, y: 490.00977}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1164932644
@@ -68734,7 +68735,7 @@ GameObject:
   - component: {fileID: 1277570629}
   - component: {fileID: 1277570628}
   m_Layer: 5
-  m_Name: UI_TreeNode - Phantom Recall
+  m_Name: UI_TreeNode - The chainsaw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68780,12 +68781,13 @@ MonoBehaviour:
   - {fileID: 241971800}
   conflictNodes:
   - {fileID: 1873905742}
+  - {fileID: 1469706242}
   isUnlocked: 0
   isLocked: 0
-  skillData: {fileID: 11400000, guid: aa0f07598148abb4689eca6435660c08, type: 2}
-  skillName: Phantom Recall
+  skillData: {fileID: 11400000, guid: e521c0c66d761d94cb0867f96b57950f, type: 2}
+  skillName: The chainsaw
   skillIcon: {fileID: 1376857476}
-  skillCost: 3
+  skillCost: 2
   lockColorHex: '#9F9292'
 --- !u!224 &1277570630
 RectTransform:
@@ -68807,7 +68809,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 173.00989, y: -157.56787}
+  m_AnchoredPosition: {x: 173.75305, y: -158.23706}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1288124632
@@ -69102,7 +69104,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1346915512, guid: 8b91d8dde6c55504a95c06632a759734, type: 3}
+  m_Sprite: {fileID: -1632618781, guid: 8b91d8dde6c55504a95c06632a759734, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -69778,7 +69780,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1604, y: -381}
+  m_AnchoredPosition: {x: -1275, y: 87}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1454656417
@@ -69947,7 +69949,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.3295898, y: -200.00488}
+  m_AnchoredPosition: {x: -1.3295898, y: -198.00488}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1469706241
@@ -69987,8 +69989,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neededNodes:
+  - {fileID: 241971800}
+  conflictNodes:
+  - {fileID: 1277570629}
   - {fileID: 1873905742}
-  conflictNodes: []
   isUnlocked: 0
   isLocked: 0
   skillData: {fileID: 11400000, guid: edfc7d7f7d55adb4bae78034ab233dc6, type: 2}
@@ -70697,15 +70701,15 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1045979670}
-  - {fileID: 1440067159}
-  - {fileID: 1249988572}
   - {fileID: 2090213307}
   - {fileID: 2081536290}
+  - {fileID: 1249988572}
+  - {fileID: 1440067159}
   m_Father: {fileID: 532388231}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1062.3352, y: -95}
+  m_AnchoredPosition: {x: -807, y: 87}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1516961225
@@ -72326,9 +72330,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coolDown: 0
   skillType: 3
-  unlockType: 11
+  unlockType: 12
   throwPower: 1.99
   swordPrefab: {fileID: 2778769575912714297, guid: fd71fffe6fbb45a448921d047f291122, type: 3}
+  peirceSwordPrefab: {fileID: 515118587257437410, guid: ce2ef44ada84c3f46b145ac276c275f9, type: 3}
+  peirceAmount: 2
+  spinSwordPrefab: {fileID: 1486893536316841230, guid: f9b1fe7049fbbc342a2e11999567df2f, type: 3}
+  maxDistance: 5
+  attackPerSecond: 6
+  maxSpinDuration: 3
   predictionDot: {fileID: 2387805990954725869, guid: 8401915f20bb8324fbdf35fdcf9e4db3, type: 3}
   numOfDots: 20
   spaceBetweenDots: 0.05
@@ -73115,7 +73125,7 @@ GameObject:
   - component: {fileID: 1873905742}
   - component: {fileID: 1873905743}
   m_Layer: 5
-  m_Name: UI_TreeNode - Irritated shard
+  m_Name: UI_TreeNode - The BulletSword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73135,11 +73145,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   neededNodes:
   - {fileID: 241971800}
-  conflictNodes: []
+  conflictNodes:
+  - {fileID: 1277570629}
+  - {fileID: 1469706242}
   isUnlocked: 0
   isLocked: 0
-  skillData: {fileID: 11400000, guid: 67d2a045d1d9bb74baaefe944149cba1, type: 2}
-  skillName: Irritated shard
+  skillData: {fileID: 11400000, guid: c6feeb82e7e85d146aeef68527560787, type: 2}
+  skillName: The BulletSword
   skillIcon: {fileID: 760337103}
   skillCost: 2
   lockColorHex: '#9F9292'
@@ -73156,7 +73168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   connectionDetail:
-  - childNode: {fileID: 1469706241}
+  - childNode: {fileID: 0}
     direction: 0
     length: 169
     rotation: 0
@@ -73187,7 +73199,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -169.40442, y: -162.88403}
+  m_AnchoredPosition: {x: -162.95215, y: -156.6095}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1874415129

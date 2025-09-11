@@ -8,11 +8,16 @@ public class SkillObject_Base : MonoBehaviour
     [SerializeField] protected float targetCheckRadius = 1f;
     [SerializeField] private GameObject onHitvfx;
 
-
+    protected Animator anim;
     protected Entity_Stats playerStats;
     protected DamageScaleData damageScaleData;
     protected ElementType usedElement;
     protected bool targetGotHit;
+    
+    protected virtual void Awake()
+    {
+        anim = GetComponentInChildren<Animator>();
+    }
     protected void DamageEnemiesInRadius(Transform t, float radius)
     {
         foreach (var target in EnemiesAround(t, radius))
@@ -28,12 +33,12 @@ public class SkillObject_Base : MonoBehaviour
             float elemDamage = attackData.elementalDamage;
             ElementType element = attackData.element;
 
-           targetGotHit= damgable.TakeDamage(physDamage, elemDamage, element, transform);
+            targetGotHit = damgable.TakeDamage(physDamage, elemDamage, element, transform);
 
             if (element != ElementType.None)
                 statusHandler.ApplyStatusEffect(element, attackData.effectData);
 
-            if(targetGotHit)
+            if (targetGotHit)
                 Instantiate(onHitvfx, target.transform.position, Quaternion.identity);
             usedElement = element;
         }
