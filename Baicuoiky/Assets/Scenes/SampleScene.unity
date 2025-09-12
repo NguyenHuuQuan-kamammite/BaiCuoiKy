@@ -1993,7 +1993,7 @@ MonoBehaviour:
       baseValue: 0
       modifiers: []
     lightningDamage:
-      baseValue: 100
+      baseValue: 0
       modifiers: []
   defense:
     armor:
@@ -2284,6 +2284,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1422677611099400769, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: moveSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1422677611099400769, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: battleMoveSpeed
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1740303615401344093, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
       propertyPath: m_Name
       value: Enemy_skeleton
@@ -2294,11 +2302,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2389275548146833267, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.1596212
+      value: -6.69
       objectReference: {fileID: 0}
     - target: {fileID: 2389275548146833267, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.23841009
+      value: 0.18
       objectReference: {fileID: 0}
     - target: {fileID: 2389275548146833267, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4635,10 +4643,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 519783658}
+  - {fileID: 912831395}
   - {fileID: 1983003073}
   - {fileID: 111509928}
   - {fileID: 1733084473}
-  - {fileID: 912831395}
   m_Father: {fileID: 532388231}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -4721,6 +4729,91 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 603407886}
   m_CullTransparentMesh: 1
+--- !u!1001 &611831555
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1422677611099400769, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: moveSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1422677611099400769, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: battleMoveSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1740303615401344093, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_Name
+      value: Enemy_skeleton (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1740303615401344093, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389275548146833267, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389275548146833267, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389275548146833267, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389275548146833267, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389275548146833267, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389275548146833267, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389275548146833267, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389275548146833267, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389275548146833267, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389275548146833267, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2948427220601988860, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: offense.damage.baseValue
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2948427220601988860, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: resources.maxHealth.baseValue
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4876009190493526105, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4876009190493526105, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -67801,10 +67894,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1730080109}
-  - {fileID: 1939932033}
-  - {fileID: 1856369846}
   - {fileID: 1137813291}
   - {fileID: 721131569}
+  - {fileID: 1939932033}
+  - {fileID: 1856369846}
   m_Father: {fileID: 532388231}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -69923,7 +70016,7 @@ GameObject:
   - component: {fileID: 1469706242}
   - component: {fileID: 1469706241}
   m_Layer: 5
-  m_Name: UI_TreeNode - Mirror Shard
+  m_Name: UI_TreeNode - The Xenablade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69949,7 +70042,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.3295898, y: -198.00488}
+  m_AnchoredPosition: {x: -1.3295898, y: -197.00491}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1469706241
@@ -69995,10 +70088,10 @@ MonoBehaviour:
   - {fileID: 1873905742}
   isUnlocked: 0
   isLocked: 0
-  skillData: {fileID: 11400000, guid: edfc7d7f7d55adb4bae78034ab233dc6, type: 2}
-  skillName: Mirror Shard
+  skillData: {fileID: 11400000, guid: 3c0902814a420914a8f1d94be5d3e58a, type: 2}
+  skillName: The Xenablade
   skillIcon: {fileID: 1980590672}
-  skillCost: 3
+  skillCost: 2
   lockColorHex: '#9F9292'
 --- !u!1 &1470435531
 GameObject:
@@ -70703,8 +70796,8 @@ RectTransform:
   - {fileID: 1045979670}
   - {fileID: 2090213307}
   - {fileID: 2081536290}
-  - {fileID: 1249988572}
   - {fileID: 1440067159}
+  - {fileID: 1249988572}
   m_Father: {fileID: 532388231}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -72330,15 +72423,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coolDown: 0
   skillType: 3
-  unlockType: 12
-  throwPower: 1.99
+  unlockType: 14
+  regularThrowPower: 5
   swordPrefab: {fileID: 2778769575912714297, guid: fd71fffe6fbb45a448921d047f291122, type: 3}
   peirceSwordPrefab: {fileID: 515118587257437410, guid: ce2ef44ada84c3f46b145ac276c275f9, type: 3}
   peirceAmount: 2
+  peirceThrowPower: 5
   spinSwordPrefab: {fileID: 1486893536316841230, guid: f9b1fe7049fbbc342a2e11999567df2f, type: 3}
   maxDistance: 5
   attackPerSecond: 6
   maxSpinDuration: 3
+  spinThrowPower: 5
+  bounceSwordPrefab: {fileID: 3578905623883572040, guid: ab4e5277d934d3a4f8d86ed5bbcfcbc2, type: 3}
+  bounceCount: 5
+  bounceSpeed: 12
+  bounceThrowPower: 5
   predictionDot: {fileID: 2387805990954725869, guid: 8401915f20bb8324fbdf35fdcf9e4db3, type: 3}
   numOfDots: 20
   spaceBetweenDots: 0.05
@@ -73931,7 +74030,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 863557368, guid: 8b91d8dde6c55504a95c06632a759734, type: 3}
+  m_Sprite: {fileID: -1512096960, guid: 8b91d8dde6c55504a95c06632a759734, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -75439,3 +75538,4 @@ SceneRoots:
   - {fileID: 4496028759167162962}
   - {fileID: 2130468058}
   - {fileID: 341079022}
+  - {fileID: 611831555}
