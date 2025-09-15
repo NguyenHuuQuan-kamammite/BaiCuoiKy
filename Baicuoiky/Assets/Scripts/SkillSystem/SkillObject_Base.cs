@@ -13,10 +13,14 @@ public class SkillObject_Base : MonoBehaviour
     protected DamageScaleData damageScaleData;
     protected ElementType usedElement;
     protected bool targetGotHit;
-    
+    protected Rigidbody2D rb;
+
+
+
     protected virtual void Awake()
     {
         anim = GetComponentInChildren<Animator>();
+        rb = GetComponent<Rigidbody2D>();
     }
     protected void DamageEnemiesInRadius(Transform t, float radius)
     {

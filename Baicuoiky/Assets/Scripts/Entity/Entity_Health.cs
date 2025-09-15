@@ -30,12 +30,19 @@ public class Entity_Health : MonoBehaviour, IDamgable
         entity = GetComponent<Entity>();
         stats = GetComponent<Entity_Stats>();
         healthBar = GetComponentInChildren<Slider>();
-        currentHp = stats.GetMaxHealth();
-        UpdateHealthBar();
-        InvokeRepeating(nameof(RegenerateHealth),0, regenInterval);
+        SetUpHealth();
     }
 
-    public virtual bool TakeDamage(float damage,float elementalDamage,ElementType element, Transform damageDealer)
+    private void SetUpHealth()
+    {
+        if (stats == null)
+            return;
+        currentHp = stats.GetMaxHealth();
+        UpdateHealthBar();
+        InvokeRepeating(nameof(RegenerateHealth), 0, regenInterval);
+    }
+
+    public virtual bool TakeDamage(float damage, float elementalDamage, ElementType element, Transform damageDealer)
     {
         if (isDead) return false;
         if (AttackEvaded())
@@ -46,19 +53,19 @@ public class Entity_Health : MonoBehaviour, IDamgable
         Entity_Stats attackerStats = damageDealer.GetComponent<Entity_Stats>();
         float armorReduction = attackerStats != null ? attackerStats.GetArmorReduction() : 0f;
 
-        float mitigation = stats.GetArmorMitigation(armorReduction);
+        float mitigation = stats != null ? stats.GetArmorMitigation(armorReduction) : 0f;
+        float resistance = stats != null ? stats.GetElementalResistance(element) : 0f;
 
         float physicalDamageTaken = damage * (1 - mitigation);
-        float resistance = stats.GetElementalResistance(element);
 
         float elementalDamageTaken = elementalDamage * (1 - resistance);
 
         Debug.Log($"{gameObject.name} took {physicalDamageTaken} physical damage and {elementalDamageTaken} elemental damage from {damageDealer.name} + total damage: {physicalDamageTaken + elementalDamageTaken}");
 
         TakeKnockback(damageDealer, physicalDamageTaken);
-        
-        ReduceHp (physicalDamageTaken + elementalDamageTaken);
-        
+
+        ReduceHp(physicalDamageTaken + elementalDamageTaken);
+
         return true;
     }
 
@@ -79,7 +86,12 @@ public class Entity_Health : MonoBehaviour, IDamgable
     }
     private bool AttackEvaded()
     {
-        return Random.Range(0f, 100f) < stats.GetEvasion();
+        if (stats == null)
+            return false;
+        else
+        {
+            return Random.Range(0f, 100f) < stats.GetEvasion();
+        }
     }
     public void ReduceHp(float damage)
     {
@@ -93,7 +105,7 @@ public class Entity_Health : MonoBehaviour, IDamgable
 
     }
 
-    private void Die()
+    protected virtual void Die()
     {
         isDead = true;
 
@@ -143,7 +155,11 @@ public class Entity_Health : MonoBehaviour, IDamgable
     }
     private bool IsHeavyDamage(float damage)
     {
-        float healthPercentTaken = damage / stats.GetMaxHealth();
-        return healthPercentTaken > heavyKnockbackThreshold;
+        if (stats == null)
+            return false;
+
+        else
+
+            return damage / stats.GetMaxHealth() > heavyKnockbackThreshold;
     }
 }
