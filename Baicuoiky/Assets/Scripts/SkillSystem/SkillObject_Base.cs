@@ -13,6 +13,7 @@ public class SkillObject_Base : MonoBehaviour
     protected DamageScaleData damageScaleData;
     protected ElementType usedElement;
     protected bool targetGotHit;
+    protected Transform lastTarget;
     protected Rigidbody2D rb;
 
 
@@ -43,7 +44,11 @@ public class SkillObject_Base : MonoBehaviour
                 statusHandler.ApplyStatusEffect(element, attackData.effectData);
 
             if (targetGotHit)
+            {
+                lastTarget = target.transform;
                 Instantiate(onHitvfx, target.transform.position, Quaternion.identity);
+            }
+            
             usedElement = element;
         }
 
