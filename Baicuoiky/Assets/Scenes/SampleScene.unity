@@ -2151,9 +2151,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f1b5386c5ac65847bddc728ba93a507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  regenInterval: 1
+  regenInterval: 0
   canRegenerateHealth: 1
-  currentHp: 0
+  currentHp: 1000
   isDead: 0
   knockbackDuration: 0.2
   onDamageKnockback: {x: 1.5, y: 2.5}
@@ -2204,7 +2204,7 @@ MonoBehaviour:
   defaultStatSetup: {fileID: 11400000, guid: d316131e553473d4596beb24eb2b8d12, type: 2}
   resources:
     maxHealth:
-      baseValue: 100
+      baseValue: 1000
       modifiers: []
     healthRegen:
       baseValue: 0
@@ -4599,7 +4599,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &532388231
 RectTransform:
   m_ObjectHideFlags: 0
@@ -72170,7 +72170,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1740303615401344093, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2389275548146833267, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -72212,13 +72212,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2948427220601988860, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: offense.damage.baseValue
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4876009190493526105, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4876009190493526105, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -73367,11 +73371,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coolDown: 0
   skillType: 1
-  unlockType: 16
+  unlockType: 19
   timeEchoPrefab: {fileID: 541725540217623526, guid: 0b5daf3cd4d8dec49aa5d2cdd8d4c313, type: 3}
   timeEchoDuration: 15
   maxAttack: 3
   duplicateChance: 0.3
+  damagePercentHealed: 0.3
+  cooldownReducedInSeconds: 0
 --- !u!1 &1755627800
 GameObject:
   m_ObjectHideFlags: 0

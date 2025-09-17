@@ -12,13 +12,14 @@ public class Entity_Health : MonoBehaviour, IDamgable
     [Header("Health regen")]
     [SerializeField] private float regenInterval = 1f;
     [SerializeField] private bool canRegenerateHealth = true;
-
     [SerializeField] protected float currentHp;
-    
     [SerializeField] protected bool isDead;
+    public float lastDamegeTaken{ get; private set; }
+
     [Header("On Damage Knockback")]
     [SerializeField] private float knockbackDuration = 0.2f;
     [SerializeField] private Vector2 onDamageKnockback = new Vector2(1f, 0.5f);
+
     [Header("Heavy Knockback")]
     [Range(0, 1)]
     [SerializeField] private float heavyKnockbackThreshold = .3f;
@@ -60,11 +61,11 @@ public class Entity_Health : MonoBehaviour, IDamgable
 
         float elementalDamageTaken = elementalDamage * (1 - resistance);
 
-        Debug.Log($"{gameObject.name} took {physicalDamageTaken} physical damage and {elementalDamageTaken} elemental damage from {damageDealer.name} + total damage: {physicalDamageTaken + elementalDamageTaken}");
-
         TakeKnockback(damageDealer, physicalDamageTaken);
 
         ReduceHp(physicalDamageTaken + elementalDamageTaken);
+
+        lastDamegeTaken = physicalDamageTaken + elementalDamageTaken;
 
         return true;
     }

@@ -50,7 +50,7 @@ protected bool Unlocked(SkillUnlock_Type upgradeToCheck) => unlockType == upgrad
 
     protected bool OnCoolDown() => Time.time < lastTimeUsed + coolDown;
     public void SetSkillOnCooldown() => lastTimeUsed = Time.time;
-    public void ResetCoolDownBy(float coolDownReduction) => lastTimeUsed = lastTimeUsed + coolDownReduction;
+    public void ReduceCoolDownBy(float coolDownReduction) => lastTimeUsed = lastTimeUsed + coolDownReduction;
 
     public void ResetCoolDown() => lastTimeUsed = Time.time;
 }
