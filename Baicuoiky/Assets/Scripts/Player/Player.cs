@@ -16,6 +16,14 @@ public class Player : Entity
     public float comboResetTime = 1;
     private Coroutine queuedAttackCo;
 
+    [Header("Ultimate abilty details")]
+    public float riseSpeed = 25f;
+    public float riseMaxDistance = 3f;
+
+
+
+
+
 
 
     [Header("Movement details")]
