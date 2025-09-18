@@ -1,3 +1,4 @@
+using NUnit.Framework.Interfaces;
 using UnityEngine;
 
 public class Player_DomainExpansionState : PlayerState
@@ -26,6 +27,12 @@ public class Player_DomainExpansionState : PlayerState
         base.Update();
         if (Vector2.Distance(originalPosition, player.transform.position) >= maxDistanceToGoUp && isLevitating == false)
             Levitate();
+        if (isLevitating)
+        {
+            //skill manager cast spell
+            if (stateTimer < 0)
+                stateMachine.ChangeState(player.idleState);
+        }
           
     }
     public override void Exit()
@@ -47,7 +54,7 @@ public class Player_DomainExpansionState : PlayerState
         if (createdDomain == false)
         {
             createdDomain = true;
-            // skill manager create skill object domain
+            skillManager.domainExpansion.CreateDomain();
         }
     }
 

@@ -2047,6 +2047,8 @@ MonoBehaviour:
   jumpAttackVelocity: {x: 4, y: -6}
   attackVelocityDuration: 0.1
   comboResetTime: 1
+  riseSpeed: 25
+  riseMaxDistance: 3
   moveSpeed: 8
   jumpForce: 12
   wallJumpForce: {x: 6, y: 12}
@@ -4599,7 +4601,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &532388231
 RectTransform:
   m_ObjectHideFlags: 0
@@ -68090,7 +68092,7 @@ GameObject:
   - component: {fileID: 1137813290}
   - component: {fileID: 1137813289}
   m_Layer: 5
-  m_Name: UI_TreeNode - Cleanse
+  m_Name: UI_TreeNode - Cleanse Wisp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68139,7 +68141,7 @@ MonoBehaviour:
   isUnlocked: 0
   isLocked: 0
   skillData: {fileID: 11400000, guid: 6a2bfee40f0be964ca784f38a7325dee, type: 2}
-  skillName: Cleanse
+  skillName: Cleanse Wisp
   skillIcon: {fileID: 2139706835}
   skillCost: 3
   lockColorHex: '#9F9292'
@@ -73265,6 +73267,7 @@ GameObject:
   - component: {fileID: 1748940760}
   - component: {fileID: 1748940761}
   - component: {fileID: 1748940762}
+  - component: {fileID: 1748940763}
   m_Layer: 7
   m_Name: Skiill_Holder
   m_TagString: Untagged
@@ -73315,7 +73318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coolDown: 1
-  skillType: 0
+  skillType: 2
   unlockType: 0
   shardPrefab: {fileID: 898665958671533646, guid: 5dbec0283adbb4643915bc94c1798ded, type: 3}
   detonationTime: 2
@@ -73371,13 +73374,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coolDown: 0
   skillType: 1
-  unlockType: 19
+  unlockType: 0
   timeEchoPrefab: {fileID: 541725540217623526, guid: 0b5daf3cd4d8dec49aa5d2cdd8d4c313, type: 3}
   timeEchoDuration: 15
   maxAttack: 3
   duplicateChance: 0.3
   damagePercentHealed: 0.3
   cooldownReducedInSeconds: 0
+--- !u!114 &1748940763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1748940757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8958b3d069a2b0e4b80d39a8c93a5455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coolDown: 0
+  skillType: 4
+  unlockType: 23
 --- !u!1 &1755627800
 GameObject:
   m_ObjectHideFlags: 0
@@ -76027,7 +76045,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   neededNodes:
   - {fileID: 1045979672}
-  conflictNodes: []
+  conflictNodes:
+  - {fileID: 2081536292}
   isUnlocked: 0
   isLocked: 0
   skillData: {fileID: 11400000, guid: 67d2a045d1d9bb74baaefe944149cba1, type: 2}

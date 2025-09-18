@@ -58,6 +58,7 @@ public class Player : Entity
     public Player_Dead deadState { get; private set; }
     public Player_CounterAttackState counterAttackState { get; private set; }
     public Player_ThrowSwordState throwSwordState { get; private set; }
+    public Player_DomainExpansionState domainExpansionState { get; private set; }
     #endregion
     protected override void Awake()
     {
@@ -84,6 +85,7 @@ public class Player : Entity
         deadState = new Player_Dead(this, stateMachine, "dead");
         counterAttackState = new Player_CounterAttackState(this, stateMachine, "counterAttack");
         throwSwordState = new Player_ThrowSwordState(this, stateMachine, "swordThrow");
+        domainExpansionState = new Player_DomainExpansionState(this, stateMachine, "jumpFall");
 
     }
     protected override void Start()

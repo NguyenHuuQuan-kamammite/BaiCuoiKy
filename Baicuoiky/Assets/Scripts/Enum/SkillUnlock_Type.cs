@@ -23,15 +23,21 @@ public enum SkillUnlock_Type
     SwordThrow_Bounce, // Bounce sword will bounce between enemies
 
 
-// ------ Time Echo ------ 
+    // ------ Time Echo ------ 
     TimeEcho,                // Create a clone of a player. It can take damage from enemies.
     TimeEcho_SingleAttack,   // Time Echo can perform a single attack
     TimeEcho_MultiAttack,    // Time Echo can perform N attacks
     TimeEcho_ChanceToDuplicate, // Time Echo has a chance to create another time echo when attacks
 
     TimeEcho_HealWisp,       // When time echo dies it creates a wisp that flies towards the player to heal it.
-                            // Heal is = to percentage of damage taken when died
+                             // Heal is = to percentage of damage taken when died
     TimeEcho_CleanseWisp,    // Wisp will now remove negative effects from player
-    TimeEcho_CooldownWisp    // Wisp will reduce cooldown of all skills by N second.
+    TimeEcho_CooldownWisp,   // Wisp will reduce cooldown of all skills by N second.
+    
+    // ------ Domain Expansion ------
+    Domain_SlowingDown, // Create an area in which you slow down enemies by 90-100% . You can freely move and fight.
+    Domain_EchoSpam,   // You can no longer move, but you spam enemy with Time Echo ability
+    Domain_ShardSpam   // You can no longer move, but you spam enemy with Time Shard ability
+
 
 }

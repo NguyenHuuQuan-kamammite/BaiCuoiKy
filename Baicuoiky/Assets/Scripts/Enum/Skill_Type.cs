@@ -6,5 +6,6 @@ public enum Skill_Type
     TimeEcho,
     TimeShard,
 
-    SwordThrow
+    SwordThrow,
+    DomainExpansion
 }
