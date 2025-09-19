@@ -2231,7 +2231,7 @@ MonoBehaviour:
       baseValue: 0
       modifiers: []
     iceDamage:
-      baseValue: 0
+      baseValue: 10
       modifiers: []
     lightningDamage:
       baseValue: 0
@@ -4601,7 +4601,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &532388231
 RectTransform:
   m_ObjectHideFlags: 0
@@ -72226,6 +72226,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8671742889591170120, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8671742889591170120, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.73
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -73395,7 +73403,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coolDown: 0
   skillType: 4
-  unlockType: 23
+  unlockType: 22
+  domainPrefab: {fileID: 5679817164849323798, guid: 76374affa938e6d4aa34ba298d3823e5, type: 3}
+  slowDownPercent: 0.8
+  slowDownDomainDuration: 5
+  spellCastingDomainSlowDown: 1
+  spellCasingDomainDuration: 8
+  maxDomainSize: 10
+  expandSpeed: 3
 --- !u!1 &1755627800
 GameObject:
   m_ObjectHideFlags: 0

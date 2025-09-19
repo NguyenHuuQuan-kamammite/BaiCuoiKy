@@ -33,6 +33,10 @@ public class Enemy : Entity
     [SerializeField] private Transform playerCheck;
     [SerializeField] private float playerCheckDistance = 10f;
     public Transform player { get; private set; }
+    public float activeSlowMultiplier { get; private set; } = 1;
+    public float GetMoveSpeed() => moveSpeed * activeSlowMultiplier;
+    public float GetBattleMoveSpeed() => battleMoveSpeed * activeSlowMultiplier;
+
     [Header("Stunned Details")]
     public float stunnedDuration = 1f;
     public Vector2 stunnedVelocity  = new Vector2(7, 7);
@@ -41,22 +45,24 @@ public class Enemy : Entity
 
     protected override IEnumerator SlowDownEntityCo(float duration, float slowMultiplier)
     {
-        float originalSpeed = moveSpeed;
-        float originalBattleSpeed = battleMoveSpeed;
-        float originalAnimSpeed = anim.speed;
+      
 
-        float speedMultiplier = 1f - slowMultiplier;
+        activeSlowMultiplier = 1f - slowMultiplier;
 
-        moveSpeed *= speedMultiplier;
-        battleMoveSpeed *= speedMultiplier;
-        anim.speed *= speedMultiplier;
+      
+        anim.speed *= activeSlowMultiplier;
         yield return new WaitForSeconds(duration);
-        moveSpeed = originalSpeed;
-        battleMoveSpeed = originalBattleSpeed;
-        anim.speed = originalAnimSpeed;
-
+   
     }
-   protected override void Awake()
+
+
+    public override void StopSlowDown()
+    {
+        activeSlowMultiplier = 1;
+        anim.speed = 1;
+        base.StopSlowDown();
+    }
+       protected override void Awake()
     {
         base.Awake();
         // Find the child named "HealthBar_UI"
