@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
-
+    public Enemy_Health health{ get; private set; }
     public Enemy_IdleState idleState;
     public Enemy_MoveState moveState;
     public Enemy_AttackState attackState;
@@ -43,16 +43,17 @@ public class Enemy : Entity
     [SerializeField]protected bool canBeStunned;
     [HideInInspector] public GameObject healthBarUI;
 
+ 
     protected override IEnumerator SlowDownEntityCo(float duration, float slowMultiplier)
     {
-      
+
 
         activeSlowMultiplier = 1f - slowMultiplier;
 
-      
+
         anim.speed *= activeSlowMultiplier;
         yield return new WaitForSeconds(duration);
-   
+
     }
 
 
@@ -62,11 +63,12 @@ public class Enemy : Entity
         anim.speed = 1;
         base.StopSlowDown();
     }
-       protected override void Awake()
+    protected override void Awake()
     {
         base.Awake();
         // Find the child named "HealthBar_UI"
         healthBarUI = transform.Find("HealthBar_UI")?.gameObject;
+        health = GetComponent<Enemy_Health>();
     }
 
 

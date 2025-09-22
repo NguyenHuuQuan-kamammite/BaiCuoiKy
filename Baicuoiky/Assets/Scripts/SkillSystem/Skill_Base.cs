@@ -31,6 +31,7 @@ public class Skill_Base : MonoBehaviour
         unlockType = unlock.upgradeType;
         coolDown = unlock.cooldown;
         damageScaleData = unlock.damageScale;
+        ResetCoolDown();
     }
     public virtual bool CanUseSkill()
     {
@@ -52,5 +53,5 @@ protected bool Unlocked(SkillUnlock_Type upgradeToCheck) => unlockType == upgrad
     public void SetSkillOnCooldown() => lastTimeUsed = Time.time;
     public void ReduceCoolDownBy(float coolDownReduction) => lastTimeUsed = lastTimeUsed + coolDownReduction;
 
-    public void ResetCoolDown() => lastTimeUsed = Time.time;
+    public void ResetCoolDown() => lastTimeUsed = Time.time - coolDown;
 }
