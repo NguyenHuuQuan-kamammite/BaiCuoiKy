@@ -8,17 +8,17 @@ public class Ui_ItemSlot : MonoBehaviour, IPointerDownHandler
 
     
     public Inventory_Item itemInSlot { get; private set; }
-    private Inventory_Player inventory;
+    protected Inventory_Player inventory;
     [Header("Ui Slot Setup")]
     [SerializeField] private TextMeshProUGUI itemStackSize;
     [SerializeField] private Image itemIcon;
-    private void Awake()
+    protected void Awake()
     {
         inventory = FindAnyObjectByType<Inventory_Player>();
         
 
     }
-    public void OnPointerDown(PointerEventData eventData)
+    public virtual void OnPointerDown(PointerEventData eventData)
     {
         if (itemInSlot == null)
             return;

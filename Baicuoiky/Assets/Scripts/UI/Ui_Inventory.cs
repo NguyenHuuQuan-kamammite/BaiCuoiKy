@@ -4,13 +4,41 @@ using System.Collections.Generic;
 public class Ui_Inventory : MonoBehaviour
 {
     private Ui_ItemSlot[] uiItemSlots;
-    private Inventory_Base inventory;
+    private Inventory_Player inventory;
+    private UI_EquipSlot[] uiEquipSlots;
+    [SerializeField] private Transform uiItemSlotParent;
+    [SerializeField] private Transform uiEquipSlotParent;
     private void Awake()
     {
-        uiItemSlots = GetComponentsInChildren<Ui_ItemSlot>();
-        inventory = FindFirstObjectByType<Inventory_Base>();
-        inventory.OnInventoryChange += UpdateInventorySlots;
+        uiItemSlots = uiItemSlotParent.GetComponentsInChildren<Ui_ItemSlot>();
+        uiEquipSlots = uiEquipSlotParent.GetComponentsInChildren<UI_EquipSlot>();
+
+        inventory = FindFirstObjectByType<Inventory_Player>();
+        inventory.OnInventoryChange += UpdateUI;
+        UpdateUI();
+    }
+    private void UpdateUI()
+    {
         UpdateInventorySlots();
+        UpdateEquipSlots();
+    }
+    private void UpdateEquipSlots()
+    {
+        List<Inventory_EquipmentSlot> PlayerEquipList = inventory.equipList; // 2 slots
+
+        for (int i = 0; i < uiEquipSlots.Length; i++) // 10 ui slots
+        {
+            var playerEquipSlot = PlayerEquipList[i];
+            if (playerEquipSlot.HasItem() == false)
+            {
+                uiEquipSlots[i].UpdateSlot(null);
+
+            }
+            else
+            {
+                uiEquipSlots[i].UpdateSlot(playerEquipSlot.equipedItem);
+            }
+        }
     }
     private void UpdateInventorySlots()
     {
