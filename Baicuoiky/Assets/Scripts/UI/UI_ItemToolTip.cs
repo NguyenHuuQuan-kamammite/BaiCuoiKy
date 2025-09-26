@@ -24,6 +24,10 @@ public class UI_ItemToolTip : UI_ToolTip
         {
             return "Used for crafting.";
         }
+        if (item.itemData.itemType == Item_Type.Consumable)
+        {
+            return item.itemData.itemEffects.effectDescription;
+        }
         StringBuilder sb = new StringBuilder();
         sb.AppendLine("");
 
