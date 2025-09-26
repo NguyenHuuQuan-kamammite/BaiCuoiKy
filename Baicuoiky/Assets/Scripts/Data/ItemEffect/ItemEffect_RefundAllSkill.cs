@@ -6,6 +6,6 @@ public class ItemEffect_RefundAllSkill : ItemEffectDataSO
     {
        UI ui = FindFirstObjectByType<UI>();
       
-        ui.skillTree.RefundAllSkillPoints();
+        ui.skillTreeUI.RefundAllSkillPoints();
     }
 }
