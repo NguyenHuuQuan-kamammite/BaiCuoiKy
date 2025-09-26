@@ -72,32 +72,28 @@ public class Entity_Stats : MonoBehaviour
         }
 
         float resistance = baseResistance + bonusResistance;
-        float resistanceCap = 0.75f;
-        float finalResistance = Mathf.Clamp(resistance, 0, resistanceCap); // cap resistance at 75%
+        float resistanceCap = 75f;
+        float finalResistance = Mathf.Clamp(resistance, 0, resistanceCap) / 100f; // cap resistance at 75%
         return finalResistance;
     }
 
     public float GetPhysicalDamage(out bool isCritical, float scaleFactor = 1f)
     {
-        float baseDamage = offense.damage.GetValue();
-        float bonusDamage = major.strength.GetValue(); // each point of strength increases physical damage by 1
-        float totalDamage = baseDamage + bonusDamage;
+        float baseDamage = GetBaseDamage();
 
+        float critChance = GetCritChance();
 
-        float baseCritChance = offense.critChance.GetValue();
-        float bonusCritChance = major.agility.GetValue() * 0.3f; // each point of agility increases crit chance by 0.3%
-        float critChance = baseCritChance + bonusCritChance;
-
-        float baseCritPower = offense.critPower.GetValue();
-        float bonusCritPower = major.strength.GetValue() * 0.5f;
-        float critPower = (baseCritPower + bonusCritPower) / 100f; // each point of strength increases crit power by 0.5%
+        float critPower = GetCritDamage();
 
         isCritical = UnityEngine.Random.Range(0f, 100f) < critChance;
-        float finalDamage = isCritical ? totalDamage * critPower : totalDamage;
+        float finalDamage = isCritical ? baseDamage * critPower : baseDamage;
 
         return finalDamage * scaleFactor;
     }
-
+    public float GetBaseDamage() => offense.damage.GetValue() + major.strength.GetValue();// each point of strength increases physical damage by 1
+    public float GetCritChance() => offense.critChance.GetValue() + (major.agility.GetValue() * 0.3f); // each point of agility increases crit chance by 0.3%
+    public float GetCritDamage() => offense.critPower.GetValue() + (major.strength.GetValue() * 0.5f); // each point of strength increases crit power by 0.5%
+    
 
     public float GetMaxHealth()
     {
@@ -117,9 +113,7 @@ public class Entity_Stats : MonoBehaviour
     }
     public float GetArmorMitigation(float armorReduction)
     {
-        float baseArmor = defense.armor.GetValue();
-        float bonusArmor = major.strength.GetValue(); // each point of strength increases armor by 1
-        float totalArmor = baseArmor + bonusArmor;
+        float totalArmor = GetBaseArmor();
 
         float reductionMultiplier = Math.Clamp(1 - armorReduction, 0, 1); // convert armor reduction percentage to a multiplier
         float effectiveArmor = totalArmor * reductionMultiplier; // apply armor reduction to total armor
@@ -131,7 +125,9 @@ public class Entity_Stats : MonoBehaviour
 
         return finalMitigation;
     }
-
+    public float GetBaseArmor() => defense.armor.GetValue() + major.vitality.GetValue(); // each point of vitality increases armor by 1
+    
+      
     public float GetArmorReduction()
     {
         float finalReduction = offense.armorReduction.GetValue() / 100f; // armor reduction is a percentage
