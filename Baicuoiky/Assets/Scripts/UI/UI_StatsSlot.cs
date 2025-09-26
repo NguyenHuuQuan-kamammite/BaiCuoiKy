@@ -1,11 +1,14 @@
 using UnityEngine;
 using TMPro;
+using System.Reflection;
+using UnityEngine.EventSystems;
 
-public class UI_StatsSlot : MonoBehaviour
+public class UI_StatsSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+
     private RectTransform rect;
     private UI ui;
-    private Entity_Stats playerStats;
+    private Player_Stats playerStats;
     [SerializeField] private Stats_Type statsSlotType;
     [SerializeField] private TextMeshProUGUI statsName;
     [SerializeField] private TextMeshProUGUI statsValue;
@@ -14,11 +17,21 @@ public class UI_StatsSlot : MonoBehaviour
         gameObject.name = "UI_Stats - " + GetStatNameByType(statsSlotType);
         statsName.text = GetStatNameByType(statsSlotType);
     }
+
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+         ui.statsToolTip.ShowToolTip(true, rect, statsSlotType);
+    }
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        ui.statsToolTip.ShowToolTip(false, null, statsSlotType);
+    }
     void Awake()
     {
         rect = GetComponent<RectTransform>();
         ui = GetComponentInParent<UI>();
-        playerStats = FindFirstObjectByType<Entity_Stats>();
+        playerStats = FindFirstObjectByType<Player_Stats>();
     }
     public void UpdateStatValue()
     {
@@ -148,3 +161,4 @@ public class UI_StatsSlot : MonoBehaviour
         }
     }
 }
+// Remove this redundant interface declaration, as IPointerEnterHandler and IPointerExitHandler are provided by UnityEngine.EventSystems.
