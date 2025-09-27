@@ -37,6 +37,12 @@ public class UI_ItemToolTip : UI_ToolTip
             string modValue = IsPercentageStat(mod.statType) ? mod.value.ToString() + "%" : mod.value.ToString();
             sb.AppendLine("+" + modValue + " " + modType);
         }
+        if (item.itemEffect != null)
+        {
+            sb.AppendLine("");
+            sb.AppendLine("Unique Effect:");
+            sb.AppendLine(item.itemEffect.effectDescription);
+        }
         return sb.ToString();
     }
     private string GetStatNameByType(Stats_Type type)

@@ -8,6 +8,14 @@ public class Player_Vfx : Entity_VFX
     [SerializeField] private float timeEchoInterval = 0.05f;
     [SerializeField] private GameObject imageEchoPrefab;
     private Coroutine imageEchoCo;
+
+
+
+    public void CreateEffectOf(GameObject effect,Transform target)
+    {
+        Instantiate(effect, target.position, Quaternion.identity);
+    }
+   
     public void DoImageEchoEffect(float duration)
     {
         if (imageEchoCo != null)

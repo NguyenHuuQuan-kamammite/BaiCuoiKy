@@ -34,6 +34,14 @@ public class Inventory_Item
             statToModify.RemoveModifier( itemId);
         }
     }
+    public void AddIitemEffect(Player player)
+    {
+        itemEffect?.Subcribe(player);
+    }
+    public void RemoveItemEffect()
+    {
+        itemEffect?.Unsubcribe();
+    }
     private EquipmentData_SO EquipmentData()
     {
         if (itemData is EquipmentData_SO equipment)

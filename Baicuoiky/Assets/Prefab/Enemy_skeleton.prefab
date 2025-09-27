@@ -277,16 +277,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 25
+  basicAttackScale:
+    physical: 1
+    elemental: 1
+    chillDuration: 3
+    chillSlowMultiplier: 0.2
+    burnDuration: 3
+    burnDamageScale: 1
+    shockDuration: 3
+    shockDamageScale: 1
+    shockCharge: 0.4
   targetCheck: {fileID: 1987702408227484563}
   targetCheckRadius: 1
   WhatIsTarget:
     serializedVersion: 2
     m_Bits: 128
-  defaultDuration: 3
-  chillSlowMultiplier: 0.4
-  electricCharge: 0.5
-  fireScale: 0.8
-  lightningScale: 2.5
 --- !u!114 &5606721450162826189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,7 +307,6 @@ MonoBehaviour:
   regenInterval: 1
   canRegenerateHealth: 1
   currentHp: 0
-  isDead: 0
   knockbackDuration: 0.2
   onDamageKnockback: {x: 1.5, y: 2.5}
   heavyKnockbackThreshold: 0.3
@@ -344,7 +348,7 @@ MonoBehaviour:
   defaultStatSetup: {fileID: 11400000, guid: 042254f8b1e7ba6488fdcac50fb5228a, type: 2}
   resources:
     maxHealth:
-      baseValue: 100
+      baseValue: 1000
       modifiers: []
     healthRegen:
       baseValue: 0
@@ -354,7 +358,7 @@ MonoBehaviour:
       baseValue: 1
       modifiers: []
     damage:
-      baseValue: 10
+      baseValue: 40
       modifiers: []
     critPower:
       baseValue: 0

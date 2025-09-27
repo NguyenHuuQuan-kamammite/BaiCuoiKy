@@ -1,8 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class Entity_Health : MonoBehaviour, IDamgable
 {
+    public event Action OnTakingDamage;
+
     private Slider healthBar;
     private Entity_VFX entityVFX;
     private Entity entity;
@@ -13,8 +16,8 @@ public class Entity_Health : MonoBehaviour, IDamgable
     [SerializeField] private float regenInterval = 1f;
     [SerializeField] private bool canRegenerateHealth = true;
     [SerializeField] protected float currentHp;
-    public bool isDead{ get; private set; }
-    public float lastDamegeTaken{ get; private set; }
+    public bool isDead { get; private set; }
+    public float lastDamegeTaken { get; private set; }
     protected bool canTakeDamage = true;
 
     [Header("On Damage Knockback")]
@@ -69,6 +72,8 @@ public class Entity_Health : MonoBehaviour, IDamgable
 
         lastDamegeTaken = physicalDamageTaken + elementalDamageTaken;
 
+        OnTakingDamage?.Invoke();
+
         return true;
     }
     public void SetCanTakeDamage(bool canTakeDamage) => this.canTakeDamage = canTakeDamage;
@@ -93,7 +98,7 @@ public class Entity_Health : MonoBehaviour, IDamgable
             return false;
         else
         {
-            return Random.Range(0f, 100f) < stats.GetEvasion();
+            return UnityEngine.Random.Range(0f, 100f) < stats.GetEvasion();
         }
     }
     public void ReduceHp(float damage)
@@ -126,8 +131,8 @@ public class Entity_Health : MonoBehaviour, IDamgable
 
         currentHp = Mathf.Clamp(percent, 0, 1) * stats.GetMaxHealth();
         UpdateHealthBar();
-    
-}
+
+    }
 
     private void UpdateHealthBar()
     {
@@ -136,11 +141,11 @@ public class Entity_Health : MonoBehaviour, IDamgable
     }
 
 
- private void TakeKnockback(Transform damageDealer, float physicalDamageTaken)
+    private void TakeKnockback(Transform damageDealer, float physicalDamageTaken)
     {
         float duration = CalcutateKnockbackDuration(physicalDamageTaken);
 
-        Vector2 knockback = CalculateKnockbackDirection (physicalDamageTaken, damageDealer);
+        Vector2 knockback = CalculateKnockbackDirection(physicalDamageTaken, damageDealer);
 
         entity?.ReceiveKnockback(knockback, duration);
     }

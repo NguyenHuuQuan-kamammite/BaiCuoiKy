@@ -10,15 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b6f8773a7c574bf458b1cbc355e1ecb6, type: 3}
-  m_Name: Equipment data- Armo of natural
+  m_Name: Equipment data- winter's touch
   m_EditorClassIdentifier: 
-  itemName: Armo of natural
-  itemIcon: {fileID: 1234540899, guid: 8b91d8dde6c55504a95c06632a759734, type: 3}
+  itemName: winter's touch
+  itemIcon: {fileID: -351373718, guid: 8b91d8dde6c55504a95c06632a759734, type: 3}
   itemType: 2
   maxStackSize: 1
-  itemEffects: {fileID: 0}
+  itemEffects: {fileID: 11400000, guid: e6102f9a38a483b4f98b8c8777e4b295, type: 2}
   modifiers:
   - statType: 0
-    value: 100
-  - statType: 1
-    value: 15
+    value: 250
+  - statType: 14
+    value: 20
+  - statType: 16
+    value: 35
+  - statType: 2
+    value: 14
