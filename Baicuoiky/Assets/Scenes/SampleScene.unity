@@ -5097,7 +5097,7 @@ MonoBehaviour:
   riseSpeed: 25
   riseMaxDistance: 3
   moveSpeed: 8
-  jumpForce: 12
+  jumpForce: 20
   wallJumpForce: {x: 6, y: 12}
   inAirMoveMultiplier: 0.8
   wallSlideSlowMultiplier: 0.4
