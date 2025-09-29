@@ -24,7 +24,11 @@ public class Inventory_Base : MonoBehaviour
         OnInventoryChange?.Invoke();
     }
 
-    public bool CanAddItem() => itemList.Count < maxInventorySize;
+    public bool CanAddItem(Inventory_Item itemToAdd)
+    {
+       bool hasStackable = FindStackable(itemToAdd) != null;
+       return hasStackable || itemList.Count < maxInventorySize;
+    }
     public Inventory_Item FindStackable(Inventory_Item itemToAdd)
     {
         List<Inventory_Item> stackableItems = itemList.FindAll(item => item.itemData == itemToAdd.itemData);
