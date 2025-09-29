@@ -32,8 +32,6 @@ public class Entity_StatusHandler : MonoBehaviour
     {
         float iceResistance = stats.GetElementalResistance(ElementType.Ice);
         float finalDuration = duration * (1 - iceResistance); // Apply resistance to the duration
-
-        Debug.Log("Chill effect applied.");
         StartCoroutine(ChillEffectCo(finalDuration, slowMultiplier));
     }
 
