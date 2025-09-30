@@ -26,5 +26,10 @@ public class Object_BlackSmith : Object_NPC, Iinteractable
         storage.SetInventory(inventory);
     }
 
+    protected override void OnTriggerExit2D(Collider2D collision)
+    {
+        base.OnTriggerExit2D(collision);
+        ui.storageUI.gameObject.SetActive(false);
+        ui.SwitchOffAllToolTips();
+    }
 }
-

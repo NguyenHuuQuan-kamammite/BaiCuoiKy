@@ -13,14 +13,16 @@ public class UI_StorageSlot : Ui_ItemSlot
     public override void OnPointerDown(PointerEventData eventData)
     {
         if (itemInSlot == null) { return; }
+
+        bool tranferFullStack = Input.GetKey(KeyCode.LeftControl);
         
         if (slotType == StorageSlotType.StorageSlot)
         {
-            storage.FromStorageToPlayer(itemInSlot);
+            storage.FromStorageToPlayer(itemInSlot, tranferFullStack);
         }
         if (slotType == StorageSlotType.PlayerInventorySlot)
         {
-            storage.FromPlayerToStorage(itemInSlot);
+            storage.FromPlayerToStorage(itemInSlot, tranferFullStack);
         }
         ui.itemToolTip.ShowToolTip(false,null);
  
