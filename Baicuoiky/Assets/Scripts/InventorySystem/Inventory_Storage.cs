@@ -6,6 +6,26 @@ public class Inventory_Storage : Inventory_Base
     private Inventory_Player playerInventory;
     public List<Inventory_Item> materialStash;
 
+    public int GetAvailableAmountOf(ItemDataSO requireItem)
+    {
+        int amount = 0;
+        foreach (var item in playerInventory.itemList)
+        {
+            if (item.itemData == requireItem)
+                amount = amount + item.stackSize;
+        }
+        foreach (var item in itemList)
+        {
+            if (item.itemData == requireItem)
+                amount = amount + item.stackSize;
+        }
+        foreach (var item in materialStash)
+        {
+            if (item.itemData == requireItem)
+                amount = amount + item.stackSize;
+        }
+        return amount;
+    }
     public void AddMaterialToStash(Inventory_Item itemToAdd)
     {
         var stackableItem = StackableStash(itemToAdd);
@@ -13,7 +33,7 @@ public class Inventory_Storage : Inventory_Base
             stackableItem.AddStack();
         else
             materialStash.Add(itemToAdd);
-            
+
         TriggerUpdateUI();
     }
     public void RemoveMaterialFromStash(Inventory_Item item)
