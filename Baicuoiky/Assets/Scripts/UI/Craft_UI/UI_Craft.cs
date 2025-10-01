@@ -2,12 +2,22 @@ using UnityEngine;
 
 public class UI_Craft : MonoBehaviour
 {
+    [SerializeField] private UI_ItemSlotParent inventoryParent;
+    private Inventory_Player inventory;
     private UI_CraftSlot[] craftSlots;
-   private UI_CraftListButton[] craftListButton;
+    private UI_CraftListButton[] craftListButton;
+    private UI_CraftPreview craftPreviewUI;
 
 
-    private void Awake()
+
+    public void SetUpCraftUI(Inventory_Storage storage)
     {
+        inventory = storage.playerInventory;
+        inventory.OnInventoryChange += UpdateUI;
+
+        UpdateUI();
+        craftPreviewUI = GetComponentInChildren<UI_CraftPreview>();
+        craftPreviewUI.SetupCraftPreview(storage);
         SetupCraftListButton();
     }
     private void SetupCraftListButton()
@@ -24,4 +34,5 @@ public class UI_Craft : MonoBehaviour
             button.SetCraftSlot(craftSlots);
         }
     }
+    private void UpdateUI() => inventoryParent.UpdateSlots(inventory.itemList);
 }

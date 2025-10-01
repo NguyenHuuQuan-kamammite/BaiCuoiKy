@@ -15,8 +15,10 @@ public class Object_BlackSmith : Object_NPC, Iinteractable
     }
     public void Interact()
     {
-        ui.storageUI.SetUpStorage(inventory, storage);
+        ui.storageUI.SetUpStorage(storage);
+        ui.craftUI.SetUpCraftUI(storage);
         ui.storageUI.gameObject.SetActive(true);
+        //ui.craftUI.gameObject.SetActive(true);
 
     }
     protected override void OnTriggerEnter2D(Collider2D collision)
@@ -31,5 +33,6 @@ public class Object_BlackSmith : Object_NPC, Iinteractable
         base.OnTriggerExit2D(collision);
         ui.storageUI.gameObject.SetActive(false);
         ui.SwitchOffAllToolTips();
+        ui.craftUI.gameObject.SetActive(false);
     }
 }
