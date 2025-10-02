@@ -5,7 +5,7 @@ public class Inventory_Player : Inventory_Base
 {
     private Player player;
     public List<Inventory_EquipmentSlot> equipList;
-
+    public int gold = 1000;
     public Inventory_Storage storage{ get; private set; }
     protected override void Awake()
     {

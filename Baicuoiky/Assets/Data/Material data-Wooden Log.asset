@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c24336d6eee04c4dbe15a0b234f2018, type: 3}
   m_Name: Material data-Wooden Log
   m_EditorClassIdentifier: 
-  itemName: 
-  itemIcon: {fileID: 0}
-  itemType: 0
-  maxStackSize: 1
-  itemEffects: {fileID: 0}
+  itemPrice: 100
+  minStackSizeAtShop: 1
+  maxStackSizeAtShop: 5
   craftRecipe: []
+  itemName: Wooden Log
+  itemIcon: {fileID: -109768392, guid: 8b91d8dde6c55504a95c06632a759734, type: 3}
+  itemType: 0
+  maxStackSize: 5
+  itemEffects: {fileID: 0}

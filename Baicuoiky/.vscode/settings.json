@@ -56,5 +56,10 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Baicuoiky.sln"
+    "dotnet.defaultSolution": "Baicuoiky.sln",
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": {
+        "comments": "on",
+        "strings": "on"
+    }
 }

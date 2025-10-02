@@ -9,6 +9,7 @@ public class UI : MonoBehaviour
     public Ui_Inventory inventoryUI { get; private set; }
     public UI_Storage storageUI { get; private set; }
     public UI_Craft craftUI { get; private set; }
+    public UI_Merchant merchantUI {  get; private set; }
     private bool skillTreeEnabled;
     private bool inventoryEnabled;
 
@@ -21,6 +22,7 @@ public class UI : MonoBehaviour
         inventoryUI = GetComponentInChildren<Ui_Inventory>(true);
         storageUI = GetComponentInChildren<UI_Storage>(true);
         craftUI = GetComponentInChildren<UI_Craft>(true);
+        merchantUI = GetComponentInChildren<UI_Merchant>( true);
         skillTreeEnabled = skillTreeUI.gameObject.activeSelf;
         inventoryEnabled = inventoryUI.gameObject.activeSelf;
     }

@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd98fc4e30da2647aae9a81312a0f31, type: 3}
   m_Name: List of items- Weapon to Craft
   m_EditorClassIdentifier: 
-  itemList: []
+  itemList:
+  - {fileID: 11400000, guid: ae036aa300128014ca6b0d8fba0c0d2c, type: 2}
+  - {fileID: 11400000, guid: 39aa937eb037f5d4aa45e3f10b53c2bb, type: 2}
