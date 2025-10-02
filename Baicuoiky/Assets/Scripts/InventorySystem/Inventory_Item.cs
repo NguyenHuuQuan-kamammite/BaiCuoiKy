@@ -1,6 +1,6 @@
 using UnityEngine;
 using System;
-using System;
+
 using System.Text;
 using Unity.VisualScripting;
 [Serializable]
@@ -62,16 +62,25 @@ public float sellPrice{ get; private set; }
     
      public string GetItemInfo()
     {
+        StringBuilder sb = new StringBuilder();
         if (itemData.itemType == Item_Type.Material)
-
         {
-            return "Used for crafting.";
+            sb.AppendLine("");
+            sb.AppendLine("Use for Crafting");
+            sb.AppendLine("");
+            sb.AppendLine("");
+            return sb.ToString();
         }
         if (itemData.itemType == Item_Type.Consumable)
         {
-            return itemData.itemEffects.effectDescription;
+            sb.AppendLine("");
+            sb.AppendLine(itemEffect.effectDescription);
+            sb.AppendLine("");
+            sb.AppendLine("");
+            return sb.ToString();
         }
-        StringBuilder sb = new StringBuilder();
+
+
         sb.AppendLine("");
 
         foreach (var mod in modifiers)
@@ -86,6 +95,8 @@ public float sellPrice{ get; private set; }
             sb.AppendLine("Unique Effect:");
             sb.AppendLine(itemEffect.effectDescription);
         }
+        sb.AppendLine("");
+        sb.AppendLine("");
         return sb.ToString();
     }
     private string GetStatNameByType(Stats_Type type)
