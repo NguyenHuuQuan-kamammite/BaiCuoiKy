@@ -27,7 +27,8 @@ public class UI_MerchantSlot : Ui_ItemSlot
         }
         else if (slotType == MerchantSlotType.MerchantSlot)
         {
-            if (leftButton) return;
+            if (leftButton) 
+                return;
             bool buyFullStack = Input.GetKey(KeyCode.LeftControl);
             merchant.TryBuyItem(itemInSlot, buyFullStack);
 
