@@ -21,7 +21,7 @@ public class Object_Merchant :Object_NPC, Iinteractable
     }
     public void Interact()
     {
-       ui.merchantUI.SetUpMerchantUI(merchant, inventory);
+        ui.merchantUI.SetUpMerchantUI(merchant, inventory);
         ui.merchantUI.gameObject.SetActive(true);
     }
     protected override void OnTriggerEnter2D(Collider2D collision)

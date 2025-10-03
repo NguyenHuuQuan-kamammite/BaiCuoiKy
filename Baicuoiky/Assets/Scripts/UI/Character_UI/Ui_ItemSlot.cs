@@ -11,6 +11,8 @@ public class Ui_ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
     protected UI ui;
     protected RectTransform rect;
     protected Inventory_Player inventory;
+
+
     [Header("Ui Slot Setup")]
     [SerializeField] private TextMeshProUGUI itemStackSize;
     [SerializeField] private Image itemIcon;
