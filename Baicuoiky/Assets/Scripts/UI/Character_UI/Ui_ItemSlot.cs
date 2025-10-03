@@ -26,20 +26,27 @@ public class Ui_ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
     {
         if (itemInSlot == null || itemInSlot.itemData.itemType == Item_Type.Material)
             return;
+        bool alternativeInput = Input.GetKey(KeyCode.LeftControl);
 
-
-        if (itemInSlot.itemData.itemType == Item_Type.Consumable)
+        if (alternativeInput)
         {
-            if (itemInSlot.itemEffect.CanBeUsed() == false)
-                return;
-            inventory.TryUseItem(itemInSlot);
+            inventory.RemoveOneItem(itemInSlot);
         }
-
         else
-            inventory.TryEquipItem(itemInSlot);
-            
-        if (itemInSlot == null)
-            ui.itemToolTip.ShowToolTip(false, null);
+        {
+            if (itemInSlot.itemData.itemType == Item_Type.Consumable)
+            {
+                if (itemInSlot.itemEffect.CanBeUsed() == false)
+                    return;
+                inventory.TryUseItem(itemInSlot);
+            }
+
+            else
+                inventory.TryEquipItem(itemInSlot);
+        }
+            if (itemInSlot == null)
+                ui.itemToolTip.ShowToolTip(false, null);
+        
     }
     public void UpdateSlot(Inventory_Item item)
     {

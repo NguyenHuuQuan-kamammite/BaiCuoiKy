@@ -11,6 +11,7 @@ public class Entity_Health : MonoBehaviour, IDamgable
     private Entity entity;
 
     private Entity_Stats stats;
+    private Entity_DropManager dropManager;
 
     [Header("Health regen")]
     [SerializeField] private float regenInterval = 1f;
@@ -35,6 +36,7 @@ public class Entity_Health : MonoBehaviour, IDamgable
         entity = GetComponent<Entity>();
         stats = GetComponent<Entity_Stats>();
         healthBar = GetComponentInChildren<Slider>();
+        dropManager = GetComponent<Entity_DropManager>();
         SetUpHealth();
     }
 
@@ -118,6 +120,7 @@ public class Entity_Health : MonoBehaviour, IDamgable
         isDead = true;
 
         entity.EntityDeath();
+        dropManager.DropItems();
     }
 
     public float GetHealthPercent()

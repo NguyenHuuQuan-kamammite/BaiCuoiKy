@@ -6,7 +6,17 @@ public class Inventory_Storage : Inventory_Base
     public Inventory_Player playerInventory{ get; private set; }
     public List<Inventory_Item> materialStash;
 
-    public void ConsumeMaterial(Inventory_Item itemToCraft)
+
+    public void CraftItem( Inventory_Item itemToCraft)
+    {
+        ConsumeMaterial(itemToCraft);
+        playerInventory.AddItem(itemToCraft);
+    }
+    public bool CanCraftItem(Inventory_Item itemToCraft)
+    {
+        return HasEnoughMaterial(itemToCraft) && playerInventory.CanAddItem(itemToCraft);
+    }
+    private void ConsumeMaterial(Inventory_Item itemToCraft)
     {
         foreach (var requiredItem in itemToCraft.itemData.craftRecipe)
         {
@@ -45,7 +55,7 @@ public class Inventory_Storage : Inventory_Base
         return consumedAmount;
 
     }
-    public bool HasEnoughMaterial(Inventory_Item itemToCraft)
+    private bool HasEnoughMaterial(Inventory_Item itemToCraft)
     {
         foreach (var requiredMaterial in itemToCraft.itemData.craftRecipe)
         {

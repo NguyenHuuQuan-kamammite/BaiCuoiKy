@@ -36,10 +36,9 @@ public class UI_CraftPreview : MonoBehaviour
             buttonText.text = " Pick an item.";
             return;
         }
-        if (storage.HasEnoughMaterial(itemToCraft) && storage.playerInventory.CanAddItem(itemToCraft))
+        if (storage.CanCraftItem(itemToCraft))
         {
-            storage.ConsumeMaterial(itemToCraft);
-            storage.playerInventory.AddItem(itemToCraft);
+            storage.CraftItem(itemToCraft);
         }
         UppdateCraftPreviewSlots();
     }

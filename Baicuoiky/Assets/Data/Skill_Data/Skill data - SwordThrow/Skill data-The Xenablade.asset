@@ -17,9 +17,9 @@ MonoBehaviour:
   icon: {fileID: -1512096960, guid: 8b91d8dde6c55504a95c06632a759734, type: 3}
   cost: 2
   unlockByDefault: 0
-  skillType: 0
+  skillType: 3
   upgradeData:
-    upgradeType: 0
+    upgradeType: 14
     cooldown: 4
     damageScale:
       physical: 1

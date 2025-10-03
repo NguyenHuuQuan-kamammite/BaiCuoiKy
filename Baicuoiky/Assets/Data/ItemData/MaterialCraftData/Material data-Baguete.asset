@@ -10,14 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c24336d6eee04c4dbe15a0b234f2018, type: 3}
-  m_Name: Material data-Vampire ash
+  m_Name: Material data-Baguete
   m_EditorClassIdentifier: 
   itemPrice: 100
   minStackSizeAtShop: 1
   maxStackSizeAtShop: 5
+  itemRarity: 770
+  dropChance: 23.1
+  maxDropChance: 68.3
   craftRecipe: []
-  itemName: Vampire ash
-  itemIcon: {fileID: 1911307126, guid: 8b91d8dde6c55504a95c06632a759734, type: 3}
+  itemName: Baguete
+  itemIcon: {fileID: 1809503074, guid: 8b91d8dde6c55504a95c06632a759734, type: 3}
   itemType: 0
   maxStackSize: 5
   itemEffects: {fileID: 0}

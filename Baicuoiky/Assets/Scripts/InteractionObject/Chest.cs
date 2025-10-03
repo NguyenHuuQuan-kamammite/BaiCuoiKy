@@ -5,10 +5,17 @@ public class Chest : MonoBehaviour, IDamgable
     private Rigidbody2D rb => GetComponentInChildren<Rigidbody2D>();
     private Animator anim => GetComponentInChildren<Animator>();
     private Entity_VFX fx => GetComponent<Entity_VFX>();
+    private Entity_DropManager dropManager => GetComponent<Entity_DropManager>();
     [Header("Chest Settings")]
     [SerializeField] private Vector2 knockback;
+    [SerializeField] private bool canDropItems = true;
     public bool TakeDamage(float damage,float elementalDamage,ElementType element, Transform damageDealer)
     {
+        if (canDropItems == false)
+            return false;
+
+        canDropItems = false;
+        dropManager?.DropItems();
         fx.PlayOnDamageVFX();
         anim.SetBool("chestOpen", true);
         rb.linearVelocity = knockback;

@@ -8,7 +8,8 @@ public class UI_MerchantSlot : Ui_ItemSlot
     public MerchantSlotType slotType;
     public override void OnPointerDown(PointerEventData eventData)
     {
-        if (itemInSlot == null) return;
+        if (itemInSlot == null)
+            return;
 
         bool rightButton = eventData.button == PointerEventData.InputButton.Right;
         bool leftButton = eventData.button == PointerEventData.InputButton.Left;
@@ -18,6 +19,7 @@ public class UI_MerchantSlot : Ui_ItemSlot
             if (rightButton)
             {
                 bool sellFullStack = Input.GetKey(KeyCode.LeftControl);
+                
                 merchant.TrySellItem(itemInSlot, sellFullStack);
             }
             else if (leftButton)

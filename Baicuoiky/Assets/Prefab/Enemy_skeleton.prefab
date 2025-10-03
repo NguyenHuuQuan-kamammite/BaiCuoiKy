@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 5032868754842394265}
   - component: {fileID: 2948427220601988860}
   - component: {fileID: 970098174105273287}
+  - component: {fileID: 51719769527757916}
   m_Layer: 8
   m_Name: Enemy_skeleton
   m_TagString: Untagged
@@ -422,6 +423,22 @@ MonoBehaviour:
   electricVfx: {fileID: 4078757023487117090, guid: b2983a67687057c4ab30287f7062f4a6, type: 3}
   currentCharge: 0
   maxCharge: 1
+--- !u!114 &51719769527757916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740303615401344093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7525c30c7e260046af495a999a89b0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemDropPrefab: {fileID: 3408881902915014989, guid: 39cf066e3dea51f47b9d781a311f890d, type: 3}
+  dropData: {fileID: 11400000, guid: 6be69b7b083ff8d49ab7e7a4f7ae7693, type: 2}
+  maxRarityAmount: 1200
+  maxItemsToDrop: 3
 --- !u!1 &1895953376075105451
 GameObject:
   m_ObjectHideFlags: 0

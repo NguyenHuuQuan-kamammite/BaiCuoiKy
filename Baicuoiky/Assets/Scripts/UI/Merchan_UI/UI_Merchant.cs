@@ -29,8 +29,8 @@ public class UI_Merchant : MonoBehaviour
 
         if (inventory == null)
             return;
-        inventorSlots.UpdateSlots(inventory.itemList);
         merchantSlots.UpdateSlots(merchant.itemList);
+        inventorSlots.UpdateSlots(inventory.itemList);
         equipSlots.UpdateEquipmentSlot(inventory.equipList);  
     }
 }

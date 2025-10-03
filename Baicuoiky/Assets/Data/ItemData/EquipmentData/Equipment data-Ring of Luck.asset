@@ -12,10 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6f8773a7c574bf458b1cbc355e1ecb6, type: 3}
   m_Name: Equipment data-Ring of Luck
   m_EditorClassIdentifier: 
+  itemPrice: 100
+  minStackSizeAtShop: 1
+  maxStackSizeAtShop: 1
+  itemRarity: 882
+  dropChance: 11.9
+  maxDropChance: 65.8
+  craftRecipe: []
   itemName: Ring of Luck
   itemIcon: {fileID: -504278179, guid: 8b91d8dde6c55504a95c06632a759734, type: 3}
   itemType: 3
   maxStackSize: 1
+  itemEffects: {fileID: 0}
   modifiers:
   - statType: 8
     value: 15
