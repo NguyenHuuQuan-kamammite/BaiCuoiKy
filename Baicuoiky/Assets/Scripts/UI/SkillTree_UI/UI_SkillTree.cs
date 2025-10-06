@@ -4,18 +4,25 @@ public class UI_SkillTree : MonoBehaviour
 {
     public int skillPoints;
     [SerializeField] UI_TreeConnectHandler[] parentNodes;
+    private UI_TreeNode[] allTreeNodes;
     public Player_SkillManager skillManager { get; private set; }
 
-private void Awake()
-    {
-       skillManager = FindAnyObjectByType<Player_SkillManager>();
-    }
+
     private void Start()
     {
 
         UpdateAllConnections();
     }
 
+    public void UnlockDefaulSkills()
+    {
+        allTreeNodes = GetComponentsInChildren<UI_TreeNode>(true);
+        skillManager = FindAnyObjectByType<Player_SkillManager>();
+        foreach (var node in allTreeNodes)
+        {
+            node.UnlockDefaulSkill();
+        }
+    }
 
 [ContextMenu("Reset Skill Tree")]
     public void RefundAllSkillPoints()

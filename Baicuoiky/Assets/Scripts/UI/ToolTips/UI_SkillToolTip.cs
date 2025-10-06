@@ -31,17 +31,22 @@ public class UI_SkillToolTip : UI_ToolTip
 
     }
 
-    public void ShowToolTip(bool show, RectTransform targetRect, UI_TreeNode node)
+    public void ShowToolTip(bool show, RectTransform targetRect, Skill_DataSo skillData, UI_TreeNode node)
     {
         base.ShowToolTip(show, targetRect);
-        if (node == null || node.skillData == null)
+       if(show==false)
+            return;
+        skillName.text = skillData.skillName;
+        skillDescription.text = skillData.description;
+        skillCoolDown.text = "Cooldown:"+ skillData.upgradeData.cooldown + "s.";
+
+
+        if(node == null)
         {
-            Debug.LogWarning("Node or skill data is null.");
+            skillRequirements.text = "";
             return;
         }
-        skillName.text = node.skillData.skillName;
-        skillDescription.text = node.skillData.description;
-        skillCoolDown.text = "Cooldown:"+ node.skillData.upgradeData.cooldown + "s.";
+
         string skillLockText = GetColorText(importantInfoHex, lockSkillText);
         string requirements = node.isLocked ? skillLockText : GetRequirements(node.skillData.cost, node.neededNodes, node.conflictNodes);
         skillRequirements.text = requirements;
