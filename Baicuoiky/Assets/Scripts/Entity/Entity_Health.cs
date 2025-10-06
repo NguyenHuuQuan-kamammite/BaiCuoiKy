@@ -5,6 +5,7 @@ using System;
 public class Entity_Health : MonoBehaviour, IDamgable
 {
     public event Action OnTakingDamage;
+    public event Action OnHealthUpdate;
 
     private Slider healthBar;
     private Entity_VFX entityVFX;
@@ -45,6 +46,7 @@ public class Entity_Health : MonoBehaviour, IDamgable
         if (stats == null)
             return;
         currentHp = stats.GetMaxHealth();
+        OnHealthUpdate += UpdateHealthBar;
         UpdateHealthBar();
         InvokeRepeating(nameof(RegenerateHealth), 0, regenInterval);
     }
@@ -85,7 +87,9 @@ public class Entity_Health : MonoBehaviour, IDamgable
         float newHealth = currentHp + healthAmount;
         float maxHealth = stats.GetMaxHealth();
         currentHp = Mathf.Min(newHealth, maxHealth);
-        UpdateHealthBar();
+
+        OnHealthUpdate?.Invoke();
+        
     }
     private void RegenerateHealth()
     {
@@ -105,9 +109,9 @@ public class Entity_Health : MonoBehaviour, IDamgable
     }
     public void ReduceHp(float damage)
     {
-        entityVFX?.PlayOnDamageVFX();
         currentHp -= damage;
-        UpdateHealthBar();
+        entityVFX?.PlayOnDamageVFX();
+        OnHealthUpdate?.Invoke();
         if (currentHp <= 0)
         {
             Die();
@@ -133,10 +137,10 @@ public class Entity_Health : MonoBehaviour, IDamgable
         if (isDead) return;
 
         currentHp = Mathf.Clamp(percent, 0, 1) * stats.GetMaxHealth();
-        UpdateHealthBar();
+        OnHealthUpdate?.Invoke();
 
     }
-
+    public float GetCurrentHealth() => currentHp;
     private void UpdateHealthBar()
     {
         if (healthBar == null) return;
