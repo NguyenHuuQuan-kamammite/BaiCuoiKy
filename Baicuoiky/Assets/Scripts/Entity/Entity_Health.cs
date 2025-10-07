@@ -10,7 +10,7 @@ public class Entity_Health : MonoBehaviour, IDamgable
     private Slider healthBar;
     private Entity_VFX entityVFX;
     private Entity entity;
-
+    private bool miniHealthBarActice;
     private Entity_Stats stats;
     private Entity_DropManager dropManager;
 
@@ -143,10 +143,11 @@ public class Entity_Health : MonoBehaviour, IDamgable
     public float GetCurrentHealth() => currentHp;
     private void UpdateHealthBar()
     {
-        if (healthBar == null) return;
+        if (healthBar == null && healthBar.transform.parent.gameObject.activeSelf == false)
+            return;
         healthBar.value = currentHp / stats.GetMaxHealth();
     }
-
+    public void EnableHealthBar(bool enable) => healthBar?.transform.parent.gameObject.SetActive(enable);
 
     private void TakeKnockback(Transform damageDealer, float physicalDamageTaken)
     {
