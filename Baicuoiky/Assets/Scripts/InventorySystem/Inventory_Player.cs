@@ -1,18 +1,47 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Inventory_Player : Inventory_Base
 {
-    private Player player;
-    public List<Inventory_EquipmentSlot> equipList;
+    public event Action<int, Inventory_Item> onQuickSlotUse;
+
     public int gold = 1000;
-    public Inventory_Storage storage{ get; private set; }
+    private Player player;
+    public Inventory_Storage storage { get; private set; }
+    public List<Inventory_EquipmentSlot> equipList;
+    [Header("Quick item Slots")]
+    [SerializeField]
+    private Inventory_Item[] quickItems = new Inventory_Item[2];
     protected override void Awake()
     {
         base.Awake();
         player = GetComponent<Player>();
         storage = FindFirstObjectByType<Inventory_Storage>();
     }
+    public void SetQuickItemInSlot(int slotNumber, Inventory_Item itemToSet)
+    {
+        quickItems[slotNumber - 1] = itemToSet; 
+        onQuickSlotUse?.Invoke(slotNumber - 1, itemToSet);
+    }
+
+    public void TryUseQuickItemInSlot(int passsedSlotNumber)
+    {
+        int slotNumber = passsedSlotNumber - 1;
+        var itemToUse = quickItems[slotNumber]; 
+
+        if (itemToUse == null)
+        {
+            return;
+        }
+        TryUseItem(itemToUse);
+        if (FindItem(itemToUse) == null)
+        {
+            quickItems[slotNumber] = FindSameItem(itemToUse);
+        }
+        onQuickSlotUse?.Invoke(slotNumber, quickItems[slotNumber]); 
+    }
+
     public void TryEquipItem(Inventory_Item item)
     {
         var inventoryItem = FindItem(item);
@@ -30,7 +59,7 @@ public class Inventory_Player : Inventory_Base
         // 2 : No empty slot found, replace the first one
         var slotToReplace = matchingSlots[0];
         var itemToUnequip = slotToReplace.equipedItem;
-        UnequipItem(itemToUnequip,slotToReplace != null);
+        UnequipItem(itemToUnequip, slotToReplace != null);
         EquipItem(inventoryItem, slotToReplace);
     }
     private void EquipItem(Inventory_Item itemToEquip, Inventory_EquipmentSlot slot)
@@ -42,7 +71,7 @@ public class Inventory_Player : Inventory_Base
         player.health.SetHealthToPercent(saveHealthPercent);
         RemoveOneItem(itemToEquip);
     }
-    public void UnequipItem(Inventory_Item itemToUnequip,bool replacingItem = false)
+    public void UnequipItem(Inventory_Item itemToUnequip, bool replacingItem = false)
     {
         if (CanAddItem(itemToUnequip) == false && replacingItem == false)
         {
@@ -54,11 +83,10 @@ public class Inventory_Player : Inventory_Base
         var slotToUnequip = equipList.Find(slot => slot.equipedItem == itemToUnequip);
         if (slotToUnequip != null)
             slotToUnequip.equipedItem = null;
-            
+
         itemToUnequip.RemoveModifiers(player.stats);
         itemToUnequip.RemoveItemEffect();
         player.health.SetHealthToPercent(saveHealthPercent);
         AddItem(itemToUnequip);
     }
-
 }

@@ -1,3 +1,5 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,19 +8,56 @@ public class UI_InGame : MonoBehaviour
 {
 
     private Player player;
-
+    private Inventory_Player inventory;
     private UI_SkillSlot[] skillSlots;
 
     [SerializeField] private RectTransform healthRect;
     [SerializeField] private Slider healthSlider;
     [SerializeField] private TextMeshProUGUI healthText;
 
+    [Header("Quick Item Slot")]
+    [SerializeField] private float yOffsetQuickItemParent = 150;
+    [SerializeField] private Transform quickItemOptionsParent;
+    private UI_QuickItemSlotOption[] quickItemOptions;
+
+    private UI_QuickItemSlot[] quickItemSlots;
+
     private void Start()
     {
+        quickItemSlots = GetComponentsInChildren<UI_QuickItemSlot>();
         player = FindFirstObjectByType<Player>();
         player.health.OnHealthUpdate += UpdateHealthBar;
         skillSlots = GetComponentsInChildren<UI_SkillSlot>(true);
+        inventory = player.inventory;
+        inventory.onQuickSlotUse += UpdateQuickSlotsUI;
     }
+    public void UpdateQuickSlotsUI(int slotNumber, Inventory_Item itemInSlot)
+    {
+        quickItemSlots[slotNumber].UpdateQuickSlotUI(itemInSlot);
+    }
+    public void OpenQuickItemOption(UI_QuickItemSlot quickItemSlot, RectTransform targetRect)
+    {
+        if(quickItemOptions == null)
+        {
+            quickItemOptions = quickItemOptionsParent.GetComponentsInChildren<UI_QuickItemSlotOption>(true);
+        }
+        List<Inventory_Item> consumables = inventory.itemList.FindAll(item => item.itemData.itemType == Item_Type.Consumable);
+
+        for(int i = 0; i < quickItemOptions.Length; i++)
+        {
+            if(i < consumables.Count)
+            {
+                quickItemOptions[i].gameObject.SetActive(true);
+                quickItemOptions[i].SetUpOption(quickItemSlot,consumables[i]);
+            }
+            else
+                quickItemOptions[i].gameObject.SetActive(false);
+        }
+        quickItemOptionsParent.position = targetRect.position + Vector3.up * yOffsetQuickItemParent;
+    }
+
+    public void HideQuickItemOption() => quickItemOptionsParent.position = new Vector3(0,999);
+
 
     public UI_SkillSlot GetSkillSlot(Skill_Type skillType)
     {
