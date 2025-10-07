@@ -11,7 +11,6 @@ public class Entity : MonoBehaviour
 
     protected StateMachine stateMachine;
 
-   public Entity_Stats stats { get; private set; }
 
     
 
@@ -38,7 +37,6 @@ public class Entity : MonoBehaviour
     {
         anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        stats = GetComponent<Entity_Stats>();
         stateMachine = new StateMachine();
 
     }

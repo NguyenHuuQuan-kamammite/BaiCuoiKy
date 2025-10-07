@@ -46,6 +46,7 @@ public class Player : Entity
     public Vector2 mousePosition { get; private set; }
     public Player_Combat combat { get; private set; }
     public Inventory_Player inventory { get; private set; }
+    public Player_Stats stats { get; private set; }
 
     #region States
     public Player_IdleState idleState { get; private set; }
@@ -72,8 +73,8 @@ public class Player : Entity
         statusHandler = GetComponent<Entity_StatusHandler>();
         combat = GetComponent<Player_Combat>();
         inventory = GetComponent<Inventory_Player>();
+        stats = GetComponent<Player_Stats>();
         input = new PlayerInputSet();
-
 
         idleState = new Player_IdleState(this, stateMachine, "idle");
         moveState = new Player_MoveState(this, stateMachine, "move");

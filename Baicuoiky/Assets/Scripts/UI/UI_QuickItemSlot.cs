@@ -1,14 +1,24 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class UI_QuickItemSlot :Ui_ItemSlot
 {
-
+    private Button button;
     [SerializeField] private Sprite defaultSprite;
     [SerializeField] private int slotNumber;
 
-
-
+    protected override void Awake()
+    {
+        
+        base.Awake();
+        button = GetComponent<Button>();
+    }
+    public void SimulateButtonFeedback()
+    {
+        EventSystem.current.SetSelectedGameObject(button.gameObject);
+        ExecuteEvents.Execute(button.gameObject, new BaseEventData(EventSystem.current), ExecuteEvents.submitHandler);
+    }
     public void SetUpQuickSlotItem(Inventory_Item itemToPass)
     {
 
@@ -16,6 +26,7 @@ public class UI_QuickItemSlot :Ui_ItemSlot
     }
     public void UpdateQuickSlotUI(Inventory_Item currentItemInSlot)
     {
+       
        if(currentItemInSlot == null|| currentItemInSlot.itemData ==null)
         {
             itemIcon.sprite = defaultSprite;
@@ -30,6 +41,7 @@ public class UI_QuickItemSlot :Ui_ItemSlot
     {
        ui.inGameUI.OpenQuickItemOption(this,rect);
     }
+    
 } 
     
 

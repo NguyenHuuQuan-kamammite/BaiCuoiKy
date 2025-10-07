@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
+    public Entity_Stats stats { get; private set; }
+
     public Enemy_Health health{ get; private set; }
     public Enemy_IdleState idleState;
     public Enemy_MoveState moveState;
@@ -69,6 +71,8 @@ public class Enemy : Entity
         // Find the child named "HealthBar_UI"
         healthBarUI = transform.Find("HealthBar_UI")?.gameObject;
         health = GetComponent<Enemy_Health>();
+        stats = GetComponent<Entity_Stats>();
+
     }
 
 

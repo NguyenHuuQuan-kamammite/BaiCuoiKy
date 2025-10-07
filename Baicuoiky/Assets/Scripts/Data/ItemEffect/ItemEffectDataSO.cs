@@ -5,7 +5,7 @@ public class ItemEffectDataSO : ScriptableObject
     [TextArea]
     protected Player player;
     public string effectDescription;
-    public virtual bool CanBeUsed()
+    public virtual bool CanBeUsed(Player player)
     {
         return true;
     }

@@ -3,19 +3,24 @@ using System.Collections.Generic;
 using System;
 public class Inventory_Base : MonoBehaviour
 {
+
+    protected Player player;
     public Action OnInventoryChange;
     public int maxInventorySize = 10;
     public List<Inventory_Item> itemList = new List<Inventory_Item>();
 
     protected virtual void Awake()
     {
-
+        player = GetComponent<Player>();
     }
     public void TryUseItem(Inventory_Item itemToUse)
     {
         Inventory_Item consumable = itemList.Find(item => item == itemToUse);
         if (consumable == null) return;
         consumable.itemEffect.ExecuteEffect();
+
+        if (consumable.itemEffect.CanBeUsed( player) == false)
+            return;
         if (consumable.stackSize > 1)
             consumable.RemoveStack();
         else

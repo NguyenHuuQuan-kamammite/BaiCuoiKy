@@ -29,11 +29,19 @@ public class UI_InGame : MonoBehaviour
         player.health.OnHealthUpdate += UpdateHealthBar;
         skillSlots = GetComponentsInChildren<UI_SkillSlot>(true);
         inventory = player.inventory;
-        inventory.onQuickSlotUse += UpdateQuickSlotsUI;
+        inventory.OnInventoryChange += UpdateQuickSlotsUI;
+
+        inventory.onQuickSlotUse += PlayQuickSlotFeedBack;
     }
-    public void UpdateQuickSlotsUI(int slotNumber, Inventory_Item itemInSlot)
+
+    public void PlayQuickSlotFeedBack(int slotNumber) => quickItemSlots[slotNumber].SimulateButtonFeedback();
+    public void UpdateQuickSlotsUI()
     {
-        quickItemSlots[slotNumber].UpdateQuickSlotUI(itemInSlot);
+        Inventory_Item[] quickItems = inventory.quickItems;
+        for (int i = 0; i < quickItems.Length; i++)
+        {
+            quickItemSlots[i].UpdateQuickSlotUI(quickItems[i]);
+        }
     }
     public void OpenQuickItemOption(UI_QuickItemSlot quickItemSlot, RectTransform targetRect)
     {
@@ -56,7 +64,7 @@ public class UI_InGame : MonoBehaviour
         quickItemOptionsParent.position = targetRect.position + Vector3.up * yOffsetQuickItemParent;
     }
 
-    public void HideQuickItemOption() => quickItemOptionsParent.position = new Vector3(0,999);
+    public void HideQuickItemOption() => quickItemOptionsParent.position = new Vector3(0,9999);
 
 
     public UI_SkillSlot GetSkillSlot(Skill_Type skillType)
