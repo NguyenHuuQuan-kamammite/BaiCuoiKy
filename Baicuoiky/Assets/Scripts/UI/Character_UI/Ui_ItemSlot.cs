@@ -14,6 +14,8 @@ public class Ui_ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
 
 
     [Header("Ui Slot Setup")]
+
+    [SerializeField] protected GameObject defaulIcon;
     [SerializeField] protected TextMeshProUGUI itemStackSize;
     [SerializeField] protected Image itemIcon;
     protected virtual void Awake()
@@ -52,13 +54,18 @@ public class Ui_ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
     public void UpdateSlot(Inventory_Item item)
     {
         itemInSlot = item;
+
+        if(defaulIcon != null) 
+            defaulIcon.gameObject.SetActive(itemInSlot == null);
         if (itemInSlot == null)
         {
 
             itemStackSize.text = "";
             itemIcon.color = Color.clear;
+   
             return;
         }
+
         Color color = Color.white; color.a = .9f;
         itemIcon.color = color;
         itemIcon.sprite = itemInSlot.itemData.itemIcon;
