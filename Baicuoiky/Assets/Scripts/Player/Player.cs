@@ -74,7 +74,10 @@ public class Player : Entity
         combat = GetComponent<Player_Combat>();
         inventory = GetComponent<Inventory_Player>();
         stats = GetComponent<Player_Stats>();
+
         input = new PlayerInputSet();
+        ui.SetupControlUI(input);
+
 
         idleState = new Player_IdleState(this, stateMachine, "idle");
         moveState = new Player_MoveState(this, stateMachine, "move");
@@ -191,8 +194,6 @@ public class Player : Entity
         input.Player.Movement.canceled += ctx => moveInput = Vector2.zero;
         input.Player.Spell.performed += ctx => skillManager.shard.TryToUseSkill();
         input.Player.Spell.performed += ctx => skillManager.timeEcho.TryToUseSkill();
-        input.Player.ToggleSkillTreeUI.performed += ctx => ui.ToggleSkillTree();
-        input.Player.ToggleInventoryUI.performed += ctx => ui.ToggleInventory();
 
         input.Player.Interact.performed += ctx => TryInteract();
 
