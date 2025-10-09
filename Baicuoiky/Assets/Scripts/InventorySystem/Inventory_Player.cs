@@ -6,16 +6,20 @@ public class Inventory_Player : Inventory_Base
 {
     public event Action<int> onQuickSlotUse;
 
+    [SerializeField] private ItemListDataSO itemDataBase;
+
+
+    [Header("Gold info")]
     public int gold = 1000;
 
     public Inventory_Storage storage { get; private set; }
     public List<Inventory_EquipmentSlot> equipList;
     [Header("Quick item Slots")]
-    public  Inventory_Item[] quickItems = new Inventory_Item[2];
+    public Inventory_Item[] quickItems = new Inventory_Item[2];
     protected override void Awake()
     {
         base.Awake();
-     
+
         storage = FindFirstObjectByType<Inventory_Storage>();
     }
     public void SetQuickItemInSlot(int slotNumber, Inventory_Item itemToSet)
@@ -27,7 +31,7 @@ public class Inventory_Player : Inventory_Base
     public void TryUseQuickItemInSlot(int passsedSlotNumber)
     {
         int slotNumber = passsedSlotNumber - 1;
-        var itemToUse = quickItems[slotNumber]; 
+        var itemToUse = quickItems[slotNumber];
 
         if (itemToUse == null)
         {
@@ -39,7 +43,7 @@ public class Inventory_Player : Inventory_Base
             quickItems[slotNumber] = FindSameItem(itemToUse);
         }
         TriggerUpdateUI();
-        onQuickSlotUse?.Invoke(slotNumber); 
+        onQuickSlotUse?.Invoke(slotNumber);
     }
 
     public void TryEquipItem(Inventory_Item item)
@@ -94,9 +98,43 @@ public class Inventory_Player : Inventory_Base
     public override void SaveData(ref GameData data)
     {
         data.gold = gold;
+        data.inventory.Clear();
+        foreach (var item in itemList)
+        {
+            if (item != null && item.itemData != null)
+            {
+
+                string saveId = item.itemData.saveID;
+
+
+                if (data.inventory.ContainsKey(saveId) == false)
+                    data.inventory[saveId] = 0;
+                data.inventory[saveId] += item.stackSize;
+            }
+        }
     }
     public override void LoadData(GameData data)
     {
         gold = data.gold;
+        foreach (var entry in data.inventory)
+        {
+            string saveId = entry.Key;
+            int stackSize = entry.Value;
+
+            ItemDataSO itemData = itemDataBase.GetItemData(saveId);
+            if (itemData == null)
+            {
+                Debug.LogWarning("Item not found: " + saveId);
+                continue;
+            }
+
+            for (int i = 0; i < stackSize; i++)
+            {
+                Inventory_Item itemToLoad = new Inventory_Item(itemData);
+                AddItem(itemToLoad);
+            }
+
+        }
+        TriggerUpdateUI();
     }
 }
