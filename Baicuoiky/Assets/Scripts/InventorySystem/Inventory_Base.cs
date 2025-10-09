@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System;
-public class Inventory_Base : MonoBehaviour
+public class Inventory_Base : MonoBehaviour, ISaveable
 {
 
     protected Player player;
@@ -82,5 +82,15 @@ public class Inventory_Base : MonoBehaviour
 
     {
         return itemList.Find(item => item.itemData == itemToFind.itemData);
+    }
+
+    public virtual void LoadData(GameData data)
+    {
+   
+    }
+
+    public virtual void SaveData(ref GameData data)
+    {
+   
     }
 }
