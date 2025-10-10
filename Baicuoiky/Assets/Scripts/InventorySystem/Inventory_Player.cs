@@ -6,7 +6,7 @@ public class Inventory_Player : Inventory_Base
 {
     public event Action<int> onQuickSlotUse;
 
-    [SerializeField] private ItemListDataSO itemDataBase;
+   
 
 
     [Header("Gold info")]
@@ -99,6 +99,7 @@ public class Inventory_Player : Inventory_Base
     {
         data.gold = gold;
         data.inventory.Clear();
+        data.equipedItems.Clear();
         foreach (var item in itemList)
         {
             if (item != null && item.itemData != null)
@@ -111,6 +112,11 @@ public class Inventory_Player : Inventory_Base
                     data.inventory[saveId] = 0;
                 data.inventory[saveId] += item.stackSize;
             }
+        }
+        foreach (var slot in equipList)
+        {
+            if (slot.HasItem())
+                data.equipedItems[slot.equipedItem.itemData.saveID] = slot.slotType;
         }
     }
     public override void LoadData(GameData data)
@@ -134,6 +140,20 @@ public class Inventory_Player : Inventory_Base
                 AddItem(itemToLoad);
             }
 
+        }
+        foreach (var entry in data.equipedItems)
+        {
+            string saveId = entry.Key;
+            Item_Type loadedSlotType = entry.Value;
+
+            ItemDataSO itemData = itemDataBase.GetItemData(saveId);
+            Inventory_Item itemToLoad = new Inventory_Item(itemData);
+
+            var slot = equipList.Find(slot => slot.slotType == loadedSlotType && slot.HasItem() == false);
+
+            slot.equipedItem = itemToLoad;
+            slot.equipedItem.AddModifiers(player.stats);
+            slot.equipedItem.AddIitemEffect(player);
         }
         TriggerUpdateUI();
     }
