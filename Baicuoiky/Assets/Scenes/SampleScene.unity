@@ -25612,9 +25612,9 @@ RectTransform:
   m_Children:
   - {fileID: 519783658}
   - {fileID: 1983003073}
-  - {fileID: 912831395}
   - {fileID: 111509928}
   - {fileID: 1733084473}
+  - {fileID: 912831395}
   m_Father: {fileID: 532388231}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -106167,10 +106167,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1730080109}
-  - {fileID: 1137813291}
-  - {fileID: 721131569}
   - {fileID: 1939932033}
   - {fileID: 1856369846}
+  - {fileID: 1137813291}
+  - {fileID: 721131569}
   - {fileID: 23810176}
   - {fileID: 1367665782}
   m_Father: {fileID: 532388231}
@@ -106368,6 +106368,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxInventorySize: 30
   itemList: []
+  itemDataBase: {fileID: 11400000, guid: 1eff1fc5b8b30db459bc7d517208a691, type: 2}
   shopData: {fileID: 11400000, guid: 6be69b7b083ff8d49ab7e7a4f7ae7693, type: 2}
   minItemsAmount: 4
 --- !u!1 &1164188684
@@ -135373,7 +135374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fileName: data.json
-  encryptData: 0
+  encryptData: 1
 --- !u!4 &1882443343
 Transform:
   m_ObjectHideFlags: 0
@@ -137137,6 +137138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxInventorySize: 10
   itemList: []
+  itemDataBase: {fileID: 11400000, guid: 1eff1fc5b8b30db459bc7d517208a691, type: 2}
   materialStash: []
 --- !u!1 &1919222865
 GameObject:

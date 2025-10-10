@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : Entity
 {
-
+    public static Player instance;
     public static event Action OnPlayerDeath;
     public UI ui {  get; private set; }
     public Player_SkillManager skillManager { get; private set; }
@@ -74,7 +74,7 @@ public class Player : Entity
         combat = GetComponent<Player_Combat>();
         inventory = GetComponent<Inventory_Player>();
         stats = GetComponent<Player_Stats>();
-
+        instance = this;
         input = new PlayerInputSet();
         ui.SetupControlUI(input);
 
