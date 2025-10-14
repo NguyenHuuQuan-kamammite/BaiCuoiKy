@@ -6,9 +6,19 @@ public class Object_Waypoint : MonoBehaviour
 {
     [SerializeField] private string transferToScene;
     [Space]
-    public Respawn_Type waypointType;
-    [SerializeField]    private Respawn_Type contedWaypoint;
-    [SerializeField]   private bool canBeTriggered = true;
+    [SerializeField] private Respawn_Type waypointType;
+    [SerializeField] private Respawn_Type contedWaypoint;
+    [SerializeField] private Transform respwanPoint;
+    [SerializeField] private bool canBeTriggered = true;
+
+    public Respawn_Type GetWaypointType() => waypointType;
+    public void SetCanBeTrigger(bool canBeTriggered) => this.canBeTriggered = canBeTriggered;
+
+    public Vector3 GetPositionAndSetTriggerFalse()
+    {
+        canBeTriggered = false;
+        return respwanPoint == null ? transform.position : respwanPoint.position;
+    }
 
     private void OnValidate()
     {
@@ -26,7 +36,7 @@ public class Object_Waypoint : MonoBehaviour
             return;
         SaveManager.instance.SaveGame();
 
-        SceneManager.LoadScene(transferToScene);
+       GameManager.instance.ChangeScene(transferToScene, contedWaypoint);
 
     }
     private void OnTriggerExit2D(Collider2D collision)
