@@ -12,8 +12,7 @@ public class Object_Waypoint : MonoBehaviour
     [SerializeField] private bool canBeTriggered = true;
 
     public Respawn_Type GetWaypointType() => waypointType;
-    public void SetCanBeTrigger(bool canBeTriggered) => this.canBeTriggered = canBeTriggered;
-
+  
     public Vector3 GetPositionAndSetTriggerFalse()
     {
         canBeTriggered = false;
