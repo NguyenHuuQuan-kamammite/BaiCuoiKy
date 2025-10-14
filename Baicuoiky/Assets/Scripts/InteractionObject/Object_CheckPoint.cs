@@ -18,18 +18,26 @@ public class Object_CheckPoint : MonoBehaviour, ISaveable
     {
 
         isActive = activate;
-        anim.SetBool("isActive", activate);
+        if (anim != null)
+            anim.SetBool("isActive", activate);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        ActivateCheckpoint(true);
-    }
+        if (collision.CompareTag("Player"))
+        {
+            SaveManager.instance.SaveGame();
+            ActivateCheckpoint(true);
+            GameManager.instance.SetLastPlayerPosition(GetPosition());
+        }
+    }  
 
     public void LoadData(GameData data)
     {
-        bool active = data.unlockedCheckpoints.TryGetValue(checkpointId, out active);
-        ActivateCheckpoint(active);
+        if (data.unlockedCheckpoints.TryGetValue(checkpointId, out bool isUnlocked))
+            ActivateCheckpoint(isUnlocked);
+        else
+            ActivateCheckpoint(false);
     }
 
     public void SaveData(ref GameData data)

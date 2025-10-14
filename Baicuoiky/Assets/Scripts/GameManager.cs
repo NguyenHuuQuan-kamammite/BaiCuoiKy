@@ -23,6 +23,7 @@ public class GameManager: MonoBehaviour
     public void SetLastPlayerPosition(Vector3 position) => lastPlayerPosition = position;
     public void RestartScene()
     {
+        SaveManager.instance.SaveGame();
         string sceneName = SceneManager.GetActiveScene().name;
         ChangeScene(sceneName, Respawn_Type.None);
     }
