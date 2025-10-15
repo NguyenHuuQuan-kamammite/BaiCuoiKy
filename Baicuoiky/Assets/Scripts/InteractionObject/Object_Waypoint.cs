@@ -33,7 +33,7 @@ public class Object_Waypoint : MonoBehaviour
     {
         if(canBeTriggered == false)
             return;
-        SaveManager.instance.SaveGame();
+      
 
        GameManager.instance.ChangeScene(transferToScene, contedWaypoint);
 
