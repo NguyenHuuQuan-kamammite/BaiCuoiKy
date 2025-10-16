@@ -14,30 +14,22 @@ public class Object_CheckPoint : MonoBehaviour, ISaveable
     }
     public string GetCheckpointId() => checkpointId;
     public Vector3 GetPosition() => respawnPoint == null ? transform.position : respawnPoint.position;
+
     public void ActivateCheckpoint(bool activate)
     {
-
         isActive = activate;
-        if (anim != null)
-            anim.SetBool("isActive", activate);
+        anim.SetBool("isActive", activate);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
-        {
-            SaveManager.instance.SaveGame();
-            ActivateCheckpoint(true);
-            GameManager.instance.SetLastPlayerPosition(GetPosition());
-        }
+       ActivateCheckpoint(true);
     }  
 
     public void LoadData(GameData data)
     {
-        if (data.unlockedCheckpoints.TryGetValue(checkpointId, out bool isUnlocked))
-            ActivateCheckpoint(isUnlocked);
-        else
-            ActivateCheckpoint(false);
+        bool active = data.unlockedCheckpoints.TryGetValue(checkpointId, out active);
+        ActivateCheckpoint(active);
     }
 
     public void SaveData(ref GameData data)

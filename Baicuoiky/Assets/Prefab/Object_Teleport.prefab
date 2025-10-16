@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 306a9a6813441f642a5c98b80db07f4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultPosition: {x: 0, y: 0}
+  defaultPosition: {x: -16.59, y: 0.62}
   townSceneName: Level_0
   respawnPoint: {fileID: 0}
   canBeTriggered: 1

@@ -2,11 +2,12 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using System.Linq;
-public class GameManager: MonoBehaviour
+public class GameManager: MonoBehaviour, ISaveable
 {
     public static GameManager instance;
 
     private Vector3 lastPlayerPosition;
+    private string lastScenePlayed;
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -20,12 +21,16 @@ public class GameManager: MonoBehaviour
 
        
     }
-    public void SetLastPlayerPosition(Vector3 position) => lastPlayerPosition = position;
+    //public void SetLastPlayerPosition(Vector3 position) => lastPlayerPosition = position;
+    public void ContinuePlay()
+    {
+        ChangeScene(lastScenePlayed, Respawn_Type.NoneSpecific);
+    }
     public void RestartScene()
     {
        
         string sceneName = SceneManager.GetActiveScene().name;
-        ChangeScene(sceneName, Respawn_Type.NoneSpecifiic);
+        ChangeScene(sceneName, Respawn_Type.NoneSpecific);
     }
 
     public void ChangeScene(string sceneName, Respawn_Type respwanType)
@@ -62,7 +67,7 @@ public class GameManager: MonoBehaviour
             return position;
         }
 
-        if (type == Respawn_Type.NoneSpecifiic)
+        if (type == Respawn_Type.NoneSpecific)
         {
             var data = SaveManager.instance.GetGameData();
             var checkpoints = FindObjectsByType<Object_CheckPoint>(FindObjectsSortMode.None);
@@ -106,4 +111,26 @@ public class GameManager: MonoBehaviour
         return Vector3.zero;
     }
 
+    public void LoadData(GameData data)
+    {
+        lastScenePlayed = data.lastScenePlayed;
+        lastPlayerPosition = data.lastPlayerPosition;
+
+        if (string.IsNullOrEmpty(lastScenePlayed))
+            lastScenePlayed = "Level_0";
+
+       
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        string currentScene = SceneManager.GetActiveScene().name;
+
+        if (currentScene == "MainMenu")
+            return;
+
+        data.lastPlayerPosition = Player.instance.transform.position;
+        data.lastScenePlayed = currentScene;
+    
+    }
 }

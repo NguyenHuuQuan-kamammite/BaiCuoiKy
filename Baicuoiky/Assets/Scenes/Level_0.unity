@@ -431,14 +431,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2245861524470922157, guid: e51eb7bbde095014e9310fe2aa16888f, type: 3}
-      propertyPath: defaultPosition.x
-      value: -16.59
-      objectReference: {fileID: 0}
-    - target: {fileID: 2245861524470922157, guid: e51eb7bbde095014e9310fe2aa16888f, type: 3}
-      propertyPath: defaultPosition.y
-      value: 0.62
-      objectReference: {fileID: 0}
     - target: {fileID: 5441152532442347736, guid: e51eb7bbde095014e9310fe2aa16888f, type: 3}
       propertyPath: m_Name
       value: Object_Teleport
@@ -1316,7 +1308,7 @@ Transform:
   m_GameObject: {fileID: 403931282}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.06, y: 0, z: -0.032383237}
+  m_LocalPosition: {x: -0.06, y: 4.8, z: -0.032383237}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1714,7 +1706,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.0343904, y: -0.68703866, z: 22.692577}
+  m_LocalPosition: {x: -1.0343904, y: -0.8370385, z: 22.692577}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2462,7 +2454,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8160604033950767076, guid: 455efc3c8f75cdc4cad3483832e5b6c5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.65
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8160604033950767076, guid: 455efc3c8f75cdc4cad3483832e5b6c5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -54204,7 +54196,7 @@ Transform:
   m_GameObject: {fileID: 1454656417}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.0343904, y: -0.68703866, z: 22.692577}
+  m_LocalPosition: {x: -1.0343904, y: -0.8370385, z: 22.692577}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
