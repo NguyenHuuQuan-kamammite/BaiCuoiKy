@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 437f2ebe209601c419b25516f5e56664, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkpointId: 1c0e701b-9fbf-4e64-ab40-f4d209dd5797
+  checkpointId: 1d74e507-fa28-4c62-85d7-12b36fc9d707
   respawnPoint: {fileID: 0}
 --- !u!1 &7624951630838547246
 GameObject:

@@ -66,7 +66,7 @@ public class GameManager: MonoBehaviour, ISaveable
 
     private Vector3 GetNewPlayerPosition(Respawn_Type type)
     {
-        if (type == Respawn_Type.Portal)
+        if(type == Respawn_Type.Portal)
         {
             Object_Portal portal = Object_Portal.instnace;
 
@@ -77,7 +77,7 @@ public class GameManager: MonoBehaviour, ISaveable
 
             return position;
         }
-       
+
 
         if (type == Respawn_Type.NoneSpecific)
         {

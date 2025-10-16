@@ -53507,14 +53507,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8473876131101563532, guid: 1f1d6f6b09676ba4fbf0bcf9de3be888, type: 3}
-      propertyPath: checkpointId
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8473876131101563532, guid: 1f1d6f6b09676ba4fbf0bcf9de3be888, type: 3}
-      propertyPath: respawnPoint
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -55405,21 +55397,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2245861524470922157, guid: e51eb7bbde095014e9310fe2aa16888f, type: 3}
-      propertyPath: canBeTriggered
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5441152532442347736, guid: e51eb7bbde095014e9310fe2aa16888f, type: 3}
       propertyPath: m_Name
       value: Object_Teleport
       objectReference: {fileID: 0}
     - target: {fileID: 5536781830045195760, guid: e51eb7bbde095014e9310fe2aa16888f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.15
+      value: -10.3
       objectReference: {fileID: 0}
     - target: {fileID: 5536781830045195760, guid: e51eb7bbde095014e9310fe2aa16888f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.37
+      value: 22.9
       objectReference: {fileID: 0}
     - target: {fileID: 5536781830045195760, guid: e51eb7bbde095014e9310fe2aa16888f, type: 3}
       propertyPath: m_LocalPosition.z
