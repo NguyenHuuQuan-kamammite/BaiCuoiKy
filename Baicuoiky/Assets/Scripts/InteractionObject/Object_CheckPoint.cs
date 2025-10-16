@@ -4,16 +4,19 @@ public class Object_CheckPoint : MonoBehaviour, ISaveable
 {
     [SerializeField] private string checkpointId;
     [SerializeField] private Transform respawnPoint;
-    public bool isActive { get; private set; }
 
+    public bool isActive { get; private set; }
     private Animator anim;
 
     private void Awake()
     {
         anim = GetComponentInChildren<Animator>();
     }
+
     public string GetCheckpointId() => checkpointId;
+
     public Vector3 GetPosition() => respawnPoint == null ? transform.position : respawnPoint.position;
+
 
     public void ActivateCheckpoint(bool activate)
     {
@@ -23,8 +26,8 @@ public class Object_CheckPoint : MonoBehaviour, ISaveable
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-       ActivateCheckpoint(true);
-    }  
+        ActivateCheckpoint(true);
+    }
 
     public void LoadData(GameData data)
     {
@@ -40,6 +43,8 @@ public class Object_CheckPoint : MonoBehaviour, ISaveable
         if (data.unlockedCheckpoints.ContainsKey(checkpointId) == false)
             data.unlockedCheckpoints.Add(checkpointId, true);
     }
+
+
     private void OnValidate()
     {
 #if UNITY_EDITOR

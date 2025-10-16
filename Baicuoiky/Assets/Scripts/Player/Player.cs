@@ -66,6 +66,9 @@ public class Player : Entity
     protected override void Awake()
     {
         base.Awake();
+       
+        instance = this;
+       
         ui = FindAnyObjectByType<UI>();
         skillManager = GetComponent<Player_SkillManager>();
         vfx = GetComponent<Player_Vfx>();
@@ -74,7 +77,7 @@ public class Player : Entity
         combat = GetComponent<Player_Combat>();
         inventory = GetComponent<Inventory_Player>();
         stats = GetComponent<Player_Stats>();
-        instance = this;
+        
         input = new PlayerInputSet();
         ui.SetupControlUI(input);
 
@@ -100,10 +103,8 @@ public class Player : Entity
 
         stateMachine.Initialize(idleState);
     }
-    public void TeleportPlayer(Vector3 position)
-    {
-        transform.position = position;
-    }
+    public void TeleportPlayer(Vector3 position) => transform.position = position;
+
     protected override IEnumerator SlowDownEntityCo(float duration, float slowMultiplier)
     {
         float originalSpeed = moveSpeed;

@@ -36,6 +36,8 @@ public class GameManager: MonoBehaviour, ISaveable
     public void ChangeScene(string sceneName, Respawn_Type respwanType)
     {
         SaveManager.instance.SaveGame();
+
+        Time.timeScale = 1;
         StartCoroutine(ChangeSceneCo(sceneName, respwanType));
     }
 
@@ -47,10 +49,18 @@ public class GameManager: MonoBehaviour, ISaveable
         yield return new WaitForSeconds(1f);
 
         SceneManager.LoadScene(sceneName);
-        yield return new WaitForSeconds(.2f);
+
+
+        Player player = Player.instance;
+
+        if (player == null)
+            yield break;
+
+
+
         Vector3 position = GetNewPlayerPosition(respawnType);
         if (position != Vector3.zero)
-            Player.instance.TeleportPlayer(position);
+            player.TeleportPlayer(position);
     }
 
     private Vector3 GetNewPlayerPosition(Respawn_Type type)

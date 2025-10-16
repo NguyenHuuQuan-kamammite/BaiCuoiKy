@@ -53,6 +53,8 @@ public class SaveManager : MonoBehaviour
     {
         dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, encryptData);
         dataHandler.Delete();
+
+        LoadGame(); 
     }
     private void OnApplicationQuit()
     {
