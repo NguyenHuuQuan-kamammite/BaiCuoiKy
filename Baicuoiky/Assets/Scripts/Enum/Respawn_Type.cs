@@ -6,5 +6,6 @@ public enum Respawn_Type
    Exit,
    NoneSpecific,
    Portal,
+    Checkpoint,
 
 }

@@ -18,6 +18,7 @@ public class GameData
     public int skillPoints;
     public SerializableDictionary<string, bool> skillTreeUI; // skill name -> unlock status
     public SerializableDictionary<Skill_Type, SkillUnlock_Type> skillUnlock; // skill type -> Unlock type
+
     public SerializableDictionary<string, bool> unlockedCheckpoints; // checkpoint id -> unlocked status
     public SerializableDictionary<string, Vector3> inScenePortals; // scene name > portal position
 

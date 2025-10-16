@@ -28,7 +28,6 @@ public class GameManager: MonoBehaviour, ISaveable
     }
     public void RestartScene()
     {
-       
         string sceneName = SceneManager.GetActiveScene().name;
         ChangeScene(sceneName, Respawn_Type.NoneSpecific);
     }
@@ -50,17 +49,19 @@ public class GameManager: MonoBehaviour, ISaveable
 
         SceneManager.LoadScene(sceneName);
 
+        yield return new WaitForSeconds(1f);
+
 
         Player player = Player.instance;
 
         if (player == null)
             yield break;
 
-
-
         Vector3 position = GetNewPlayerPosition(respawnType);
-        if (position != Vector3.zero)
+
+        if (position != Vector3.zero) 
             player.TeleportPlayer(position);
+        
     }
 
     private Vector3 GetNewPlayerPosition(Respawn_Type type)
@@ -76,6 +77,7 @@ public class GameManager: MonoBehaviour, ISaveable
 
             return position;
         }
+       
 
         if (type == Respawn_Type.NoneSpecific)
         {
@@ -86,13 +88,12 @@ public class GameManager: MonoBehaviour, ISaveable
                 .Select(cp => cp.GetPosition())
                 .ToList();
 
-
             var enterWaypoints = FindObjectsByType<Object_Waypoint>(FindObjectsSortMode.None)
-                   .Where(wp => wp.GetWaypointType() == Respawn_Type.Enter)
-                   .Select(wp => wp.GetPositionAndSetTriggerFalse())
-                   .ToList();
+                .Where(wp => wp.GetWaypointType() == Respawn_Type.Enter)
+                .Select(wp => wp.GetPositionAndSetTriggerFalse())
+                .ToList();
 
-            var selectedPositions = unlockedCheckpoints.Concat(enterWaypoints).ToList();// combine two lists into one
+            var selectedPositions = unlockedCheckpoints.Concat(enterWaypoints).ToList(); // combine two lists into one
 
             if (selectedPositions.Count == 0)
                 return Vector3.zero;
@@ -101,6 +102,7 @@ public class GameManager: MonoBehaviour, ISaveable
                 OrderBy(position => Vector3.Distance(position, lastPlayerPosition)) // arrange form lowest to highest by comparing distance
                 .First();
         }
+
         return GetWaypointPosition(type);
     }
 
