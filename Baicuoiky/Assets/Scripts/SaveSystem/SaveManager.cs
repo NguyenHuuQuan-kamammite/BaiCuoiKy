@@ -23,7 +23,7 @@ public class SaveManager : MonoBehaviour
         allSaveables = FindISaveables();
 
 
-        yield return new WaitForSeconds(.01f);
+        yield return null;
         LoadGame();
     }
     private void LoadGame()

@@ -8,6 +8,8 @@ public class GameManager: MonoBehaviour, ISaveable
 
     private Vector3 lastPlayerPosition;
     private string lastScenePlayed;
+    private bool dataLoaded;
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -44,13 +46,24 @@ public class GameManager: MonoBehaviour, ISaveable
 
     private IEnumerator ChangeSceneCo(string sceneName, Respawn_Type respawnType)
     {
-       
-        yield return new WaitForSeconds(1f);
+
+        UI_FadeScreen fadeScreen = FindFadeScreenUI();
+
+        fadeScreen.DoFadeOut(); // transperent > black
+        yield return fadeScreen.fadeEffectCo;
 
         SceneManager.LoadScene(sceneName);
 
-        yield return new WaitForSeconds(1f);
+        dataLoaded = false; // data loaded becomes true when load game from save manager
+        yield return null;
 
+        while (dataLoaded == false)
+        {
+            yield return null;
+        }
+
+        fadeScreen = FindFadeScreenUI();
+        fadeScreen.DoFadeIn(); // black > transperent
 
         Player player = Player.instance;
 
@@ -63,7 +76,13 @@ public class GameManager: MonoBehaviour, ISaveable
             player.TeleportPlayer(position);
         
     }
-
+    private UI_FadeScreen FindFadeScreenUI()
+    {
+        if (UI.instance != null)
+            return UI.instance.fadeScreenUI;
+        else
+            return FindFirstObjectByType<UI_FadeScreen>();
+    }
     private Vector3 GetNewPlayerPosition(Respawn_Type type)
     {
         if(type == Respawn_Type.Portal)
@@ -131,7 +150,7 @@ public class GameManager: MonoBehaviour, ISaveable
         if (string.IsNullOrEmpty(lastScenePlayed))
             lastScenePlayed = "Level_0";
 
-       
+        dataLoaded = true;
     }
 
     public void SaveData(ref GameData data)
@@ -143,6 +162,7 @@ public class GameManager: MonoBehaviour, ISaveable
 
         data.lastPlayerPosition = Player.instance.transform.position;
         data.lastScenePlayed = currentScene;
+        dataLoaded = false;
     
     }
 }
