@@ -37,8 +37,8 @@ public class Entity : MonoBehaviour
     {
         anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        stateMachine = new StateMachine();
         sfx = GetComponent<Entity_SFX>();
+        stateMachine = new StateMachine();
 
     }
 
