@@ -12,5 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9abfc13a8121b34f81dca4b5b259cad, type: 3}
   m_Name: AUDIO DATABASE
   m_EditorClassIdentifier: 
-  player: []
-  uiAudio: []
+  player:
+  - audioName: player_attackHit
+    clips:
+    - {fileID: 8300000, guid: 7f2bf36aa90ed6d4da129f1c4c8f5110, type: 3}
+    - {fileID: 8300000, guid: 0ddc75a742d6f344080f1c115bda65bc, type: 3}
+    - {fileID: 8300000, guid: 84002469fd1fe6b43b6046636f4d528e, type: 3}
+    volume: 1
+  - audioName: player_attackMiss
+    clips:
+    - {fileID: 8300000, guid: 044e96c5f6d909948b6eda7c45f1da39, type: 3}
+    - {fileID: 8300000, guid: 6a23ac2872e15e24b914e0fab37bd694, type: 3}
+    - {fileID: 8300000, guid: 7060026332f653942b513fe53ca6345f, type: 3}
+    volume: 1
+  uiAudio:
+  - audioName: button_click
+    clips:
+    - {fileID: 8300000, guid: 0ddd727ad117cf844a3c9e4400039f15, type: 3}
+    volume: 1
