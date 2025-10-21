@@ -7,12 +7,16 @@ public class AudioDataBaseSO :ScriptableObject
      public List<AudioClipData> player;
      public List<AudioClipData> uiAudio;
     private Dictionary<string, AudioClipData> clipCollection;
-
+    [Header("Music Lists")]
+    public List<AudioClipData> mainMenuMusic;
+    public List<AudioClipData> levelMusic;
     private void OnEnable()
     {
         clipCollection = new Dictionary<string, AudioClipData>();
         AddToCollection(player);
         AddToCollection(uiAudio);
+        AddToCollection(mainMenuMusic);
+        AddToCollection(levelMusic);
     }
     public AudioClipData  Get(string groupName)
     {
@@ -36,7 +40,7 @@ public class AudioClipData
     public List<AudioClip> clips = new List<AudioClip>();
     [Range(0f, 1f)] public float maxVolume = 1f;
 
-    public AudioClip GetRandomeClip()
+    public AudioClip GetRandomClip()
     {
         if(clips == null|| clips.Count == 0) return null;
 
