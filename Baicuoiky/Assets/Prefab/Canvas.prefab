@@ -5273,7 +5273,7 @@ RectTransform:
   m_Father: {fileID: 2022699000396042875}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -19241,7 +19241,7 @@ GameObject:
   - component: {fileID: 2766548717099921042}
   - component: {fileID: 5244583769957356509}
   m_Layer: 5
-  m_Name: SFX_Volume
+  m_Name: SFX_Volume-Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19313,13 +19313,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 7303583864003219698}
   m_HandleRect: {fileID: 8641687698069967520}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.6
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7681599271628914288}
+        m_TargetAssemblyTypeName: UI_Options, Assembly-CSharp
+        m_MethodName: SFXSliderValue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2380618379237342288
 GameObject:
   m_ObjectHideFlags: 0
@@ -24071,7 +24083,7 @@ RectTransform:
   m_Father: {fileID: 8317543671423755419}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -29713,7 +29725,7 @@ RectTransform:
   m_Father: {fileID: 3845052444022626436}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -46310,7 +46322,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6943262239150343954}
+      - m_Target: {fileID: 7681599271628914288}
         m_TargetAssemblyTypeName: UI_Options, Assembly-CSharp
         m_MethodName: GoMainMenuBTN
         m_Mode: 1
@@ -51644,7 +51656,7 @@ GameObject:
   - component: {fileID: 1832129151462471318}
   - component: {fileID: 220850463288742557}
   m_Layer: 5
-  m_Name: Toggle
+  m_Name: Healhbar-Toggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55134,14 +55146,14 @@ GameObject:
   - component: {fileID: 4810258479578630223}
   - component: {fileID: 6609736609124902463}
   - component: {fileID: 6630514367474245712}
-  - component: {fileID: 6943262239150343954}
+  - component: {fileID: 7681599271628914288}
   m_Layer: 5
   m_Name: UI_Option
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4810258479578630223
 RectTransform:
   m_ObjectHideFlags: 0
@@ -55203,7 +55215,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6943262239150343954
+--- !u!114 &7681599271628914288
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55216,6 +55228,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBarToggle: {fileID: 220850463288742557}
+  audioMixer: {fileID: 24100000, guid: 00368fe99d45fac40aca32cb9bf27a63, type: 2}
+  mixerMultiplier: 25
+  bgmSlider: {fileID: 3573186416020854620}
+  bgmParametr: bgmMixer
+  sfxSlider: {fileID: 5244583769957356509}
+  sfxParametr: sfxMixer
 --- !u!1 &6577411201075189437
 GameObject:
   m_ObjectHideFlags: 0
@@ -58654,7 +58672,7 @@ GameObject:
   - component: {fileID: 7164838223230398465}
   - component: {fileID: 3573186416020854620}
   m_Layer: 5
-  m_Name: SFX_Volume
+  m_Name: Bgm_Volume-Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58726,13 +58744,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 910606814430706465}
   m_HandleRect: {fileID: 5659165462142678828}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.6
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7681599271628914288}
+        m_TargetAssemblyTypeName: UI_Options, Assembly-CSharp
+        m_MethodName: BGMSliderValue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6867019642303831424
 GameObject:
   m_ObjectHideFlags: 0
@@ -61021,7 +61051,7 @@ RectTransform:
   m_Father: {fileID: 158414597691950675}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
