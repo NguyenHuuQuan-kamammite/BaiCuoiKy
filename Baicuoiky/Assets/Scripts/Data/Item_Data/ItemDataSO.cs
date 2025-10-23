@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "RPG Setup/Item Data/Material item", fileName = "Material data-")]
 public class ItemDataSO : ScriptableObject
 {
-    public string saveID {  get; private set; }
+    public string saveID;
     [Header("Merchant Detail")]
     [Range(0,10000)]
     public int itemPrice = 100;

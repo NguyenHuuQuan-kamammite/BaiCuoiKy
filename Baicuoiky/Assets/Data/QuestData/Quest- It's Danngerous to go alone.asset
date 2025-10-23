@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b57a6af53b636d45b1f994c34885a10, type: 3}
+  m_Name: Quest- It's Danngerous to go alone
+  m_EditorClassIdentifier: 
+  questSaveId: 5367067b3bf35714d93642e3fd532c2e
+  questName: ' It''s Danngerous to go alone'
+  descriptiion: I see a great shadow following you, warrior. You will need a sword
+    untainted by darkness. It is said that its first strike is the weakest, and its
+    last strike the strongest. A weapon of patience... or perhaps, of despair. Do
+    you dare wield a power you cannot yet see? If you wish to possess the sword,
+    go speak to the old  BlackSmith over there.
+  questGoal: -Talk to BlackSmith
+  questTargetId: blacksmith_job
+  requiredAmount: 1
+  rewardType: 2
+  rewardItem:
+  - itemData: {fileID: 11400000, guid: ae036aa300128014ca6b0d8fba0c0d2c, type: 2}
+    stackSize: 1
+    itemEffect: {fileID: 0}
+  gold: 0

@@ -11,6 +11,7 @@ public class Object_NPC : MonoBehaviour
      [Header("Floating ToolTip")]
     [SerializeField] private float floatSpeed = 8f;
     [SerializeField] private float floatRange = 0.1f;
+    [SerializeField] private string npcTargetQuestId;
     private Vector3 startPosition;
 
 
