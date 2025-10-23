@@ -11,7 +11,7 @@ public class QuestDataSO : ScriptableObject
     [Space]
     public string questName;
 
-    [TextArea] public string descriptiion;
+    [TextArea] public string description;
     [TextArea] public string questGoal;
 
     public string questTargetId; //enemy name, npc name.ect
@@ -19,7 +19,7 @@ public class QuestDataSO : ScriptableObject
 
     [Header("Reward Type")]
     public  RewardType rewardType;
-    public Inventory_Item[] rewardItem;
+    public Inventory_Item[] rewardItems;
     public int gold;
 
     private void OnValidate()
