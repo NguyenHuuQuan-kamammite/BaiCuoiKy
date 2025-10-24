@@ -3035,9 +3035,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UI_CraftPreview, Assembly-CSharp
-        m_MethodName: ConfirmCraft
+      - m_Target: {fileID: 1295088334}
+        m_TargetAssemblyTypeName: UI_QuestPreview, Assembly-CSharp
+        m_MethodName: AcceptQuestBTN
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5008,6 +5008,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 393215237}
   m_CullTransparentMesh: 1
+--- !u!1 &402649230 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6309440804646642611, guid: 455efc3c8f75cdc4cad3483832e5b6c5, type: 3}
+  m_PrefabInstance: {fileID: 719704843}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &403931282
 GameObject:
   m_ObjectHideFlags: 0
@@ -8009,7 +8014,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6309440804646642611, guid: 455efc3c8f75cdc4cad3483832e5b6c5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2035705250}
   m_SourcePrefab: {fileID: 100100000, guid: 455efc3c8f75cdc4cad3483832e5b6c5, type: 3}
 --- !u!1 &732619365
 GameObject:
@@ -66553,6 +66561,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6077269010454353673, guid: 5c0ec0884eb92f74a9808089671a98c6, type: 3}
+      propertyPath: uiElements.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6077269010454353673, guid: 5c0ec0884eb92f74a9808089671a98c6, type: 3}
+      propertyPath: 'uiElements.Array.data[7]'
+      value: 
+      objectReference: {fileID: 267585093}
     - target: {fileID: 6265037717901895857, guid: 5c0ec0884eb92f74a9808089671a98c6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -71112,6 +71128,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8160604033950767076, guid: 455efc3c8f75cdc4cad3483832e5b6c5, type: 3}
   m_PrefabInstance: {fileID: 719704843}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2035705250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 402649230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1f66077ea96e6048814479f375a9a6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeQuests: []
 --- !u!1 &2043501307
 GameObject:
   m_ObjectHideFlags: 0
