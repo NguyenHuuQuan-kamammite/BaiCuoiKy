@@ -19,9 +19,9 @@ MonoBehaviour:
     Do you dare to wield a power you cannot yet see? If you want it go talk with
     BlackSmith
   questGoal: -Talk to BlackSmith
-  questTargetId: blacksmith_job
+  questTargetId: blacksmith_joe
   requiredAmount: 1
-  rewardType: 2
+  rewardType: 1
   rewardItems:
   - itemData: {fileID: 11400000, guid: ae036aa300128014ca6b0d8fba0c0d2c, type: 2}
     stackSize: 1

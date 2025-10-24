@@ -13,8 +13,9 @@ public class Object_BlackSmith : Object_NPC, Iinteractable
         storage = GetComponent<Inventory_Storage>();
         anim.SetBool("IsBlackSmith", true);
     }
-    public void Interact()
+    public override void Interact()
     {
+        base.Interact();
         ui.storageUI.SetUpStorage(storage);
         ui.craftUI.SetUpCraftUI(storage);
        ui.OpenStorageUI(true);

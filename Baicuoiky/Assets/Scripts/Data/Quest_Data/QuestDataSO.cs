@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEditor;
 
-public enum RewardType { Merchant,Blackmisth,None}; 
+public enum RewardType { Merchant,BlackSmith,None}; 
 
 [CreateAssetMenu(menuName = "RPG Setup/Quest Data/New Quest", fileName = "Quest-")]
 

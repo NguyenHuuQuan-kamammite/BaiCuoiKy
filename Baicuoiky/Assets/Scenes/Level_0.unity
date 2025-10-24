@@ -7119,6 +7119,83 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 587900164}
   m_CullTransparentMesh: 1
+--- !u!1001 &593024125
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 51719769527757916, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: maxItemsToDrop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 51719769527757916, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: maxRarityAmount
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1740303615401344093, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_Name
+      value: Enemy_skeleton (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389275548146833267, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 21.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389275548146833267, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389275548146833267, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389275548146833267, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389275548146833267, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389275548146833267, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389275548146833267, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389275548146833267, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389275548146833267, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389275548146833267, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2948427220601988860, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: resources.maxHealth.baseValue
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 4876009190493526105, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4876009190493526105, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
 --- !u!1 &614893688
 GameObject:
   m_ObjectHideFlags: 0
@@ -7955,6 +8032,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1397946907078701751, guid: 455efc3c8f75cdc4cad3483832e5b6c5, type: 3}
+      propertyPath: offense.damage.baseValue
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2994325217412167333, guid: 455efc3c8f75cdc4cad3483832e5b6c5, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -61313,11 +61394,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8e755102c5ab5c40accadac0a7523dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  npcTargetQuestId: merchant_bob
+  rewardNpc: 0
   npc: {fileID: 2043501308}
   interactTooltip: {fileID: 549549733}
   floatSpeed: 8
   floatRange: 0.1
-  npcTargetQuestId: merchant_bob
   quests:
   - {fileID: 11400000, guid: 61759d9de1fadec469fca14372af95c2, type: 2}
   - {fileID: 11400000, guid: 5367067b3bf35714d93642e3fd532c2e, type: 2}
@@ -61932,6 +62014,83 @@ MonoBehaviour:
   rb: {fileID: 0}
   sr: {fileID: 1235048764}
   col: {fileID: 0}
+--- !u!1001 &1238756026
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 51719769527757916, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: maxItemsToDrop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 51719769527757916, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: maxRarityAmount
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1740303615401344093, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_Name
+      value: Enemy_skeleton
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389275548146833267, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 27.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389275548146833267, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389275548146833267, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389275548146833267, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389275548146833267, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389275548146833267, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389275548146833267, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389275548146833267, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389275548146833267, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389275548146833267, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2948427220601988860, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: resources.maxHealth.baseValue
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 4876009190493526105, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4876009190493526105, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
 --- !u!1 &1250028220
 GameObject:
   m_ObjectHideFlags: 0
@@ -70057,11 +70216,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21fb055a02d9ccc45866799e451a3921, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  npcTargetQuestId: blacksmith_joe
+  rewardNpc: 1
   npc: {fileID: 1048384089}
   interactTooltip: {fileID: 1402588742}
   floatSpeed: 8
   floatRange: 0.1
-  npcTargetQuestId: blacksmith_job
 --- !u!61 &1918837468
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -71141,6 +71301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeQuests: []
+  completedQuests: []
 --- !u!1 &2043501307
 GameObject:
   m_ObjectHideFlags: 0
@@ -72294,3 +72455,5 @@ SceneRoots:
   - {fileID: 5679569441639593418}
   - {fileID: 3300300928082396702}
   - {fileID: 1568775961}
+  - {fileID: 1238756026}
+  - {fileID: 593024125}
