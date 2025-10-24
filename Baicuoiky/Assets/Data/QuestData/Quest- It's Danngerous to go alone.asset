@@ -14,17 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questSaveId: 5367067b3bf35714d93642e3fd532c2e
   questName: ' It''s Danngerous to go alone'
-  descriptiion: I see a great shadow following you, warrior. You will need a sword
-    untainted by darkness. It is said that its first strike is the weakest, and its
-    last strike the strongest. A weapon of patience... or perhaps, of despair. Do
-    you dare wield a power you cannot yet see? If you wish to possess the sword,
-    go speak to the old  BlackSmith over there.
+  description: I see a great shadow following you, warrior. You will need a blade
+    that cannot be corrupted by the dark. A weapon of patience... or perhaps, desperation.
+    Do you dare to wield a power you cannot yet see? If you want it go talk with
+    BlackSmith
   questGoal: -Talk to BlackSmith
   questTargetId: blacksmith_job
   requiredAmount: 1
   rewardType: 2
-  rewardItem:
+  rewardItems:
   - itemData: {fileID: 11400000, guid: ae036aa300128014ca6b0d8fba0c0d2c, type: 2}
     stackSize: 1
     itemEffect: {fileID: 0}
-  gold: 0

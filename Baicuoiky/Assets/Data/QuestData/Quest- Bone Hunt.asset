@@ -14,19 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questSaveId: 61759d9de1fadec469fca14372af95c2
   questName: Bone Hunt
-  descriptiion: You there! Adventurer! We've got a problem. The old cemetery on the
+  description: You there! Adventurer! We've got a problem. The old cemetery on the
     eastern hill, just outside town, has become... active. Skeletons are clawing
     their way out of the ground, and they're starting to wander too close to the
-    farmsteads. We're stretched thin as it is. Could you help us?"
+    farmsteads. We're stretched thin as it is. Could you help us?
   questGoal: -Eleminate  2 skeleton
   questTargetId: enemy_skeleton
   requiredAmount: 2
   rewardType: 0
-  rewardItem:
+  rewardItems:
   - itemData: {fileID: 11400000, guid: 181efa60ba25f5b408102a2242922fa2, type: 2}
+    stackSize: 2
+    itemEffect: {fileID: 0}
+  - itemData: {fileID: 11400000, guid: 413bd659a3ed04f4785414894d3675ff, type: 2}
     stackSize: 1
     itemEffect: {fileID: 0}
-  - itemData: {fileID: 11400000, guid: b492f4c5e21d5974e8df0623727bb199, type: 2}
-    stackSize: 4
-    itemEffect: {fileID: 0}
-  gold: 500

@@ -20,7 +20,7 @@ public class QuestDataSO : ScriptableObject
     [Header("Reward Type")]
     public  RewardType rewardType;
     public Inventory_Item[] rewardItems;
-    public int gold;
+
 
     private void OnValidate()
     {

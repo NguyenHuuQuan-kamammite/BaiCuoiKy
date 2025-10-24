@@ -6,12 +6,12 @@ public class UI_QuestSlot : MonoBehaviour
     [SerializeField] private TextMeshProUGUI questName;
     [SerializeField] private Image[] rewardQuickPreviwSlots;
     public QuestDataSO questInSlot { get; private set; }
-  
+    private UI_QuestPreview questPreview;
 
 
     public void SetupQuestSlot(QuestDataSO questDataSO)
     {
-       
+       questPreview = transform.root.GetComponentInChildren<UI_Quest>().GetQuestPreview();
 
         questInSlot = questDataSO;
         questName.text = questDataSO.questName;
@@ -34,6 +34,6 @@ public class UI_QuestSlot : MonoBehaviour
     }
     public void UpdateQuestPreviw()
     {
-        Debug.Log("Set up quest review");
+       questPreview.SetupQuestPreview(questInSlot);
     }
 }
