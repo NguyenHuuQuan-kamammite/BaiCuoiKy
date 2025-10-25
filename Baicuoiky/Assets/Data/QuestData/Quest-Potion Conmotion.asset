@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b57a6af53b636d45b1f994c34885a10, type: 3}
+  m_Name: Quest-Potion Conmotion
+  m_EditorClassIdentifier: 
+  questSaveId: d722e8bcd8ece30488f29dc69d89a3b4
+  questName: Potion Conmotion
+  questType: 2
+  description: Please, you have to help me! My little brother, Finn, he's always
+    so curious... he went poking around the abandoned mine and got bitten by a giant
+    scorpion. The town alchemist brewed this Antitoxin, but I can't get to him! The
+    mine is crawling with giant rats, and I'm no fighter. He's hiding in the first
+    storage chamber, just past the entrance. Please, take this and bring it to him
+    before it's too late
+  questGoal: '-Deliver health potion to ...:'
+  questTargetId: merchant_bob
+  requiredAmount: 4
+  itemToDeliver: {fileID: 11400000, guid: b492f4c5e21d5974e8df0623727bb199, type: 2}
+  rewardType: 0
+  rewardItems:
+  - itemData: {fileID: 11400000, guid: 181efa60ba25f5b408102a2242922fa2, type: 2}
+    stackSize: 1
+    itemEffect: {fileID: 0}
