@@ -1,12 +1,14 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_QuestManager : MonoBehaviour,ISaveable
+public class Player_QuestManager : MonoBehaviour, ISaveable
 {
     public List<QuestData> activeQuests;
     public List<QuestData> completedQuests;
     private Entity_DropManager dropManager;
     private Inventory_Player inventory;
+ 
     [Header("QUEST DATABASE")]
     [SerializeField] private QuestDataBaseSO questDatabase;
     private void Awake()
@@ -78,7 +80,7 @@ public class Player_QuestManager : MonoBehaviour,ISaveable
         }
 
     }
-
+    
     public int GetQuestProgress(QuestData questToCheck)
     {
         QuestData quest = activeQuests.Find(q => q == questToCheck);
@@ -93,8 +95,9 @@ public class Player_QuestManager : MonoBehaviour,ISaveable
     {
         completedQuests.Add(questData);
         activeQuests.Remove(questData);
-    }
 
+    }
+   
     public bool QuestIsActive(QuestDataSO questToCheck)
     {
         if (questToCheck == null)
@@ -106,7 +109,7 @@ public class Player_QuestManager : MonoBehaviour,ISaveable
     public void LoadData(GameData data)
     {
         activeQuests.Clear();
-
+     
         foreach (var entry in data.activeQuests)
         {
             string questSaveId = entry.Key;
@@ -129,14 +132,17 @@ public class Player_QuestManager : MonoBehaviour,ISaveable
 
     public void SaveData(ref GameData data)
     {
-       data.activeQuests.Clear();
+        data.activeQuests.Clear();
+
         foreach (var quest in activeQuests)
         {
             data.activeQuests.Add(quest.questDataSO.questSaveId, quest.currentAmount);
         }
+
         foreach (var quest in completedQuests)
         {
             data.completedQuests.Add(quest.questDataSO.questSaveId, true);
         }
+
     }
-}
+} 

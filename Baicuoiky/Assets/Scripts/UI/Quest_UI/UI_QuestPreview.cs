@@ -36,7 +36,6 @@ public class UI_QuestPreview : MonoBehaviour
             rewardItem.stackSize = questDataSO.rewardItems[i].stackSize;
 
 
-
             questReward[i].gameObject.SetActive(true);
             questReward[i].UpdateSlot(rewardItem);
         }

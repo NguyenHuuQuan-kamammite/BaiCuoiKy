@@ -82,5 +82,6 @@ public class Object_NPC : MonoBehaviour,Iinteractable
 
         questManager.AddProgress(npcTargetQuestId);
         questManager.TryGiveRewardFrom(rewardNpc);
+        
     }
 }

@@ -1,6 +1,7 @@
+using System;
 using UnityEngine;
 
-public class UI_Quest : MonoBehaviour,ISaveable
+public class UI_Quest : MonoBehaviour, ISaveable
 {
     private GameData currentGameData;
 
@@ -14,7 +15,7 @@ public class UI_Quest : MonoBehaviour,ISaveable
         questSlots = GetComponentsInChildren<UI_QuestSlot>(true);
         questManager = Player.instance.questManager;
     }
-
+   
     public void SetupQuestUI(QuestDataSO[] questsToSetup)
     {
         foreach (var slot in questSlots)
@@ -25,11 +26,11 @@ public class UI_Quest : MonoBehaviour,ISaveable
             questSlots[i].gameObject.SetActive(true);
             questSlots[i].SetupQuestSlot(questsToSetup[i]);
         }
+
         questPreview.MakeQuestPreviewEmpty();
         inventorySlots.UpdateSlots(Player.instance.inventory.itemList);
 
         UpdateQuestList();
-
     }
     public void UpdateQuestList()
     {
@@ -41,30 +42,38 @@ public class UI_Quest : MonoBehaviour,ISaveable
                 slot.gameObject.SetActive(false);
         }
     }
+
     private bool CanTakeQuest(QuestDataSO questToCheck)
     {
+        if (questToCheck == null) return false;
+
         bool questActive = questManager.QuestIsActive(questToCheck);
-        if (currentGameData != null)
-        {
-            bool questCompleted =
-                currentGameData.completedQuests.TryGetValue(questToCheck.questSaveId, out bool isCompleted) && isCompleted;
 
-            return questActive == false && questCompleted == false;
-        }
+        // Check both sources to ensure we have the most accurate state
+        bool questCompleted =
+            questManager.completedQuests.Exists(q => q.questDataSO == questToCheck) ||
+            (currentGameData != null &&
+             currentGameData.completedQuests.TryGetValue(questToCheck.questSaveId, out bool isCompleted) &&
+             isCompleted);
 
-
-        return questActive == false;
+        return !questActive && !questCompleted;
     }
+
+   
 
     public UI_QuestPreview GetQuestPreview() => questPreview;
 
     public void LoadData(GameData data)
     {
         currentGameData = data;
+        if (gameObject.activeInHierarchy)
+        {
+            UpdateQuestList();
+        }
     }
 
     public void SaveData(ref GameData data)
     {
-        
+     
     }
 }

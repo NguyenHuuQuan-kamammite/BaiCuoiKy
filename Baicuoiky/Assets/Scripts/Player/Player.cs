@@ -191,7 +191,7 @@ public class Player : Entity
     private void OnEnable()
     {
         input.Enable();
-
+      
 
         input.Player.Mouse.performed += ctx => mousePosition = ctx.ReadValue<Vector2>();
         input.Player.Movement.performed += ctx => moveInput = ctx.ReadValue<Vector2>();

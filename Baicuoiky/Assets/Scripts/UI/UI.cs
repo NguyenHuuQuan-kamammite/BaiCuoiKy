@@ -169,6 +169,7 @@ public class UI : MonoBehaviour
 
         questUI.gameObject.SetActive(true);
         questUI.SetupQuestUI(questsToShow);
+       
     }
 
 
