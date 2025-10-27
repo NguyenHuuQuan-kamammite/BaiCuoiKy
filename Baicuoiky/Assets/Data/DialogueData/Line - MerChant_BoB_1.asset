@@ -12,8 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d2eec5891838e944968d625feac1f88, type: 3}
   m_Name: Line - MerChant_BoB_1
   m_EditorClassIdentifier: 
-  dialogueGroupName: 
-  speaker: {fileID: 0}
-  textLine: []
-  playerCanAnswer: 0
-  answerLine: []
+  dialogueGroupName: Merchant Bob
+  speaker: {fileID: 11400000, guid: 32ae01f91d29b15409ee907591afced7, type: 2}
+  textLine:
+  - Ah, a customer!
+  - Business has been slow ever than new shop opened on the other side of town
+  - Hurry up, I haven't got all day
+  - My supplier is late again. Unbelievable
+  - The fates have brought you here...
+  playerCanAnswer: 1
+  answerLine:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

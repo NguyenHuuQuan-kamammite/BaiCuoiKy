@@ -76,6 +76,11 @@ public class UI : MonoBehaviour
             Time.timeScale = 0;
             OpenOptionUI();
         };
+        input.UI.DialogueInteraction.performed += ctx =>
+        {
+            if (dialogueUI.gameObject.activeInHierarchy)
+                dialogueUI.DialogueInteraction();
+        };
 
     }
     public void OpenDeathScreenUI()
