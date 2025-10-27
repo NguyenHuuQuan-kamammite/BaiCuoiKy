@@ -1,7 +1,7 @@
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
-[CreateAssetMenu(menuName = "RPG Setup/Quest Data/ Quest DataBase", fileName = "QUEST DATABASE")]
+[CreateAssetMenu(menuName = "RPG Setup/Quest Data/Quest DataBase", fileName = "QUEST DATABASE")]
 public class QuestDataBaseSO : ScriptableObject
 {
     public QuestDataSO[] allQuests;
