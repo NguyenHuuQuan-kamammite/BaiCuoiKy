@@ -16,7 +16,7 @@ public class DialogueLineSO : ScriptableObject
     public DialogueLineSO[] answerLine;
 
 
-    public string RandomLine()
+    public string GetRandomLine()
     {
         return textLine[Random.Range(0, textLine.Length)];
     }

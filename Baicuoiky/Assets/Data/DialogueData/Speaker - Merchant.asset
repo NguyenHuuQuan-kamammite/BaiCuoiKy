@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Speaker - Merchant
   m_EditorClassIdentifier: 
   speakerName: Bob
-  speakerPortrait: {fileID: 0}
+  speakerPortrait: {fileID: -53463286, guid: 36d345e46a5804f4f8536b554cf34fc5, type: 3}
