@@ -341,6 +341,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "DialogueNavigation",
+                    "type": "Button",
+                    "id": "45a900c6-fdd0-4267-9b71-eb8b4740cbca",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -418,6 +427,17 @@
                     "processors": "",
                     "groups": ";Keyboard & Mouse",
                     "action": "DialogueInteraction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9d87ad1e-9631-4d3c-876d-7c0208a4f8b3",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DialogueNavigation",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

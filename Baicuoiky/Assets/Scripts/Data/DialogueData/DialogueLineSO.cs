@@ -11,11 +11,16 @@ public class DialogueLineSO : ScriptableObject
     [Header("Text Option")]
     [TextArea] public string[] textLine;
 
-    [Header("Answer Setup")]
-    public bool playerCanAnswer;//should be true if the player is the one responding
-    public DialogueLineSO[] answerLine;
+    [Header("Dialogue Action")]
+    [TextArea] public string actionLine;
+    public DialogueActionType actionType;
 
 
+    [Header("Choices info")]
+
+    public DialogueLineSO[] choiceLines;
+
+    public string GetFirstLine() => textLine[0];
     public string GetRandomLine()
     {
         return textLine[Random.Range(0, textLine.Length)];

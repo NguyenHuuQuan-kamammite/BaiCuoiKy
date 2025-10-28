@@ -29,10 +29,10 @@ public class Object_Merchant :Object_NPC, Iinteractable
         base.Interact();
 
 
-        //ui.OpenDialogueUI(firstDialogueLine);
-        ui.OpenQuestUI(quests);
+        ui.merchantUI.SetUpMerchantUI(merchant, inventory);
+        ui.OpenDialogueUI(firstDialogueLine);
+        //ui.OpenQuestUI(quests);
        
-        //ui.merchantUI.SetUpMerchantUI(merchant, inventory);
         //ui.OpenMerchantUI(true);
     }
     protected override void OnTriggerEnter2D(Collider2D collision)

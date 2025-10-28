@@ -20,8 +20,10 @@ MonoBehaviour:
   - Hurry up, I haven't got all day
   - My supplier is late again. Unbelievable
   - The fates have brought you here...
-  playerCanAnswer: 1
-  answerLine:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  actionLine: 
+  actionType: 5
+  playerChoiceAnswer: 
+  choiceLines:
+  - {fileID: 11400000, guid: bbacc5cd1e0b7d44f9fd6fc631726a6e, type: 2}
+  - {fileID: 11400000, guid: 89befaddefa32dc43b66d063e731520e, type: 2}
+  - {fileID: 11400000, guid: 5e6eb4587a3a95948bcc06393af79f29, type: 2}

@@ -427,6 +427,15 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DialogueNavigation"",
+                    ""type"": ""Button"",
+                    ""id"": ""45a900c6-fdd0-4267-9b71-eb8b4740cbca"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -506,6 +515,17 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
                     ""action"": ""DialogueInteraction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9d87ad1e-9631-4d3c-876d-7c0208a4f8b3"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DialogueNavigation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -550,6 +570,7 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
         m_UI_OptionUI = m_UI.FindAction("OptionUI", throwIfNotFound: true);
         m_UI_AlternativeInput = m_UI.FindAction("AlternativeInput", throwIfNotFound: true);
         m_UI_DialogueInteraction = m_UI.FindAction("DialogueInteraction", throwIfNotFound: true);
+        m_UI_DialogueNavigation = m_UI.FindAction("DialogueNavigation", throwIfNotFound: true);
     }
 
     ~@PlayerInputSet()
@@ -853,6 +874,7 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_OptionUI;
     private readonly InputAction m_UI_AlternativeInput;
     private readonly InputAction m_UI_DialogueInteraction;
+    private readonly InputAction m_UI_DialogueNavigation;
     /// <summary>
     /// Provides access to input actions defined in input action map "UI".
     /// </summary>
@@ -884,6 +906,10 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "UI/DialogueInteraction".
         /// </summary>
         public InputAction @DialogueInteraction => m_Wrapper.m_UI_DialogueInteraction;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/DialogueNavigation".
+        /// </summary>
+        public InputAction @DialogueNavigation => m_Wrapper.m_UI_DialogueNavigation;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -925,6 +951,9 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
             @DialogueInteraction.started += instance.OnDialogueInteraction;
             @DialogueInteraction.performed += instance.OnDialogueInteraction;
             @DialogueInteraction.canceled += instance.OnDialogueInteraction;
+            @DialogueNavigation.started += instance.OnDialogueNavigation;
+            @DialogueNavigation.performed += instance.OnDialogueNavigation;
+            @DialogueNavigation.canceled += instance.OnDialogueNavigation;
         }
 
         /// <summary>
@@ -951,6 +980,9 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
             @DialogueInteraction.started -= instance.OnDialogueInteraction;
             @DialogueInteraction.performed -= instance.OnDialogueInteraction;
             @DialogueInteraction.canceled -= instance.OnDialogueInteraction;
+            @DialogueNavigation.started -= instance.OnDialogueNavigation;
+            @DialogueNavigation.performed -= instance.OnDialogueNavigation;
+            @DialogueNavigation.canceled -= instance.OnDialogueNavigation;
         }
 
         /// <summary>
@@ -1131,5 +1163,12 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnDialogueInteraction(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "DialogueNavigation" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnDialogueNavigation(InputAction.CallbackContext context);
     }
 }
