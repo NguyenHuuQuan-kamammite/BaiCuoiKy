@@ -46,7 +46,8 @@ public class UI_Dialogue : MonoBehaviour
         speakerPotrait.sprite = line.speaker.speakerPortrait;
         speakerName.text = line.speaker.speakerName;
 
-        fullTextToShow = line.GetRandomLine();
+        fullTextToShow = line.actionType == DialogueActionType.None || line.actionType == DialogueActionType.PlayerMakeChoice ?
+            line.GetRandomLine() : line.actionLine;
         typeTextCo = StartCoroutine(TypeTextCo(fullTextToShow));
         StartCoroutine(EnableInteractionCo());
     }
@@ -61,9 +62,13 @@ public class UI_Dialogue : MonoBehaviour
             case DialogueActionType.PlayerMakeChoice:
                 if (selectedChoice == null)
                 {
-
-                    selectedChoiceIndex = 0;
                     ShowChoices();
+                }
+                else
+                {
+                    DialogueLineSO selectedChoice = currentChoices[selectedChoiceIndex];
+                    PlayDialogueLine(selectedChoice);
+                   
                 }
                 break;
         }
@@ -108,8 +113,11 @@ public class UI_Dialogue : MonoBehaviour
                 string choiceText = choice.GetFirstLine();
 
                 dialogueChoicesText[i].gameObject.SetActive(true);
-              
-                   
+                dialogueChoicesText[i].text = selectedChoiceIndex == i ?
+                    $"<color=yellow> {i + 1}) {choiceText}" :
+                    $"{i + 1}) {choiceText}";
+
+
             }
             else
             {

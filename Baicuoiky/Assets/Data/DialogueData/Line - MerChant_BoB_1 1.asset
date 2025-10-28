@@ -16,7 +16,6 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: 32ae01f91d29b15409ee907591afced7, type: 2}
   textLine:
   - Do you have something to trade
-  actionLine: 
+  actionLine: Sure take a look
   actionType: 1
-  playerChoiceAnswer: Do you have something to trade
   choiceLines: []
