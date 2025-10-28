@@ -53742,7 +53742,7 @@ MonoBehaviour:
   - {fileID: 1754095439}
   - {fileID: 851670863}
   - {fileID: 1861589638}
-  textSpeed: 0.05
+  textSpeed: 0.02
 --- !u!1 &1162108985
 GameObject:
   m_ObjectHideFlags: 0

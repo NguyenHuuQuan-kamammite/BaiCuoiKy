@@ -68,8 +68,9 @@ public class UI_Dialogue : MonoBehaviour
                 {
                     DialogueLineSO selectedChoice = currentChoices[selectedChoiceIndex];
                     PlayDialogueLine(selectedChoice);
-                   
+                    selectedChoice = null;
                 }
+
                 break;
         }
     }
@@ -86,7 +87,7 @@ public class UI_Dialogue : MonoBehaviour
             return;
         }
 
-        if (waitingToConfirm )//|| selectedChoice != null)
+        if (waitingToConfirm || selectedChoice != null)
         {
             waitingToConfirm = false;
             HandleNextAction();
@@ -126,7 +127,7 @@ public class UI_Dialogue : MonoBehaviour
 
         }
 
-        selectedChoice = currentChoices[selectedChoiceIndex];
+       selectedChoice = currentChoices[selectedChoiceIndex];
     }
     public void NavigateChoice(int direction)
     {
