@@ -17,7 +17,7 @@ public class DialogueLineSO : ScriptableObject
 
 
     [Header("Choices info")]
-
+    [TextArea] public string playerChoiceAnswer;
     public DialogueLineSO[] choiceLines;
 
     public string GetFirstLine() => textLine[0];

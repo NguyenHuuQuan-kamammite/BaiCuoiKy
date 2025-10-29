@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class UI_Dialogue : MonoBehaviour
 {
     private UI ui;
+    private DialogueNpcData npcData;
+    private Player_QuestManager questManager;
 
 
     [SerializeField] private Image speakerPotrait;
@@ -33,13 +35,18 @@ public class UI_Dialogue : MonoBehaviour
     private void Awake()
     {
         ui = GetComponentInParent<UI>();
+        questManager = Player.instance.questManager;
     }
-   
+    public void SetupNpcData(DialogueNpcData npcData) => this.npcData = npcData;
+
     public void PlayDialogueLine(DialogueLineSO line)
     {
         currentLine = line;
         currentChoices = line.choiceLines;
         canInteract = false;
+        selectedChoiceIndex = 0;    
+
+
         HideAllChoices();
 
 
@@ -72,6 +79,21 @@ public class UI_Dialogue : MonoBehaviour
                 }
 
                 break;
+            case DialogueActionType.OpenQuest:
+                ui.SwitchToInGameUI();
+                ui.OpenQuestUI(npcData.quests);
+                break;
+            case DialogueActionType.GetQuestReward:
+                ui.SwitchToInGameUI();
+                questManager.TryGetRewardFrom(npcData.npcRewardType);
+                break;
+            case DialogueActionType.OpenCraft:
+                ui.SwitchToInGameUI();
+                ui.OpenCraftUI(true);
+                break;
+            case DialogueActionType.CloseDialogue:
+                ui.SwitchToInGameUI();
+                break;
         }
     }
 
@@ -82,7 +104,11 @@ public class UI_Dialogue : MonoBehaviour
         if (typeTextCo != null)
         {
             CompleteTyping();
-            waitingToConfirm = true;
+
+            if (currentLine.actionType != DialogueActionType.PlayerMakeChoice)
+                waitingToConfirm = true;
+            else
+                HandleNextAction();
 
             return;
         }
@@ -92,7 +118,6 @@ public class UI_Dialogue : MonoBehaviour
             waitingToConfirm = false;
             HandleNextAction();
         }
-
     }
 
     private void CompleteTyping()
@@ -111,7 +136,7 @@ public class UI_Dialogue : MonoBehaviour
             if (i < currentChoices.Length)
             {
                 DialogueLineSO choice = currentChoices[i];
-                string choiceText = choice.GetFirstLine();
+                string choiceText = choice.playerChoiceAnswer;
 
                 dialogueChoicesText[i].gameObject.SetActive(true);
                 dialogueChoicesText[i].text = selectedChoiceIndex == i ?
@@ -119,6 +144,8 @@ public class UI_Dialogue : MonoBehaviour
                     $"{i + 1}) {choiceText}";
 
 
+                if (choice.actionType == DialogueActionType.GetQuestReward && questManager.HasCompletedQuest() == false)
+                    dialogueChoicesText[i].gameObject.SetActive(false);
             }
             else
             {
@@ -155,7 +182,18 @@ public class UI_Dialogue : MonoBehaviour
             dialogueText.text += letter;
             yield return new WaitForSeconds(textSpeed);
         }
-        waitingToConfirm = true;
+
+        if (currentLine.actionType != DialogueActionType.PlayerMakeChoice)
+        {
+            waitingToConfirm = true;
+        }
+        else
+        {
+            yield return new WaitForSeconds(.2f);
+            selectedChoice = null;
+            HandleNextAction();
+        }
+
         typeTextCo = null;
     }
     private IEnumerator EnableInteractionCo()

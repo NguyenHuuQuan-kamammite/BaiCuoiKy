@@ -30,7 +30,7 @@ public class Object_Merchant :Object_NPC, Iinteractable
 
 
         ui.merchantUI.SetUpMerchantUI(merchant, inventory);
-        ui.OpenDialogueUI(firstDialogueLine);
+        ui.OpenDialogueUI(firstDialogueLine, new  DialogueNpcData(rewardNpc, quests));
         //ui.OpenQuestUI(quests);
        
         //ui.OpenMerchantUI(true);

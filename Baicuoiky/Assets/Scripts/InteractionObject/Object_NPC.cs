@@ -8,7 +8,7 @@ public class Object_NPC : MonoBehaviour,Iinteractable
 
     [Header("Quest Info")]
     [SerializeField] private string npcTargetQuestId;
-    [SerializeField] private RewardType rewardNpc;
+    [SerializeField] protected RewardType rewardNpc;
 
     [Space]
 
@@ -81,7 +81,7 @@ public class Object_NPC : MonoBehaviour,Iinteractable
     {
 
         questManager.AddProgress(npcTargetQuestId);
-        questManager.TryGiveRewardFrom(rewardNpc);
+        
         
     }
 }

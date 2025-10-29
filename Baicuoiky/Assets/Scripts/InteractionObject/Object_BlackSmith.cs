@@ -3,6 +3,8 @@ using UnityEngine;
 public class Object_BlackSmith : Object_NPC, Iinteractable
 {
     private Animator anim;
+    [SerializeField] private DialogueLineSO firstDialogueLine;
+    [SerializeField] private QuestDataSO[] quests;
     private Inventory_Player inventory;
     private Inventory_Storage storage;
     protected override void Awake()
@@ -16,9 +18,10 @@ public class Object_BlackSmith : Object_NPC, Iinteractable
     public override void Interact()
     {
         base.Interact();
+        ui.OpenDialogueUI(firstDialogueLine, new DialogueNpcData(rewardNpc, quests));
         ui.storageUI.SetUpStorage(storage);
         ui.craftUI.SetUpCraftUI(storage);
-       ui.OpenStorageUI(true);
+        //ui.OpenStorageUI(true);
     }
     protected override void OnTriggerEnter2D(Collider2D collision)
     {

@@ -181,11 +181,12 @@ public class UI : MonoBehaviour
 
 
 
-    public void OpenDialogueUI(DialogueLineSO firstLine)
+    public void OpenDialogueUI(DialogueLineSO firstLine,DialogueNpcData npcData)
     {
         StopPlayerControls(true);
         HideAllToolTips();
         dialogueUI.gameObject.SetActive(true);
+        dialogueUI.SetupNpcData(npcData);
         dialogueUI.PlayDialogueLine(firstLine);
     }
 
@@ -208,6 +209,17 @@ public class UI : MonoBehaviour
         StopPlayerControls(openMerchantUI);
         if(openMerchantUI == false)
             HideAllToolTips();
+    }
+    public void OpenCraftUI(bool openStorageUI)
+    {
+        craftUI.gameObject.SetActive(openStorageUI);
+        StopPlayerControls(openStorageUI);
+
+        if (openStorageUI == false)
+        {
+            storageUI.gameObject.SetActive(false);
+            HideAllToolTips();
+        }
     }
     public void HideAllToolTips()
     {

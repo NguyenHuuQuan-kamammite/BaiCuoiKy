@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d2eec5891838e944968d625feac1f88, type: 3}
-  m_Name: Line - MerChant_BoB_1 1
+  m_Name: Line - MerChant_BoB_2 3
   m_EditorClassIdentifier: 
   dialogueGroupName: Merchant Bob
   speaker: {fileID: 11400000, guid: 32ae01f91d29b15409ee907591afced7, type: 2}
   textLine:
-  - Do you have something to trade
-  actionLine: Sure take a look
-  actionType: 1
+  - 
+  actionLine: 
+  actionType: 6
+  playerChoiceAnswer: I have to go
   choiceLines: []
