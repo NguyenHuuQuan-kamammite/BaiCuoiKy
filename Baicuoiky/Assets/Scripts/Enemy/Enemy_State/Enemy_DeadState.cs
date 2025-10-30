@@ -16,5 +16,6 @@ public class Enemy_DeadState : EnemyState
             enemy.healthBarUI.SetActive(false); // Hide it
         }
         stateMachine.SwichOffState();
+        enemy.DestroyGameObjectWithDelay(); 
     }
 }

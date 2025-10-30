@@ -4,6 +4,7 @@ public class Enemy_Skeleton : Enemy, ICounterable
 {
     public bool CanBeCountered { get => canBeStunned; }
 
+   
     protected override void Awake()
     {
         base.Awake();
@@ -13,6 +14,8 @@ public class Enemy_Skeleton : Enemy, ICounterable
         battleState = new Enemy_BattleState(this, stateMachine, "battle");
         deadState = new Enemy_DeadState(this, stateMachine, "dead");
         stunnedState = new Enemy_StunnedState(this, stateMachine, "stunned");
+
+       
     }
     protected override void Start()
     {

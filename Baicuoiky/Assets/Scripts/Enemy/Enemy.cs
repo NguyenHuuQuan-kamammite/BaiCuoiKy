@@ -102,6 +102,12 @@ public class Enemy : Entity
         base.EntityDeath();
         stateMachine.ChangeState(deadState);
     }
+    public void DestroyGameObjectWithDelay(float delay = 10)
+    {
+        Destroy(gameObject, delay);
+    }
+
+
     private void HandlePlayerDeath()
     {
         stateMachine.ChangeState(idleState);
