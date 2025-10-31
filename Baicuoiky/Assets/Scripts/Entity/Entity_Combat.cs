@@ -26,7 +26,7 @@ public class Entity_Combat : MonoBehaviour
     public void PerformAttack()
     {
         bool targetGotHit = false;
-        foreach (var target in GetDetectedColliders())
+        foreach (var target in GetDetectedColliders(WhatIsTarget))
         {
             IDamgable damagable = target.GetComponent<IDamgable>();
             if (damagable == null) continue;
@@ -52,12 +52,46 @@ public class Entity_Combat : MonoBehaviour
         if( targetGotHit == false)
             sfx?.PlayAttackMiss();
     }
-
-
-
-    protected Collider2D[] GetDetectedColliders()
+    public void PerformAttackOnTarget(Transform target, DamageScaleData damageScaleData = null)
     {
-        return Physics2D.OverlapCircleAll(targetCheck.position, targetCheckRadius, WhatIsTarget);
+        bool targetGotHit = false;
+
+
+        IDamgable damageable = target.GetComponent<IDamgable>();
+
+        if (damageable == null)
+            return; // skip target, go to next target
+
+        DamageScaleData damageScale = damageScaleData == null ? basicAttackScale : damageScaleData;
+        AttackData attackData = stats.GetAttackData(basicAttackScale);
+        Entity_StatusHandler statusHandler = target.GetComponent<Entity_StatusHandler>();
+
+
+        float physicalDamage = attackData.physicalDamage;
+        float elementalDamage = attackData.elementalDamage;
+        ElementType element = attackData.element;
+
+        targetGotHit = damageable.TakeDamage(physicalDamage, elementalDamage, element, transform);
+
+        if (element != ElementType.None)
+            statusHandler?.ApplyStatusEffect(element, attackData.effectData);
+
+        if (targetGotHit)
+        {
+            OnDoingPhysicalDamage?.Invoke(physicalDamage);
+            vfx.CreateOnHitVFX(target.transform, attackData.isCrit, element);
+            sfx?.PlayAttackHit();
+        }
+
+
+        if (targetGotHit == false)
+            sfx?.PlayAttackMiss();
+    }
+
+
+    protected Collider2D[] GetDetectedColliders(LayerMask whatToDetect)
+    {
+        return Physics2D.OverlapCircleAll(targetCheck.position, targetCheckRadius, whatToDetect);
     }
     private void OnDrawGizmos()
     {

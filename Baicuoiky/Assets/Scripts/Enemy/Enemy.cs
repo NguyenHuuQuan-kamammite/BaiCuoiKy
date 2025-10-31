@@ -13,6 +13,7 @@ public class Enemy : Entity
     public Entity_Stats stats { get; private set; }
 
     public Enemy_Health health{ get; private set; }
+    public Entity_Combat combat { get; private set; }
     public Enemy_IdleState idleState;
     public Enemy_MoveState moveState;
     public Enemy_AttackState attackState;
@@ -22,6 +23,10 @@ public class Enemy : Entity
     [Header("Battle Details")]
     public float battleMoveSpeed = 3f;
     public float attackDistance = 2f;
+    public float attackCooldown = .5f;
+    public bool canChasePlayer = true;
+    [Space]
+
     public float battleTimeDuration = 5f;
     public float minRetreatDistance = 1f;
     public Vector2 retreatVelocity;
@@ -78,9 +83,13 @@ public class Enemy : Entity
         healthBarUI = transform.Find("HealthBar_UI")?.gameObject;
         health = GetComponent<Enemy_Health>();
         stats = GetComponent<Entity_Stats>();
+        combat = GetComponent<Entity_Combat>();
 
     }
+    public virtual void SpecialAttack()
+    {
 
+    }
 
     public void TryEnterBattleState(Transform player)
     {

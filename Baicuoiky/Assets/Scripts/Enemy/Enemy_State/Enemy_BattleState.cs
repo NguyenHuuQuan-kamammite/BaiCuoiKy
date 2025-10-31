@@ -3,9 +3,10 @@ using UnityEngine;
 
 public class Enemy_BattleState : EnemyState
 {
-    private Transform player;
-    private Transform lastTarget;
-    private float lastTimeWasInBattle;
+    protected Transform player;
+    protected Transform lastTarget;
+    protected float lastTimeWasInBattle;
+    protected float lastTimeAttacked = float.NegativeInfinity;
     public Enemy_BattleState(Enemy enemy, StateMachine stateMachine, string animBoolName) : base(enemy, stateMachine, animBoolName)
     {
     }
@@ -25,7 +26,7 @@ public class Enemy_BattleState : EnemyState
         }
 
     }
-    private float UpdateBattleTimer() => lastTimeWasInBattle = Time.time;
+   
 
     public override void Update()
     {
@@ -40,15 +41,20 @@ public class Enemy_BattleState : EnemyState
             stateMachine.ChangeState(enemy.idleState);
            
         }
-        if (WithInAttackRange()  && enemy.PlayerDetected() == true)     {
+        if (WithInAttackRange()  && enemy.PlayerDetected() == true && CanAttack())     
+        {
+            lastTimeAttacked = Time.time;
             stateMachine.ChangeState(enemy.attackState);
         }
         else
-            enemy.SetVelocity(enemy.GetBattleMoveSpeed() * DirectionToPlayer(), rb.linearVelocity.y);
+        {
+            float xVeloicty = enemy.canChasePlayer ? enemy.GetBattleMoveSpeed() : 0.0001f;
+            enemy.SetVelocity(xVeloicty * DirectionToPlayer(), rb.linearVelocity.y);
+        }
 
     }
-
-    private void UpdateTargetIfNeeded()
+    protected bool CanAttack() => Time.time > lastTimeAttacked + enemy.attackCooldown;
+    protected void UpdateTargetIfNeeded()
     {
         if (enemy.PlayerDetected() == false)
             return;
@@ -59,14 +65,15 @@ public class Enemy_BattleState : EnemyState
             player = newTarget;
         }
     }
-    private bool BattleTimeIsOver() => Time.time > lastTimeWasInBattle + enemy.battleTimeDuration;
-    private bool ShouldRetreat() => DisTanceToPlayer() < enemy.minRetreatDistance;
-  
-    private bool WithInAttackRange()
+    protected float UpdateBattleTimer() => lastTimeWasInBattle = Time.time;
+    protected bool BattleTimeIsOver() => Time.time > lastTimeWasInBattle + enemy.battleTimeDuration;
+    protected bool ShouldRetreat() => DisTanceToPlayer() < enemy.minRetreatDistance;
+
+    protected bool WithInAttackRange()
     {
         return DisTanceToPlayer() < enemy.attackDistance;
     }
-    private float DisTanceToPlayer()
+    protected float DisTanceToPlayer()
     {
         if (player == null)
         {
@@ -74,7 +81,7 @@ public class Enemy_BattleState : EnemyState
         }
         return Mathf.Abs(player.position.x - enemy.transform.position.x);
     }
-    private int DirectionToPlayer()
+    protected int DirectionToPlayer()
     {
         if (player == null)
         {
