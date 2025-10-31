@@ -157,4 +157,20 @@ public class Inventory_Player : Inventory_Base
         }
         TriggerUpdateUI();
     }
+
+    public void AddGold(int amount)
+    {
+        if (amount < 0)
+        {
+            Debug.LogWarning("Cannot add negative gold amount!");
+            return;
+        }
+
+        gold += amount;
+        Debug.Log($"Added {amount} gold. Total gold: {gold}");
+
+        // You can also invoke an event here if you want other systems to know about gold changes
+        // onGoldChanged?.Invoke(gold);
+    }
+
 }

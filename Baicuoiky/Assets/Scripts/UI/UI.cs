@@ -51,6 +51,7 @@ public class UI : MonoBehaviour
 
     private void Start()
     {
+
         skillTreeUI.UnlockDefaulSkills();
     }
     public void SetupControlUI(PlayerInputSet inputSet)
