@@ -54596,6 +54596,7 @@ MonoBehaviour:
   inputKeyName: R
   inputKeyText: {fileID: 4397192480700670059}
   conflicSlot: {fileID: 0}
+  defaultEmptySprite: {fileID: 0}
 --- !u!222 &112203557428636958
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -84963,6 +84964,7 @@ MonoBehaviour:
   inputKeyName: L.Shift
   inputKeyText: {fileID: 5815988703016966262}
   conflicSlot: {fileID: 0}
+  defaultEmptySprite: {fileID: 0}
 --- !u!222 &1930195976008881840
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -93270,6 +93272,7 @@ MonoBehaviour:
   inputKeyName: E
   inputKeyText: {fileID: 38084973803775841}
   conflicSlot: {fileID: 8947483615170246857}
+  defaultEmptySprite: {fileID: 0}
 --- !u!222 &5149056799414641615
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -96540,6 +96543,7 @@ MonoBehaviour:
   inputKeyName: RMB
   inputKeyText: {fileID: 5385630097517911323}
   conflicSlot: {fileID: 0}
+  defaultEmptySprite: {fileID: 0}
 --- !u!222 &9027782182493816835
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -106957,6 +106961,7 @@ MonoBehaviour:
   inputKeyName: E
   inputKeyText: {fileID: 6808540354025451546}
   conflicSlot: {fileID: 7845905591684318895}
+  defaultEmptySprite: {fileID: 0}
 --- !u!222 &1986678370000865715
 CanvasRenderer:
   m_ObjectHideFlags: 0

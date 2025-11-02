@@ -24,6 +24,13 @@ public class Player_SkillManager : MonoBehaviour
         foreach (var skill in allSkills)
             skill.ReduceCoolDownBy(amount);
     }
+    public void ResetAllSkills()
+    {
+        foreach (var skill in allSkills)
+        {
+            skill.ResetAllUnlocks();
+        }
+    }
     public Skill_Base GetSkillByType(Skill_Type type)
     {
         switch (type)

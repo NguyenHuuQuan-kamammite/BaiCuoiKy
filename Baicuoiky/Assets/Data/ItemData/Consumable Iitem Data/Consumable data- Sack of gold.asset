@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3528d8bfa7cf7cd4594b594df3ffefad, type: 3}
   m_Name: Consumable data- Sack of gold
   m_EditorClassIdentifier: 
-  saveID: 
-  itemPrice: 100
-  minStackSizeAtShop: 1
-  maxStackSizeAtShop: 1
-  itemRarity: 100
-  dropChance: 0
-  maxDropChance: 65
+  saveID: d6fa4ef27bb552a429ba3da7821d902e
+  itemPrice: 0
+  minStackSizeAtShop: 0
+  maxStackSizeAtShop: 0
+  itemRarity: 184
+  dropChance: 37.5
+  maxDropChance: 37.5
   craftRecipe: []
-  itemName: 
-  itemIcon: {fileID: 0}
-  itemType: 0
-  maxStackSize: 1
-  itemEffects: {fileID: 0}
+  itemName: Sack of Gold
+  itemIcon: {fileID: -1732592169, guid: 8b91d8dde6c55504a95c06632a759734, type: 3}
+  itemType: 4
+  maxStackSize: 4
+  itemEffects: {fileID: 11400000, guid: 25508ae4fe6221c4a8bf01497f660cbf, type: 2}

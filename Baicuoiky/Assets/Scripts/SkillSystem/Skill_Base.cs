@@ -71,4 +71,22 @@ protected bool Unlocked(SkillUnlock_Type upgradeToCheck) => unlockType == upgrad
        player.ui.inGameUI.GetSkillSlot(skillType).ResetCooldown();
        lastTimeUsed = Time.time - coolDown;
     }
+
+    public void ResetAllUnlocks()
+    {
+        // Reset the unlock type to None
+        unlockType = SkillUnlock_Type.None;
+
+        // Reset cooldown
+        coolDown = 0;
+
+        // Reset damage scale data
+        damageScaleData = new DamageScaleData();
+
+        // Clear the skill slot UI
+        if (player != null && player.ui != null && player.ui.inGameUI != null)
+        {
+            player.ui.inGameUI.GetSkillSlot(skillType).ClearSkillSlot();
+        }
+    }
 }

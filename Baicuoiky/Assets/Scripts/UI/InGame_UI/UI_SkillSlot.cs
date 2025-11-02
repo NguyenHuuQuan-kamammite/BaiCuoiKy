@@ -19,6 +19,7 @@ public class UI_SkillSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     [SerializeField] private string inputKeyName;
     [SerializeField] private TextMeshProUGUI inputKeyText;
     [SerializeField] private GameObject conflicSlot;
+    [SerializeField] private Sprite defaultEmptySprite;
     private void Awake()
     {
         ui = GetComponentInParent<UI>();
@@ -77,5 +78,32 @@ public class UI_SkillSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         if(skillData == null)
             return;
         ui.skillToolTip.ShowToolTip(true, rect, skillData,null);
+    }
+    public void ClearSkillSlot()
+    {
+        // Clear the skill data reference
+        skillData = null;
+
+        // Set to default empty sprite
+        if (skillIcon != null)
+        {
+            skillIcon.sprite = defaultEmptySprite; // Or set to null if you prefer
+            Color color = skillIcon.color;
+            color.a = 0.6f; // Semi-transparent to show it's empty
+            skillIcon.color = color;
+        }
+
+        // Clear the input key text
+        if (inputKeyText != null)
+            inputKeyText.text = "";
+
+        // Reset cooldown
+        ResetCooldown();
+
+        // Show conflict slot if it exists
+        if (conflicSlot != null)
+        {
+            conflicSlot.SetActive(true);
+        }
     }
 }

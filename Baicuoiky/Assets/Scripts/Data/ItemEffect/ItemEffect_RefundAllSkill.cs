@@ -5,7 +5,14 @@ public class ItemEffect_RefundAllSkill : ItemEffectDataSO
     public override void ExecuteEffect()
     {
        UI ui = FindFirstObjectByType<UI>();
-      
+
+        Player player = FindFirstObjectByType<Player>();
+        if (player != null && player.skillManager != null)
+        {
+            player.skillManager.ResetAllSkills();
+        }
+
+        // Then refund all skill points in the UI
         ui.skillTreeUI.RefundAllSkillPoints();
     }
 }

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 786ec1b8449f49142bfb6411fc49441b, type: 3}
   m_Name: Item Effect data- Grand Gold
   m_EditorClassIdentifier: 
-  effectDescription: 
+  effectDescription: give player 100 gold
   goldAmount: 100

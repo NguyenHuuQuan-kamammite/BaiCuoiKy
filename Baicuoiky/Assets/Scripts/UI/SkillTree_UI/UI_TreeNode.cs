@@ -59,6 +59,8 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
         skillTree.AddSkillPoint(skillData.cost);
         connectHandler.UnlockConnectionImage(false);
+
+        UnlockConflictNode();
     }
     private void Unlock()
     {
@@ -127,6 +129,24 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             node.isLocked = true;
             node.LockChildNode();
 
+        }
+    }
+
+    private void UnlockConflictNode()
+    {
+        foreach (var node in conflictNodes)
+        {
+            node.isLocked = false;
+            node.UnlockChildNode();
+        }
+    }
+
+    private void UnlockChildNode()
+    {
+        isLocked = false;
+        foreach (var node in connectHandler.GetChildNodes())
+        {
+            node.UnlockChildNode();
         }
     }
     private void UpdateIconColor(Color color)
