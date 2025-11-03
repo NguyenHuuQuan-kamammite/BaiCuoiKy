@@ -12,7 +12,7 @@ public class ItemEffect_RefundAllSkill : ItemEffectDataSO
             player.skillManager.ResetAllSkills();
         }
 
-        // Then refund all skill points in the UI
+        // refund all skill points in the UI
         ui.skillTreeUI.RefundAllSkillPoints();
     }
 }

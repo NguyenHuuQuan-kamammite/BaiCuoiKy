@@ -5,6 +5,11 @@ public class Entity_VFX : MonoBehaviour
 {
     protected SpriteRenderer sr;
     private Entity entity;
+    [Header("Time echo VFX")]
+    [Range(.01f, .2f)]
+    [SerializeField] private float timeEchoInterval = 0.05f;
+    [SerializeField] private GameObject imageEchoPrefab;
+    private Coroutine imageEchoCo;
     [Header("On Damage VFX")]
     [SerializeField] private Material onDamageMaterial;
     [SerializeField] private float onDamageVfxDuration = 0.2f;
@@ -21,6 +26,7 @@ public class Entity_VFX : MonoBehaviour
     [SerializeField] private Color electricVfx = Color.yellow;
     private Color originaltHitVfxColor;
     private Coroutine statusVFXCo;
+ 
 
     private void Awake()
     {
@@ -29,6 +35,38 @@ public class Entity_VFX : MonoBehaviour
         entity = GetComponent<Entity>();
         originalMaterial = sr.material;
         originaltHitVfxColor = hitVfxColor;
+    }
+    public void DoImageEchoEffect(float duration)
+    {
+        StopImageEchoEffect();
+        imageEchoCo = StartCoroutine(ImageEchoEffectCo(duration));
+    }
+    public void StopImageEchoEffect()
+    {
+        if (imageEchoCo != null)
+            StopCoroutine(imageEchoCo);
+    }
+
+    private IEnumerator ImageEchoEffectCo(float duration)
+    {
+        float timer = 0f;
+        while (timer < duration)
+        {
+            CreateImageEcho();
+            yield return new WaitForSeconds(timeEchoInterval);
+            timer += timeEchoInterval;
+        }
+    }
+    private void CreateImageEcho()
+    {
+        Vector3 position = entity.anim.transform.position;
+        float scale = entity.anim.transform.localScale.x;
+
+        GameObject imageEcho = Instantiate(imageEchoPrefab, position, transform.rotation);
+
+        imageEcho.transform.localScale = new Vector3(scale, scale, scale);
+        imageEcho.GetComponentInChildren<SpriteRenderer>().sprite = sr.sprite;
+
     }
     public void PlayOnStatusVFX(float duration, ElementType element)
     {
