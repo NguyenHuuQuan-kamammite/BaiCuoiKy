@@ -42,10 +42,9 @@ public class Enemy : Entity
 
     [Header("Player Detection")]
     [SerializeField] private LayerMask whatIsPlayer;
-
-
     [SerializeField] private Transform playerCheck;
     [SerializeField] private float playerCheckDistance = 10f;
+    [SerializeField] private float playerCheckYOffset = 0f;
     public Transform player { get; private set; }
     public float activeSlowMultiplier { get; private set; } = 1;
     public float GetMoveSpeed() => moveSpeed * activeSlowMultiplier;
@@ -142,24 +141,29 @@ public class Enemy : Entity
     public RaycastHit2D PlayerDetected()
 
     {
-        RaycastHit2D hit = Physics2D.Raycast(playerCheck.position, Vector2.right * facingDir, playerCheckDistance, whatIsPlayer | whatIsGround);
+        Vector2 rayOrigin = new Vector2(playerCheck.position.x, playerCheck.position.y + playerCheckYOffset);
+        RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * facingDir, playerCheckDistance, whatIsPlayer | whatIsGround);
+
         if (hit.collider == null || hit.collider.gameObject.layer != LayerMask.NameToLayer("Player"))
         {
-            Debug.DrawRay(playerCheck.position, Vector2.right * facingDir * playerCheckDistance, Color.red);
+            Debug.DrawRay(rayOrigin, Vector2.right * facingDir * playerCheckDistance, Color.red);
             return default;
         }
 
         return hit;
+
     }
     protected override void OnDrawGizmos()
     {
         base.OnDrawGizmos();
+        Vector3 checkPos = new Vector3(playerCheck.position.x, playerCheck.position.y + playerCheckYOffset, playerCheck.position.z);
+
         Gizmos.color = Color.blue;
-        Gizmos.DrawLine(playerCheck.position, new Vector3(playerCheck.position.x + (playerCheckDistance * facingDir), playerCheck.position.y));
+        Gizmos.DrawLine(checkPos, new Vector3(checkPos.x + (playerCheckDistance * facingDir), checkPos.y));
         Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(playerCheck.position, new Vector3(playerCheck.position.x + (attackDistance * facingDir), playerCheck.position.y));
+        Gizmos.DrawLine(checkPos, new Vector3(checkPos.x + (attackDistance * facingDir), checkPos.y));
         Gizmos.color = Color.green;
-        Gizmos.DrawLine(playerCheck.position, new Vector3(playerCheck.position.x + (minRetreatDistance * facingDir), playerCheck.position.y));
+        Gizmos.DrawLine(checkPos, new Vector3(checkPos.x + (minRetreatDistance * facingDir), checkPos.y));
     }
     private void OnEnable()
     {
