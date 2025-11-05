@@ -8,7 +8,7 @@ public class Entity : MonoBehaviour
 
     public Animator anim { get; private set; }
     public Rigidbody2D rb { get; private set; }
-
+    public Collider2D col { get; private set; }
     protected StateMachine stateMachine;
     public Entity_SFX sfx { get; private set; }
 
@@ -39,6 +39,7 @@ public class Entity : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sfx = GetComponent<Entity_SFX>();
         stateMachine = new StateMachine();
+        col = GetComponent<Collider2D>();
 
     }
 
