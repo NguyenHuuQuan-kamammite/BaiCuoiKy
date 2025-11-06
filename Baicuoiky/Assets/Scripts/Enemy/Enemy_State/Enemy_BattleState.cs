@@ -7,12 +7,19 @@ public class Enemy_BattleState : EnemyState
     protected Transform lastTarget;
     protected float lastTimeWasInBattle;
     protected float lastTimeAttacked = float.NegativeInfinity;
+
+
+    private Entity_SFX sfx;
+    private float stepTimer;
+    private float stepInterval = 0.4f; 
     public Enemy_BattleState(Enemy enemy, StateMachine stateMachine, string animBoolName) : base(enemy, stateMachine, animBoolName)
     {
+        sfx = enemy.GetComponent<Entity_SFX>();
     }
     public override void Enter()
     {
         base.Enter();
+        stepTimer = 0f;
         UpdateBattleTimer();
         if (player == null)
         {
@@ -45,9 +52,9 @@ public class Enemy_BattleState : EnemyState
         if (BattleTimeIsOver())
         {
             stateMachine.ChangeState(enemy.idleState);
-           
+
         }
-        if (WithInAttackRange()  && enemy.PlayerDetected() == true && CanAttack())     
+        if (WithInAttackRange() && enemy.PlayerDetected() == true && CanAttack())
         {
             lastTimeAttacked = Time.time;
             stateMachine.ChangeState(enemy.attackState);
@@ -56,8 +63,21 @@ public class Enemy_BattleState : EnemyState
         {
             float xVeloicty = enemy.canChasePlayer ? enemy.GetBattleMoveSpeed() : 0.0001f;
             enemy.SetVelocity(xVeloicty * DirectionToPlayer(), rb.linearVelocity.y);
-        }
 
+            if (enemy.canChasePlayer && xVeloicty > 0.1f)
+            {
+                // Calculate interval based on battle speed
+                float currentInterval = Mathf.Max(0.2f, 0.4f / Mathf.Max(enemy.GetBattleMoveSpeed(), 1f));
+
+                stepTimer -= Time.deltaTime;
+                if (stepTimer <= 0f)
+                {
+                    sfx?.PlayWalkStone();
+                    stepTimer = currentInterval;
+                }
+
+            }
+        }
     }
     protected bool CanAttack() => Time.time > lastTimeAttacked + enemy.attackCooldown;
     protected void UpdateTargetIfNeeded()

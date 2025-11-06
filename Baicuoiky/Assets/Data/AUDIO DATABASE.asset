@@ -23,6 +23,16 @@ MonoBehaviour:
     clips:
     - {fileID: 8300000, guid: 044e96c5f6d909948b6eda7c45f1da39, type: 3}
     maxVolume: 1
+  - audioName: player_walk
+    clips:
+    - {fileID: 8300000, guid: 02cc4bdf10d81cc4bb2dd7d75dba2a92, type: 3}
+    - {fileID: 8300000, guid: becdc9831c2e91142a8e6f862240a18d, type: 3}
+    - {fileID: 8300000, guid: 44c509449d52fb244b9a62624d0a98c1, type: 3}
+    maxVolume: 0.456
+  - audioName: enemy_skeletonwalk
+    clips:
+    - {fileID: 8300000, guid: cff66372708cd0149ac80bf47ea48015, type: 3}
+    maxVolume: 0.845
   uiAudio:
   - audioName: button_click
     clips:
