@@ -18,11 +18,11 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 7f2bf36aa90ed6d4da129f1c4c8f5110, type: 3}
     - {fileID: 8300000, guid: 0ddc75a742d6f344080f1c115bda65bc, type: 3}
     - {fileID: 8300000, guid: 84002469fd1fe6b43b6046636f4d528e, type: 3}
-    maxVolume: 1
+    maxVolume: 0.505
   - audioName: player_attackMiss
     clips:
     - {fileID: 8300000, guid: 044e96c5f6d909948b6eda7c45f1da39, type: 3}
-    maxVolume: 1
+    maxVolume: 0.447
   - audioName: player_walk
     clips:
     - {fileID: 8300000, guid: 02cc4bdf10d81cc4bb2dd7d75dba2a92, type: 3}
@@ -32,7 +32,11 @@ MonoBehaviour:
   - audioName: enemy_skeletonwalk
     clips:
     - {fileID: 8300000, guid: cff66372708cd0149ac80bf47ea48015, type: 3}
-    maxVolume: 0.845
+    maxVolume: 0.34
+  - audioName: dash
+    clips:
+    - {fileID: 8300000, guid: af0a37768c867bf41913be52f25d2e31, type: 3}
+    maxVolume: 0.243
   uiAudio:
   - audioName: button_click
     clips:

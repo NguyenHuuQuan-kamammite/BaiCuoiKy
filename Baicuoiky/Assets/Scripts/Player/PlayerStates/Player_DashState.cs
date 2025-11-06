@@ -4,14 +4,16 @@ public class Player_DashState : PlayerState
 {
     private float originalGravityScale;
     private int dashDir;
-
+    private Entity_SFX sfx;
     public Player_DashState(Player player, StateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
     {
+        sfx = player.GetComponent<Entity_SFX>();
     }
 
     public override void Enter()
     {
         base.Enter();
+        sfx?.PlayDash();
 
         skillManager.dash.OnStartEffect();
         player.vfx.DoImageEchoEffect(player.dashDuration);

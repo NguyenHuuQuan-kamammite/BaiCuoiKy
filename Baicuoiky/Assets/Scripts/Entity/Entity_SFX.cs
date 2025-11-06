@@ -9,6 +9,7 @@ public class Entity_SFX : MonoBehaviour
     [SerializeField] private string attackHit;
     [SerializeField] private string attackMiss;
     [SerializeField] private string walkStone;
+    [SerializeField] private string dash;
     [Space]
     [SerializeField] private float soundDistance =15;
     [SerializeField] private bool showGizmo;
@@ -30,6 +31,10 @@ public class Entity_SFX : MonoBehaviour
     public void PlayWalkStone()
     {
         Audio_Manager.instance.PlaySFX(walkStone, audioSource, soundDistance);
+    }
+    public void PlayDash()
+    {
+        Audio_Manager.instance.PlaySFX(dash, audioSource, soundDistance);
     }
 
     private void OnDrawGizmos()
