@@ -37,6 +37,18 @@ MonoBehaviour:
     clips:
     - {fileID: 8300000, guid: af0a37768c867bf41913be52f25d2e31, type: 3}
     maxVolume: 0.243
+  - audioName: explosion
+    clips:
+    - {fileID: 8300000, guid: eee263e6d33d60c4c9add26e1c37dfd8, type: 3}
+    maxVolume: 0.243
+  - audioName: shard_explosion
+    clips:
+    - {fileID: 8300000, guid: 225bf539b99373d4b8ea98d008750e21, type: 3}
+    maxVolume: 0.117
+  - audioName: domain_expansion
+    clips:
+    - {fileID: 8300000, guid: 85539946445accc4fa6caffc5b20efc5, type: 3}
+    maxVolume: 0.83
   uiAudio:
   - audioName: button_click
     clips:

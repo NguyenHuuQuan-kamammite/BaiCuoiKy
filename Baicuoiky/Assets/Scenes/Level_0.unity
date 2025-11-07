@@ -1970,6 +1970,10 @@ PrefabInstance:
       propertyPath: dash
       value: dash
       objectReference: {fileID: 0}
+    - target: {fileID: 2646697132701206944, guid: 455efc3c8f75cdc4cad3483832e5b6c5, type: 3}
+      propertyPath: domainExpand
+      value: domain_expansion
+      objectReference: {fileID: 0}
     - target: {fileID: 2994325217412167333, guid: 455efc3c8f75cdc4cad3483832e5b6c5, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

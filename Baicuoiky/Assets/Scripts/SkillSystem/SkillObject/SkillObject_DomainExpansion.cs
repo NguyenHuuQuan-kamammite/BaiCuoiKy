@@ -12,11 +12,12 @@ public class SkillObject_DomainExpansion : SkillObject_Base
 
     private Vector3 targetScale;
     private bool isShrinkng;
+  
 
     public void SetUpDomain(Skill_DomainExpansion domainManager)
     {
         this.domainManager = domainManager;
-
+       
 
         duration = domainManager.GetDomainDuration();
         slowDownPercent = domainManager.GetSlowPercentage();
@@ -26,6 +27,7 @@ public class SkillObject_DomainExpansion : SkillObject_Base
 
 
         targetScale = Vector3.one * maxSize;
+       
         Invoke(nameof(ShrinkDomain), duration);
     }
 
@@ -60,7 +62,7 @@ public class SkillObject_DomainExpansion : SkillObject_Base
         targetScale = Vector3.zero;
         isShrinkng = true;
     }
-
+   
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Enemy enemy = collision.GetComponent<Enemy>();

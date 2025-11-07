@@ -120,6 +120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3670942047140842918}
   - component: {fileID: 7752418718004237925}
+  - component: {fileID: 4241209393022502038}
   m_Layer: 0
   m_Name: SmokeCloudVFX
   m_TagString: Untagged
@@ -167,3 +168,17 @@ MonoBehaviour:
   xMaxOffset: 0.5
   yMinOffset: -0.3
   yMaxOffset: 0.5
+--- !u!114 &4241209393022502038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7698056906653064902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8487180246f6e5b4aba5916367890b8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionSFX: explosion
+  soundDistance: 15

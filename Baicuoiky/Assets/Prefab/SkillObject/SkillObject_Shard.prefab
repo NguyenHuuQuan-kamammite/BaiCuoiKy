@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7838358185020843084}
   - component: {fileID: 2440763481473093431}
   - component: {fileID: 7803999519855579656}
+  - component: {fileID: 8283641420396254785}
   m_Layer: 0
   m_Name: SkillObject_Shard
   m_TagString: Untagged
@@ -89,6 +90,20 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 1.54
+--- !u!114 &8283641420396254785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898665958671533646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8487180246f6e5b4aba5916367890b8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionSFX: shard_explosion
+  soundDistance: 15
 --- !u!1 &3632949340539622696
 GameObject:
   m_ObjectHideFlags: 0

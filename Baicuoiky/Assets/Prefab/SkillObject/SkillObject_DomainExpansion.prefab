@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 2645775728434228586}
   - component: {fileID: 593009307608420076}
   - component: {fileID: 5861011991205830503}
+  - component: {fileID: 3255146424727001902}
   m_Layer: 0
   m_Name: SkillObject_DomainExpansion
   m_TagString: Untagged
@@ -175,3 +176,17 @@ MonoBehaviour:
   targetCheck: {fileID: 2645775728434228586}
   targetCheckRadius: 1
   onHitvfx: {fileID: 7274362693920113760, guid: eeac29f4e2682694a8d110964229a77a, type: 3}
+--- !u!114 &3255146424727001902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5679817164849323798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8487180246f6e5b4aba5916367890b8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionSFX: domain_expansion
+  soundDistance: 15
