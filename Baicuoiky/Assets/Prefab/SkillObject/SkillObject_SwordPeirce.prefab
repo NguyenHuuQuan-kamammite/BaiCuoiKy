@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 3006738283670037616}
   - component: {fileID: 2800757893454645901}
   - component: {fileID: 8384306123542460640}
+  - component: {fileID: -7774172817703406291}
   m_Layer: 10
   m_Name: SkillObject_SwordPeirce
   m_TagString: Untagged
@@ -203,3 +204,17 @@ MonoBehaviour:
   targetCheck: {fileID: 6927821281625026028}
   targetCheckRadius: 1
   onHitvfx: {fileID: 7274362693920113760, guid: eeac29f4e2682694a8d110964229a77a, type: 3}
+--- !u!114 &-7774172817703406291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515118587257437410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8487180246f6e5b4aba5916367890b8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionSFX: sword_throw_peirce
+  soundDistance: 15

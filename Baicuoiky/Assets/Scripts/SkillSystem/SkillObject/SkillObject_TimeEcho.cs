@@ -16,7 +16,10 @@ public class SkillObject_TimeEcho : SkillObject_Base
     private Player_SkillManager skillManager;
     private Entity_StatusHandler statusHandler;
 
-
+    [Header("Sound Effects")]
+    [SerializeField] private string wispAbsorbSFX = "wisp_absorb"; 
+    [SerializeField] private float soundDistance = 15f;
+    private AudioSource audioSource;
     public int maxAttack { get; private set; }
     public void SetUpEcho(Skill_TimeEcho echoManager)
     {
@@ -36,6 +39,10 @@ public class SkillObject_TimeEcho : SkillObject_Base
         echoHealth = GetComponent<SkillObject_Health>();
         wispTrail = GetComponentInChildren<TrailRenderer>();
         wispTrail.gameObject.SetActive(false);
+
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+            audioSource = gameObject.AddComponent<AudioSource>();
     }
     private void Update()
     {
@@ -56,6 +63,13 @@ public class SkillObject_TimeEcho : SkillObject_Base
 
     private void HandlePlayerTouch()
     {
+        Debug.Log("Wisp touched player!"); // Check if this prints
+
+        if (audioSource == null)
+            Debug.LogError("AudioSource is null!");
+        else
+            Debug.Log("AudioSource exists, playing sound: " + wispAbsorbSFX);
+        Audio_Manager.instance.PlaySFX(wispAbsorbSFX, audioSource, soundDistance);
         float healthAmount = echoHealth.lastDamegeTaken * echoManager.GetPercentOfDamageHealed();
         playerhealth.IncreaseHealth(healthAmount);
 
@@ -72,7 +86,7 @@ public class SkillObject_TimeEcho : SkillObject_Base
         if (Vector2.Distance(transform.position, playerTranform.position) < .5f)
         {
             HandlePlayerTouch();
-            Destroy(gameObject);
+            Destroy(gameObject, 0.5f);
         }
     }
 

@@ -49,6 +49,26 @@ MonoBehaviour:
     clips:
     - {fileID: 8300000, guid: 85539946445accc4fa6caffc5b20efc5, type: 3}
     maxVolume: 0.83
+  - audioName: sword_throw
+    clips:
+    - {fileID: 8300000, guid: 86d9143e204698642af143c6c505e914, type: 3}
+    maxVolume: 0.83
+  - audioName: sword_throw_spin
+    clips:
+    - {fileID: 8300000, guid: 1279bff1cd05d6548a0b3e35291f0565, type: 3}
+    maxVolume: 0.83
+  - audioName: sword_throw_peirce
+    clips:
+    - {fileID: 8300000, guid: 3d6b86584bed0b64e889c4d06772e925, type: 3}
+    maxVolume: 0.83
+  - audioName: sword_throw_bounce
+    clips:
+    - {fileID: 8300000, guid: 5630ca20cbcae57478b489a9488d1523, type: 3}
+    maxVolume: 0.83
+  - audioName: wisp_absorb
+    clips:
+    - {fileID: 8300000, guid: f6a8be5db8638e243b6ef1b33f5e87db, type: 3}
+    maxVolume: 0.03
   uiAudio:
   - audioName: button_click
     clips:

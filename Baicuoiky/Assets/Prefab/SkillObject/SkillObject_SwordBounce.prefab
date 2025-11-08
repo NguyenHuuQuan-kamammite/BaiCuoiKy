@@ -122,6 +122,7 @@ GameObject:
   - component: {fileID: 5263812622192724986}
   - component: {fileID: 8237616407039365651}
   - component: {fileID: 1633687097456480502}
+  - component: {fileID: -5810976806716794460}
   m_Layer: 10
   m_Name: SkillObject_SwordBounce
   m_TagString: Untagged
@@ -227,3 +228,17 @@ MonoBehaviour:
   targetCheckRadius: 1
   onHitvfx: {fileID: 7274362693920113760, guid: eeac29f4e2682694a8d110964229a77a, type: 3}
   bounceSpeed: 15
+--- !u!114 &-5810976806716794460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3578905623883572040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8487180246f6e5b4aba5916367890b8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionSFX: sword_throw_bounce
+  soundDistance: 15
