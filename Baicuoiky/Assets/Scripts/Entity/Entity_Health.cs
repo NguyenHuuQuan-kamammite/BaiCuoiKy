@@ -9,6 +9,7 @@ public class Entity_Health : MonoBehaviour, IDamgable
 
     private Slider healthBar;
     private Entity_VFX entityVFX;
+
     private Entity entity;
     private bool miniHealthBarActice;
     private Entity_Stats stats;
@@ -34,6 +35,7 @@ public class Entity_Health : MonoBehaviour, IDamgable
     protected virtual void Awake()
     {
         entityVFX = GetComponent<Entity_VFX>();
+       
         entity = GetComponent<Entity>();
         stats = GetComponent<Entity_Stats>();
         healthBar = GetComponentInChildren<Slider>();
@@ -120,6 +122,7 @@ public class Entity_Health : MonoBehaviour, IDamgable
         OnHealthUpdate?.Invoke();
         if (currentHp <= 0)
         {
+            
             Die();
         }
 

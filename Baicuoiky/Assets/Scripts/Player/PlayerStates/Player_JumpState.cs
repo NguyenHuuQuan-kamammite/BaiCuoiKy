@@ -2,14 +2,16 @@ using UnityEngine;
 
 public class Player_JumpState : Player_AiredState
 {
+    private Entity_SFX sfx;
     public Player_JumpState(Player player, StateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
     {
+        sfx = player.GetComponent<Entity_SFX>();
     }
 
     public override void Enter()
     {
         base.Enter();
-
+        sfx?.PlayJump();
 
         player.SetVelocity(rb.linearVelocity.x, player.jumpForce);
     }

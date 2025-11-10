@@ -28,7 +28,7 @@ public class Enemy_Reaper : Enemy, ICounterable
     [SerializeField] private float chanceToTeleport = .25f;
     private float defaultTeleportChance;
     public bool teleporTrigger { get; private set; }
-
+    [SerializeField] private float minDistanceFromPlayer = 5f;
 
     protected override void Awake()
     {
@@ -61,6 +61,7 @@ public class Enemy_Reaper : Enemy, ICounterable
         {
             return; // Cannot be stunned right now
         }
+       
         stateMachine.ChangeState(stunnedState);
     }
 
@@ -74,6 +75,7 @@ public class Enemy_Reaper : Enemy, ICounterable
     }
     public override void SpecialAttack()
     {
+        StopCoroutine(nameof(CastSpellCo));
         StartCoroutine(CastSpellCo());
     }
 
@@ -116,22 +118,39 @@ public class Enemy_Reaper : Enemy, ICounterable
 
     public Vector3 FindTeleportPoint()
     {
-        int maxAttampts = 10;
-        float bossWithColliderHalf = col.bounds.size.x / 2;
+        int maxAttempts = 10;
+        float bossWidthColliderHalf = col.bounds.size.x / 2;
 
-        for (int i = 0; i < maxAttampts; i++)
+        for (int i = 0; i < maxAttempts; i++)
         {
-            float randomX = Random.Range(arenaBounds.bounds.min.x + bossWithColliderHalf,
-                                         arenaBounds.bounds.max.x - bossWithColliderHalf);
+            float randomX = Random.Range(arenaBounds.bounds.min.x + bossWidthColliderHalf,
+                                         arenaBounds.bounds.max.x - bossWidthColliderHalf);
 
             Vector2 raycastPoint = new Vector2(randomX, arenaBounds.bounds.max.y);
 
             RaycastHit2D hit = Physics2D.Raycast(raycastPoint, Vector2.down, Mathf.Infinity, whatIsGround);
 
             if (hit.collider != null)
-                return hit.point + new Vector2(0, offsetCenterY);
-        }
+            {
+                Vector3 potentialPosition = hit.point + new Vector2(0, offsetCenterY);
 
+                // Check distance from player
+                if (player != null)
+                {
+                    float distanceToPlayer = Vector2.Distance(potentialPosition, player.position);
+
+                    if (distanceToPlayer >= minDistanceFromPlayer)
+                    {
+                        return potentialPosition;
+                    }
+                }
+                else
+                {
+                    
+                    return potentialPosition;
+                }
+            }
+        }
 
         return transform.position;
     }

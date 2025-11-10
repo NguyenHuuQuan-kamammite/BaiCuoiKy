@@ -1055,6 +1055,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_skeleton (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1740303615401344093, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2389275548146833267, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 45.26
@@ -1097,11 +1101,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4876009190493526105, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4876009190493526105, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7307900600985889857, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
       propertyPath: walkStone
@@ -2035,14 +2039,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2646697132701206944, guid: 455efc3c8f75cdc4cad3483832e5b6c5, type: 3}
-      propertyPath: dash
-      value: dash
-      objectReference: {fileID: 0}
-    - target: {fileID: 2646697132701206944, guid: 455efc3c8f75cdc4cad3483832e5b6c5, type: 3}
-      propertyPath: domainExpand
-      value: domain_expansion
-      objectReference: {fileID: 0}
     - target: {fileID: 2994325217412167333, guid: 455efc3c8f75cdc4cad3483832e5b6c5, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -53711,7 +53707,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 33696158750687364, guid: 5c0ec0884eb92f74a9808089671a98c6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 185354441304515309, guid: 5c0ec0884eb92f74a9808089671a98c6, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -54839,6 +54835,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_skeleton
       objectReference: {fileID: 0}
+    - target: {fileID: 1740303615401344093, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2389275548146833267, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 41.7
@@ -54881,11 +54881,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4876009190493526105, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4876009190493526105, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7307900600985889857, guid: 883481a7b782b8f4497868ebf43dcee2, type: 3}
       propertyPath: walkStone

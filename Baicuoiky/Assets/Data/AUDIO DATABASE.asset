@@ -69,6 +69,14 @@ MonoBehaviour:
     clips:
     - {fileID: 8300000, guid: f6a8be5db8638e243b6ef1b33f5e87db, type: 3}
     maxVolume: 0.03
+  - audioName: player_jump
+    clips:
+    - {fileID: 8300000, guid: 3977ba62634a815419a6c5eaae237329, type: 3}
+    maxVolume: 0.615
+  - audioName: player_dead
+    clips:
+    - {fileID: 8300000, guid: bca7464c53d2e874baf133d815f96f84, type: 3}
+    maxVolume: 1
   uiAudio:
   - audioName: button_click
     clips:

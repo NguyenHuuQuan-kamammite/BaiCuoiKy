@@ -747,6 +747,7 @@ GameObject:
   - component: {fileID: 936810349076640044}
   - component: {fileID: 2646697132701206944}
   - component: {fileID: 5214326153135560841}
+  - component: {fileID: 581203751983525044}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -992,7 +993,7 @@ MonoBehaviour:
       baseValue: 1
       modifiers: []
     damage:
-      baseValue: 100
+      baseValue: 1
       modifiers: []
     critPower:
       baseValue: 0
@@ -1010,7 +1011,7 @@ MonoBehaviour:
       baseValue: 0
       modifiers: []
     lightningDamage:
-      baseValue: 20
+      baseValue: 0
       modifiers: []
   defense:
     armor:
@@ -1127,9 +1128,28 @@ MonoBehaviour:
   attackHit: player_attackHit
   attackMiss: player_attackMiss
   walkStone: player_walk
+  dash: dash
+  jump: player_jump
+  dead: player_dead
+  domainExpand: domain_expansion
   soundDistance: 15
   showGizmo: 0
 --- !u!114 &5214326153135560841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6309440804646642611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1f66077ea96e6048814479f375a9a6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeQuests: []
+  completedQuests: []
+  questDatabase: {fileID: 11400000, guid: afd6b75c2a6c8f84e8269985251da804, type: 2}
+--- !u!114 &581203751983525044
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
