@@ -19,7 +19,13 @@ MonoBehaviour:
   itemRarity: 100
   dropChance: 65
   maxDropChance: 65
-  craftRecipe: []
+  craftRecipe:
+  - itemData: {fileID: 11400000, guid: 5896855d861113e4a9bb936cc939feb8, type: 2}
+    stackSize: 2
+    itemEffect: {fileID: 0}
+  - itemData: {fileID: 11400000, guid: 34a00b023e09d5e4fad78997e3dcc522, type: 2}
+    stackSize: 3
+    itemEffect: {fileID: 0}
   itemName: Polished Quartz
   itemIcon: {fileID: -1790995268, guid: 8b91d8dde6c55504a95c06632a759734, type: 3}
   itemType: 3

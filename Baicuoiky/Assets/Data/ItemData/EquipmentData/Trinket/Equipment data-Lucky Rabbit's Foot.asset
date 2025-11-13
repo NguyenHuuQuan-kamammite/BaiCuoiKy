@@ -19,7 +19,10 @@ MonoBehaviour:
   itemRarity: 100
   dropChance: 65
   maxDropChance: 65
-  craftRecipe: []
+  craftRecipe:
+  - itemData: {fileID: 11400000, guid: 5ccbaae60e86d5f44a27718026a5e403, type: 2}
+    stackSize: 5
+    itemEffect: {fileID: 0}
   itemName: Lucky Rabbit's Foot
   itemIcon: {fileID: 2050375348, guid: 8b91d8dde6c55504a95c06632a759734, type: 3}
   itemType: 3

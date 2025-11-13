@@ -16,9 +16,9 @@ MonoBehaviour:
   itemPrice: 4000
   minStackSizeAtShop: 1
   maxStackSizeAtShop: 1
-  itemRarity: 806
-  dropChance: 19.5
-  maxDropChance: 26.5
+  itemRarity: 900
+  dropChance: 10.1
+  maxDropChance: 12.4
   craftRecipe: []
   itemName: Amulet of doom
   itemIcon: {fileID: -36365521, guid: 8b91d8dde6c55504a95c06632a759734, type: 3}

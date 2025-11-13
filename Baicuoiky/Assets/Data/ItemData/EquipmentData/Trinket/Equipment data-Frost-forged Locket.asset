@@ -19,7 +19,13 @@ MonoBehaviour:
   itemRarity: 450
   dropChance: 28.8
   maxDropChance: 28.8
-  craftRecipe: []
+  craftRecipe:
+  - itemData: {fileID: 11400000, guid: fa144c9920de89e4ab77271ef775194c, type: 2}
+    stackSize: 3
+    itemEffect: {fileID: 0}
+  - itemData: {fileID: 11400000, guid: be6f3c9e53748d741926baf96336e8dd, type: 2}
+    stackSize: 4
+    itemEffect: {fileID: 0}
   itemName: Frost-forged Locket
   itemIcon: {fileID: 1230393242, guid: 8b91d8dde6c55504a95c06632a759734, type: 3}
   itemType: 3

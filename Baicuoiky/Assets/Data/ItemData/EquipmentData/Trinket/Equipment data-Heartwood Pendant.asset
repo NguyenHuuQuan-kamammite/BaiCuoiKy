@@ -19,7 +19,13 @@ MonoBehaviour:
   itemRarity: 470
   dropChance: 24.1
   maxDropChance: 24.1
-  craftRecipe: []
+  craftRecipe:
+  - itemData: {fileID: 11400000, guid: 192c642bc74bab540aac319c6c0ec1de, type: 2}
+    stackSize: 5
+    itemEffect: {fileID: 0}
+  - itemData: {fileID: 11400000, guid: 8d3783470516e74479b54d8739a480fc, type: 2}
+    stackSize: 1
+    itemEffect: {fileID: 0}
   itemName: 'Heartwood Pendant:'
   itemIcon: {fileID: -2066208327, guid: 8b91d8dde6c55504a95c06632a759734, type: 3}
   itemType: 3

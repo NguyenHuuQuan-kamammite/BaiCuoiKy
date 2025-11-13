@@ -19,7 +19,16 @@ MonoBehaviour:
   itemRarity: 812
   dropChance: 10.6
   maxDropChance: 10.6
-  craftRecipe: []
+  craftRecipe:
+  - itemData: {fileID: 11400000, guid: c9be53f775abc14488318d5ff6d4c62d, type: 2}
+    stackSize: 4
+    itemEffect: {fileID: 0}
+  - itemData: {fileID: 11400000, guid: 286ae44d5a727a44694376e6d523ee83, type: 2}
+    stackSize: 3
+    itemEffect: {fileID: 0}
+  - itemData: {fileID: 11400000, guid: 540b1956b3f7bf64db4a2db5d302b65b, type: 2}
+    stackSize: 5
+    itemEffect: {fileID: 0}
   itemName: Medallion of Sudden Execution
   itemIcon: {fileID: -1540907715, guid: 8b91d8dde6c55504a95c06632a759734, type: 3}
   itemType: 3
