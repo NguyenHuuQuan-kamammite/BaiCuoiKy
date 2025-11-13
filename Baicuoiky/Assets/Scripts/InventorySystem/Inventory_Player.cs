@@ -169,7 +169,7 @@ public class Inventory_Player : Inventory_Base
         gold += amount;
         Debug.Log($"Added {amount} gold. Total gold: {gold}");
 
-        // You can also invoke an event here if you want other systems to know about gold changes
+        
         // onGoldChanged?.Invoke(gold);
     }
 

@@ -10,22 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b6f8773a7c574bf458b1cbc355e1ecb6, type: 3}
-  m_Name: Equipment data- wooden sword
+  m_Name: Equipment data-Rusty Longsword
   m_EditorClassIdentifier: 
-  itemName: Wooden sword
-  itemIcon: {fileID: -691698523, guid: 8b91d8dde6c55504a95c06632a759734, type: 3}
+  saveID: 7d9030d9e6c8f1644881ab7c2adde7ed
+  itemPrice: 200
+  minStackSizeAtShop: 1
+  maxStackSizeAtShop: 1
+  itemRarity: 100
+  dropChance: 49
+  maxDropChance: 49
+  craftRecipe:
+  - itemData: {fileID: 11400000, guid: 5896855d861113e4a9bb936cc939feb8, type: 2}
+    stackSize: 2
+    itemEffect: {fileID: 0}
+  - itemData: {fileID: 11400000, guid: 82b8b9408cb724e42940e53ac879ed42, type: 2}
+    stackSize: 2
+    itemEffect: {fileID: 0}
+  itemName: Rusty Longsword
+  itemIcon: {fileID: 537971595, guid: 8b91d8dde6c55504a95c06632a759734, type: 3}
   itemType: 1
   maxStackSize: 1
   itemEffects: {fileID: 0}
-  craftRecipe:
-  - itemData: {fileID: 11400000, guid: ae874ad7de806b5469e453f93d0ca21d, type: 2}
-    stackSize: 1
-    itemEffect: {fileID: 0}
-  - itemData: {fileID: 11400000, guid: 82b8b9408cb724e42940e53ac879ed42, type: 2}
-    stackSize: 1
-    itemEffect: {fileID: 0}
   modifiers:
-  - statType: 7
-    value: 4
-  - statType: 3
-    value: 2
+  - statType: 2
+    value: 5

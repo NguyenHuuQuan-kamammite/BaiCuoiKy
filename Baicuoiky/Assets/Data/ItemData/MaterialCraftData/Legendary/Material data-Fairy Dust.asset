@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c24336d6eee04c4dbe15a0b234f2018, type: 3}
-  m_Name: Material data-Vampire ash
+  m_Name: Material data-Fairy Dust
   m_EditorClassIdentifier: 
-  saveID: 3e2ddb892c2b63346ad6e73a9ef7c191
+  saveID: 540b1956b3f7bf64db4a2db5d302b65b
   itemPrice: 1000
   minStackSizeAtShop: 1
-  maxStackSizeAtShop: 5
-  itemRarity: 750
-  dropChance: 25.1
-  maxDropChance: 49.7
+  maxStackSizeAtShop: 2
+  itemRarity: 800
+  dropChance: 20.1
+  maxDropChance: 25
   craftRecipe: []
-  itemName: Vampire ash
-  itemIcon: {fileID: 1911307126, guid: 8b91d8dde6c55504a95c06632a759734, type: 3}
+  itemName: Fairy Dust
+  itemIcon: {fileID: -2068793420, guid: 8b91d8dde6c55504a95c06632a759734, type: 3}
   itemType: 0
   maxStackSize: 5
   itemEffects: {fileID: 0}

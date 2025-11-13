@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6f8773a7c574bf458b1cbc355e1ecb6, type: 3}
+  m_Name: Equipment data-  Shadow-Walker's Garb
+  m_EditorClassIdentifier: 
+  saveID: 71806164752d07c469848e0a6b88758e
+  itemPrice: 600
+  minStackSizeAtShop: 1
+  maxStackSizeAtShop: 1
+  itemRarity: 500
+  dropChance: 50.1
+  maxDropChance: 54.5
+  craftRecipe:
+  - itemData: {fileID: 11400000, guid: fa144c9920de89e4ab77271ef775194c, type: 2}
+    stackSize: 5
+    itemEffect: {fileID: 0}
+  - itemData: {fileID: 11400000, guid: 329541a4e4964aa4e8bb1589319e7435, type: 2}
+    stackSize: 3
+    itemEffect: {fileID: 0}
+  itemName: Shadow-Walker's Garb
+  itemIcon: {fileID: -1554946106, guid: 8b91d8dde6c55504a95c06632a759734, type: 3}
+  itemType: 2
+  maxStackSize: 1
+  itemEffects: {fileID: 0}
+  modifiers:
+  - statType: 5
+    value: 5
+  - statType: 3
+    value: 6

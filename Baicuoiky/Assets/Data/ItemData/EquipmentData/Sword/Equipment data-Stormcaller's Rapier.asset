@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6f8773a7c574bf458b1cbc355e1ecb6, type: 3}
+  m_Name: Equipment data-Stormcaller's Rapier
+  m_EditorClassIdentifier: 
+  saveID: feb868526c51ce84bb7acf4d6c05655b
+  itemPrice: 5000
+  minStackSizeAtShop: 1
+  maxStackSizeAtShop: 1
+  itemRarity: 815
+  dropChance: 18.6
+  maxDropChance: 25.8
+  craftRecipe:
+  - itemData: {fileID: 11400000, guid: c3ffac5877caeca4dbec169d245a95a2, type: 2}
+    stackSize: 1
+    itemEffect: {fileID: 0}
+  - itemData: {fileID: 11400000, guid: c9be53f775abc14488318d5ff6d4c62d, type: 2}
+    stackSize: 5
+    itemEffect: {fileID: 0}
+  - itemData: {fileID: 11400000, guid: a49356d4eab855149a20503f1dec7c43, type: 2}
+    stackSize: 4
+    itemEffect: {fileID: 0}
+  itemName: Stormcaller's Rapier
+  itemIcon: {fileID: 273329891, guid: 8b91d8dde6c55504a95c06632a759734, type: 3}
+  itemType: 1
+  maxStackSize: 1
+  itemEffects: {fileID: 0}
+  modifiers:
+  - statType: 2
+    value: 12
+  - statType: 13
+    value: 10

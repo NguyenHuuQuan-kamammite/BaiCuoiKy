@@ -10,32 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b6f8773a7c574bf458b1cbc355e1ecb6, type: 3}
-  m_Name: Equipment data-Dracul's Fang
+  m_Name: Equipment data- wooden sword
   m_EditorClassIdentifier: 
+  saveID: ae036aa300128014ca6b0d8fba0c0d2c
   itemPrice: 100
   minStackSizeAtShop: 1
   maxStackSizeAtShop: 1
-  itemRarity: 953
-  dropChance: 4.8
-  maxDropChance: 69.6
+  itemRarity: 100
+  dropChance: 65
+  maxDropChance: 65
   craftRecipe:
-  - itemData: {fileID: 11400000, guid: ae036aa300128014ca6b0d8fba0c0d2c, type: 2}
+  - itemData: {fileID: 11400000, guid: ae874ad7de806b5469e453f93d0ca21d, type: 2}
     stackSize: 1
     itemEffect: {fileID: 0}
-  - itemData: {fileID: 11400000, guid: 3e2ddb892c2b63346ad6e73a9ef7c191, type: 2}
-    stackSize: 2
+  - itemData: {fileID: 11400000, guid: 82b8b9408cb724e42940e53ac879ed42, type: 2}
+    stackSize: 1
     itemEffect: {fileID: 0}
-  itemName: Dracul's Fang
-  itemIcon: {fileID: 213638233, guid: 8b91d8dde6c55504a95c06632a759734, type: 3}
+  itemName: Wooden sword
+  itemIcon: {fileID: -691698523, guid: 8b91d8dde6c55504a95c06632a759734, type: 3}
   itemType: 1
   maxStackSize: 1
-  itemEffects: {fileID: 11400000, guid: 4f370ec0e31ed974088ece2cecca5c72, type: 2}
+  itemEffects: {fileID: 0}
   modifiers:
   - statType: 7
-    value: 35
-  - statType: 6
-    value: 0.15
-  - statType: 8
-    value: 0.2
-  - statType: 3
-    value: 6
+    value: 4

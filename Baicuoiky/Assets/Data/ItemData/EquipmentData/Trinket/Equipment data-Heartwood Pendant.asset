@@ -10,24 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b6f8773a7c574bf458b1cbc355e1ecb6, type: 3}
-  m_Name: Equipment data-Ring of Luck
+  m_Name: Equipment data-Heartwood Pendant
   m_EditorClassIdentifier: 
-  itemPrice: 100
+  saveID: 121e4da646d98364f86b38435445d77c
+  itemPrice: 750
   minStackSizeAtShop: 1
   maxStackSizeAtShop: 1
-  itemRarity: 882
-  dropChance: 11.9
-  maxDropChance: 65.8
+  itemRarity: 470
+  dropChance: 24.1
+  maxDropChance: 24.1
   craftRecipe: []
-  itemName: Ring of Luck
-  itemIcon: {fileID: -504278179, guid: 8b91d8dde6c55504a95c06632a759734, type: 3}
+  itemName: 'Heartwood Pendant:'
+  itemIcon: {fileID: -2066208327, guid: 8b91d8dde6c55504a95c06632a759734, type: 3}
   itemType: 3
   maxStackSize: 1
   itemEffects: {fileID: 0}
   modifiers:
-  - statType: 8
-    value: 15
-  - statType: 0
-    value: 50
-  - statType: 15
-    value: 12
+  - statType: 5
+    value: 5
+  - statType: 2
+    value: 5
