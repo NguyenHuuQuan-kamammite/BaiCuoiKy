@@ -10,14 +10,14 @@ public class Entity_Health : MonoBehaviour, IDamgable
     private Slider healthBar;
     private Entity_VFX entityVFX;
 
-    private Entity entity;
+    public Entity entity;
     private bool miniHealthBarActice;
-    private Entity_Stats stats;
+    protected Entity_Stats stats;
     private Entity_DropManager dropManager;
 
     [Header("Health regen")]
-    [SerializeField] private float regenInterval = 1f;
-    [SerializeField] private bool canRegenerateHealth = true;
+    [SerializeField] protected float regenInterval = 1f;
+    [SerializeField] protected bool canRegenerateHealth = true;
     [SerializeField] protected float currentHp;
     public bool isDead { get; private set; }
     public float lastDamegeTaken { get; private set; }
@@ -45,18 +45,42 @@ public class Entity_Health : MonoBehaviour, IDamgable
 
     protected virtual void Start()
     {
+        if (currentHp <= 0 && stats != null)
+        {
+            SetUpHealth();
+        }
+        else
+        {
+            // Health already set (by save system), just set up the rest
+            OnHealthUpdate += UpdateHealthBar;
+            UpdateHealthBar();
 
-        SetUpHealth();
+            if (canRegenerateHealth)
+            {
+                InvokeRepeating(nameof(RegenerateHealth), 0, regenInterval);
+            }
+        }
     }
 
     private void SetUpHealth()
     {
         if (stats == null)
             return;
-        currentHp = stats.GetMaxHealth();
+
+
+        // Only set to max if current health is not already set
+        if (currentHp <= 0)
+        {
+            currentHp = stats.GetMaxHealth();
+        }
+
         OnHealthUpdate += UpdateHealthBar;
         UpdateHealthBar();
-        InvokeRepeating(nameof(RegenerateHealth), 0, regenInterval);
+
+        if (canRegenerateHealth)
+        {
+            InvokeRepeating(nameof(RegenerateHealth), 0, regenInterval);
+        }
     }
 
     public virtual bool TakeDamage(float damage, float elementalDamage, ElementType element, Transform damageDealer)
@@ -99,7 +123,7 @@ public class Entity_Health : MonoBehaviour, IDamgable
         OnHealthUpdate?.Invoke();
         
     }
-    private void RegenerateHealth()
+    protected void RegenerateHealth()
     {
         if (isDead || !canRegenerateHealth) return;
 
@@ -150,7 +174,7 @@ public class Entity_Health : MonoBehaviour, IDamgable
 
     }
     public float GetCurrentHealth() => currentHp;
-    private void UpdateHealthBar()
+    protected void UpdateHealthBar()
     {
         if (healthBar == null && healthBar.transform.parent.gameObject.activeSelf == false)
             return;
@@ -186,5 +210,10 @@ public class Entity_Health : MonoBehaviour, IDamgable
         else
 
             return damage / stats.GetMaxHealth() > heavyKnockbackThreshold;
+    }
+
+    public void InvokeHealthUpdate()
+    {
+        OnHealthUpdate?.Invoke();
     }
 }

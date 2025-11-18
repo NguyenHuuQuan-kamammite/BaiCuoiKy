@@ -31,6 +31,8 @@ public class GameData
 
     public string lastScenePlayed;
     public Vector3 lastPlayerPosition;
+    public int playerCurrentHealth;
+    public int playerMaxHealth;
     public GameData()
     {
         inventory = new SerializableDictionary<string, int>();
@@ -47,5 +49,9 @@ public class GameData
 
         completedQuests = new SerializableDictionary<string, bool>();
         activeQuests = new SerializableDictionary<string, int>();
+
+        playerCurrentHealth = 100;
+        playerMaxHealth = 100;
+
     }
 }

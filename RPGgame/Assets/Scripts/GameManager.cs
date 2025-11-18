@@ -9,7 +9,7 @@ public class GameManager: MonoBehaviour, ISaveable
     private Vector3 lastPlayerPosition;
     private string lastScenePlayed;
     private bool dataLoaded;
-
+   
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -23,7 +23,7 @@ public class GameManager: MonoBehaviour, ISaveable
 
        
     }
-    //public void SetLastPlayerPosition(Vector3 position) => lastPlayerPosition = position;
+    
     public void ContinuePlay()
     {
         if (string.IsNullOrEmpty(lastScenePlayed))
@@ -87,6 +87,9 @@ public class GameManager: MonoBehaviour, ISaveable
             player.TeleportPlayer(position);
         
     }
+
+
+
     private UI_FadeScreen FindFadeScreenUI()
     {
         if (UI.instance != null)
@@ -94,6 +97,9 @@ public class GameManager: MonoBehaviour, ISaveable
         else
             return FindFirstObjectByType<UI_FadeScreen>();
     }
+
+
+
     private Vector3 GetNewPlayerPosition(Respawn_Type type)
     {
         if(type == Respawn_Type.Portal)
@@ -153,6 +159,8 @@ public class GameManager: MonoBehaviour, ISaveable
         return Vector3.zero;
     }
 
+
+
     public void LoadData(GameData data)
     {
         lastScenePlayed = data.lastScenePlayed;
@@ -163,6 +171,9 @@ public class GameManager: MonoBehaviour, ISaveable
 
         dataLoaded = true;
     }
+
+
+
 
     public void SaveData(ref GameData data)
     {
