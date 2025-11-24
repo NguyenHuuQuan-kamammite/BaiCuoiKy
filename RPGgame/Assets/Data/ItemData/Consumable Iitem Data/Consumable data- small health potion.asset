@@ -12,13 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3528d8bfa7cf7cd4594b594df3ffefad, type: 3}
   m_Name: Consumable data- small health potion
   m_EditorClassIdentifier: 
+  saveID: b492f4c5e21d5974e8df0623727bb199
   itemPrice: 100
   minStackSizeAtShop: 1
   maxStackSizeAtShop: 3
   itemRarity: 100
   dropChance: 50.3
   maxDropChance: 50.3
-  craftRecipe: []
+  craftRecipe:
+  - itemData: {fileID: 11400000, guid: e089f3de3fd2ca043952d718b7d21dbe, type: 2}
+    stackSize: 1
+    itemEffect: {fileID: 0}
+  - itemData: {fileID: 11400000, guid: 5ccbaae60e86d5f44a27718026a5e403, type: 2}
+    stackSize: 1
+    itemEffect: {fileID: 0}
   itemName: Small health potion
   itemIcon: {fileID: 93164472, guid: 8b91d8dde6c55504a95c06632a759734, type: 3}
   itemType: 4

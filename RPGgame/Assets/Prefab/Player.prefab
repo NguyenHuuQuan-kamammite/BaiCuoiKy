@@ -746,7 +746,6 @@ GameObject:
   - component: {fileID: 7199712398996844186}
   - component: {fileID: 936810349076640044}
   - component: {fileID: 2646697132701206944}
-  - component: {fileID: 5214326153135560841}
   - component: {fileID: 581203751983525044}
   m_Layer: 7
   m_Name: Player
@@ -1105,6 +1104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f8a759afdc3bb642862c38b89a41f7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  entity: {fileID: 0}
   regenInterval: 1
   canRegenerateHealth: 1
   currentHp: 0
@@ -1134,21 +1134,6 @@ MonoBehaviour:
   domainExpand: domain_expansion
   soundDistance: 15
   showGizmo: 0
---- !u!114 &5214326153135560841
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6309440804646642611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1f66077ea96e6048814479f375a9a6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activeQuests: []
-  completedQuests: []
-  questDatabase: {fileID: 11400000, guid: afd6b75c2a6c8f84e8269985251da804, type: 2}
 --- !u!114 &581203751983525044
 MonoBehaviour:
   m_ObjectHideFlags: 0

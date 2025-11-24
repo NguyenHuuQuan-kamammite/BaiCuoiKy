@@ -27,7 +27,7 @@ public class Object_Merchant :Object_NPC, Iinteractable
     public override  void Interact()
     {
         base.Interact();
-
+        merchant.FillShopList();
 
         ui.merchantUI.SetUpMerchantUI(merchant, inventory);
         ui.OpenDialogueUI(firstDialogueLine, new  DialogueNpcData(rewardNpc, quests));
