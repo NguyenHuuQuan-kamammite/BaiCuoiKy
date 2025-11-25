@@ -23,7 +23,8 @@ public class UI_Options : MonoBehaviour
         player = FindFirstObjectByType<Player>();
 
 
-        healthBarToggle.onValueChanged.AddListener(OnHealthBarToggleChanged);
+        if (healthBarToggle != null)
+            healthBarToggle.onValueChanged.AddListener(OnHealthBarToggleChanged);
     }
     public void BGMSliderValue(float value)
     {
@@ -37,14 +38,20 @@ public class UI_Options : MonoBehaviour
     }
     private void OnEnable()
     {
-        sfxSlider.value = PlayerPrefs.GetFloat(sfxParametr, .6f);
-        bgmSlider.value = PlayerPrefs.GetFloat(bgmParametr, .6f);
+        if (sfxSlider != null)
+            sfxSlider.value = PlayerPrefs.GetFloat(sfxParametr, .6f);
+
+        if (bgmSlider != null)
+            bgmSlider.value = PlayerPrefs.GetFloat(bgmParametr, .6f);
     }
 
     private void OnDisable()
     {
-        PlayerPrefs.SetFloat(sfxParametr, sfxSlider.value);
-        PlayerPrefs.SetFloat(bgmParametr, bgmSlider.value);
+        if (sfxSlider != null)
+            PlayerPrefs.SetFloat(sfxParametr, sfxSlider.value);
+
+        if (bgmSlider != null)
+            PlayerPrefs.SetFloat(bgmParametr, bgmSlider.value);
     }
     public void LoadUpVolume()
     {

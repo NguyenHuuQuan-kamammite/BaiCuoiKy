@@ -31,9 +31,7 @@ public class Object_Merchant :Object_NPC, Iinteractable
 
         ui.merchantUI.SetUpMerchantUI(merchant, inventory);
         ui.OpenDialogueUI(firstDialogueLine, new  DialogueNpcData(rewardNpc, quests));
-        //ui.OpenQuestUI(quests);
        
-        //ui.OpenMerchantUI(true);
     }
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
