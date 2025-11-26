@@ -304,7 +304,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2430375966819563073
 Transform:
   m_ObjectHideFlags: 0
@@ -364,6 +364,7 @@ MonoBehaviour:
     m_Bits: 128
   playerCheck: {fileID: 2430375966819563073}
   playerCheckDistance: 14
+  playerCheckYOffset: 0
   stunnedDuration: 1
   stunnedVelocity: {x: 7, y: 7}
   canBeStunned: 0
@@ -475,6 +476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8f61882fd672946b8a13684083896c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  entity: {fileID: 0}
   regenInterval: 1
   canRegenerateHealth: 1
   currentHp: 0
@@ -495,6 +497,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5fa3d1a9552319459da7f1458854d5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeEchoInterval: 0.05
+  imageEchoPrefab: {fileID: 0}
   onDamageMaterial: {fileID: 2100000, guid: 6e215e3484f9c3a48acc00ff71b5bbed, type: 2}
   onDamageVfxDuration: 0.2
   hitVfx: {fileID: 7274362693920113760, guid: eeac29f4e2682694a8d110964229a77a, type: 3}
@@ -623,6 +627,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackHit: player_attackHit
   attackMiss: player_attackMiss
+  walkStone: 
+  dash: 
+  jump: 
+  dead: 
+  domainExpand: 
   soundDistance: 15
   showGizmo: 0
 --- !u!1 &5862291515435673532
@@ -1108,7 +1117,7 @@ RectTransform:
   m_Father: {fileID: 1273810848443655094}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -0.000015258789, y: 0.383}
   m_SizeDelta: {x: 0, y: 0.476}
   m_Pivot: {x: 0.5, y: 0.5}
