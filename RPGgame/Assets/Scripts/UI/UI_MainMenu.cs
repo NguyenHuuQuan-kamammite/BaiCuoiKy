@@ -16,9 +16,10 @@ public class UI_MainMenu : MonoBehaviour
        GameManager.instance.ContinuePlay();
     }
 
-
+   
     public void QuitGameBTN()
     {
+        Audio_Manager.instance.PlayGlobalSFX("button_click");
         Application.Quit();
     }
 }

@@ -54,7 +54,46 @@ public class GameManager: MonoBehaviour, ISaveable
     }
 
 
+    public void LoadScene(string sceneName)
+    {
+        if (string.IsNullOrEmpty(sceneName))
+        {
+            Debug.LogError("Cannot load empty scene name!");
+            return;
+        }
+        Audio_Manager.instance.StopBGM();
+        string currentScene = SceneManager.GetActiveScene().name;
 
+        if (currentScene != "MainMenu" && currentScene != "EndScene")
+        {
+            SaveManager.instance.SaveGame();
+        }
+
+        StartCoroutine(LoadSceneCo(sceneName));
+    }
+
+   
+   
+    // NEW METHOD: Specifically for returning to main menu
+    public void ReturnToMainMenu()
+    {
+        LoadScene("MainMenu");
+    }
+
+    private IEnumerator LoadSceneCo(string sceneName)
+    {
+        UI_FadeScreen fadeScreen = FindFadeScreenUI();
+        fadeScreen.DoFadeOut(); // transparent > black
+        yield return fadeScreen.fadeEffectCo;
+
+        SceneManager.LoadScene(sceneName);
+
+        // Reset timescale when returning to main menu
+        Time.timeScale = 1;
+
+        fadeScreen = FindFadeScreenUI();
+        fadeScreen.DoFadeIn(); // black > transparent
+    }
     private IEnumerator ChangeSceneCo(string sceneName, Respawn_Type respawnType)
     {
 
@@ -179,8 +218,9 @@ public class GameManager: MonoBehaviour, ISaveable
     {
         string currentScene = SceneManager.GetActiveScene().name;
 
-        if (currentScene == "MainMenu")
+        if (currentScene == "MainMenu" || currentScene == "EndScene")
             return;
+
 
         data.lastPlayerPosition = Player.instance.transform.position;
         data.lastScenePlayed = currentScene;
