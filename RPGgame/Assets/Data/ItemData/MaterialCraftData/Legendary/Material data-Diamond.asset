@@ -15,7 +15,7 @@ MonoBehaviour:
   saveID: c9be53f775abc14488318d5ff6d4c62d
   itemPrice: 1000
   minStackSizeAtShop: 1
-  maxStackSizeAtShop: 2
+  maxStackSizeAtShop: 3
   itemRarity: 800
   dropChance: 20.1
   maxDropChance: 25

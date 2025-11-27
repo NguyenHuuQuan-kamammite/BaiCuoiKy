@@ -1090,8 +1090,8 @@ MonoBehaviour:
   itemDropPrefab: {fileID: 3408881902915014989, guid: 39cf066e3dea51f47b9d781a311f890d, type: 3}
   dropData: {fileID: 0}
   maxRarityAmount: 1200
-  maxItemsToDrop: 3
-  chanceToLooseItem: 90
+  maxItemsToDrop: 2
+  chanceToLooseItem: 40
 --- !u!114 &936810349076640044
 MonoBehaviour:
   m_ObjectHideFlags: 0

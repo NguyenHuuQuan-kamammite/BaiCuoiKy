@@ -53,5 +53,7 @@ public class GameData
         playerCurrentHealth = 100;
         playerMaxHealth = 100;
 
+        lastScenePlayed = "";
+        lastPlayerPosition = Vector3.zero;
     }
 }

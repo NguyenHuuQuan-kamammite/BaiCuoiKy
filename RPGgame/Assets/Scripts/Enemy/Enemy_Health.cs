@@ -5,6 +5,9 @@ public class Enemy_Health : Entity_Health
 {
     private Enemy enemy;
     private Player_QuestManager questManager;
+    [Header("Waypoint On Death")]
+    [SerializeField] private Object_Waypoint waypointToActivate;
+
     protected override void Start()
     {
         base.Start();
@@ -29,5 +32,9 @@ public class Enemy_Health : Entity_Health
     {
         base.Die();
         questManager.AddProgress(enemy.questTargetId);
+        if (waypointToActivate != null)
+        {
+            waypointToActivate.ActivateWaypoint();
+        }
     }
 }

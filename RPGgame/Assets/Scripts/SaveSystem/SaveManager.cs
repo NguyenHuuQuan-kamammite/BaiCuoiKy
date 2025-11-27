@@ -54,13 +54,24 @@ public class SaveManager : MonoBehaviour
         dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, encryptData);
         dataHandler.Delete();
 
-        LoadGame(); 
+        
+        gameData = new GameData();
+
+   
+        allSaveables = FindISaveables();
+        foreach (var saveable in allSaveables)
+            saveable.LoadData(gameData);
+
+        Debug.Log("Save data deleted and reset to defaults!");
     }
     private void OnApplicationQuit()
     {
         SaveGame();
     }
-
+    public bool HasSaveFile()
+    {
+        return dataHandler.HasSaveFile();
+    }
     private List<ISaveable> FindISaveables()
     {
         return
@@ -68,4 +79,4 @@ public class SaveManager : MonoBehaviour
             .OfType<ISaveable>()
             .ToList();
     }
-}
+}   

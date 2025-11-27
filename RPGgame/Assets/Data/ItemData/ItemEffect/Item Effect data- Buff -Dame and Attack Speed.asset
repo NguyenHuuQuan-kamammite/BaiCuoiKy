@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dc8a1dc0d0ea62409a8811ae1076ea1, type: 3}
   m_Name: Item Effect data- Buff -Dame and Attack Speed
   m_EditorClassIdentifier: 
-  effectDescription: Give 40 Damage and 15% Attack Speed for 20 sec.
+  effectDescription: Give 40 Damage and 15% Attack Speed for 15 sec.
   buffsToApply:
   - type: 7
     value: 40
   - type: 6
     value: 0.15
-  duration: 20
+  duration: 15
   source: 4f0f6162-6bab-4247-a4ad-db1263d0ceb3

@@ -78,11 +78,21 @@ public class FileDataHandler
 
         return loadData;
     }
-
+    public bool HasSaveFile()
+    {
+        return File.Exists(fullPath);
+    }
     public void Delete()
     {
         if (File.Exists(fullPath))
+        {
             File.Delete(fullPath);
+            Debug.Log($"Save file deleted: {fullPath}");
+        }
+        else
+        {
+            Debug.LogWarning($"No save file to delete at: {fullPath}");
+        }
     }
     private string EncryptDecrypt(string data)
     {

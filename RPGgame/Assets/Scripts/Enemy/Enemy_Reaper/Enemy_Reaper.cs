@@ -29,6 +29,8 @@ public class Enemy_Reaper : Enemy, ICounterable
     private float defaultTeleportChance;
     public bool teleporTrigger { get; private set; }
     [SerializeField] private float minDistanceFromPlayer = 5f;
+   
+   
 
     protected override void Awake()
     {
@@ -73,6 +75,7 @@ public class Enemy_Reaper : Enemy, ICounterable
             transform.position = FindTeleportPoint();
         }
     }
+   
     public override void SpecialAttack()
     {
         StopCoroutine(nameof(CastSpellCo));

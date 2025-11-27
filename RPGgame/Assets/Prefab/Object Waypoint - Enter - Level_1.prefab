@@ -316,6 +316,7 @@ MonoBehaviour:
   contedWaypoint: 1
   respwanPoint: {fileID: 0}
   canBeTriggered: 1
+  isActive: 1
 --- !u!61 &1500655058847222083
 BoxCollider2D:
   m_ObjectHideFlags: 0
