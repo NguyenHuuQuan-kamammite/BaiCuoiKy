@@ -282,6 +282,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1397946907078701751, guid: 455efc3c8f75cdc4cad3483832e5b6c5, type: 3}
+      propertyPath: offense.damage.baseValue
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2994325217412167333, guid: 455efc3c8f75cdc4cad3483832e5b6c5, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -293,6 +297,10 @@ PrefabInstance:
     - target: {fileID: 6309440804646642611, guid: 455efc3c8f75cdc4cad3483832e5b6c5, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6309440804646642611, guid: 455efc3c8f75cdc4cad3483832e5b6c5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8160604033950767076, guid: 455efc3c8f75cdc4cad3483832e5b6c5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1560,7 +1568,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9003306729573410984, guid: 3d4b8286f03e03148aaa08bc2db621ed, type: 3}
       propertyPath: offense.damage.baseValue
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9003306729573410984, guid: 3d4b8286f03e03148aaa08bc2db621ed, type: 3}
       propertyPath: defense.evasion.baseValue

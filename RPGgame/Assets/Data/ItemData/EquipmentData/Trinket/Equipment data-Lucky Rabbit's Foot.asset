@@ -31,3 +31,5 @@ MonoBehaviour:
   modifiers:
   - statType: 3
     value: 2
+  - statType: 0
+    value: 10

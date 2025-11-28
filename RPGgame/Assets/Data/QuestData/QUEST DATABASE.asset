@@ -13,6 +13,15 @@ MonoBehaviour:
   m_Name: QUEST DATABASE
   m_EditorClassIdentifier: 
   allQuests:
+  - {fileID: 11400000, guid: 18165136d9dd49545acafb1e09c5c16d, type: 2}
+  - {fileID: 11400000, guid: 15e4755ba90048c4ba5e4b4dfb269c33, type: 2}
   - {fileID: 11400000, guid: 61759d9de1fadec469fca14372af95c2, type: 2}
+  - {fileID: 11400000, guid: dc389034a10663e4a96dd808ce6f0f4d, type: 2}
+  - {fileID: 11400000, guid: 509904811f0ab1148957948507c185c6, type: 2}
+  - {fileID: 11400000, guid: 59e781dad7b07a8479ae480f369d8d12, type: 2}
   - {fileID: 11400000, guid: 5367067b3bf35714d93642e3fd532c2e, type: 2}
   - {fileID: 11400000, guid: d722e8bcd8ece30488f29dc69d89a3b4, type: 2}
+  - {fileID: 11400000, guid: 1ec24d779112ba54eb07910516365518, type: 2}
+  - {fileID: 11400000, guid: 469022143efac22409ec103890944f2d, type: 2}
+  - {fileID: 11400000, guid: 6d3870aade967fd48ae4a719d5192926, type: 2}
+  - {fileID: 11400000, guid: 6b16d88b69a6ad7439e76c215d28fff4, type: 2}

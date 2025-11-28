@@ -36,6 +36,6 @@ MonoBehaviour:
   itemEffects: {fileID: 0}
   modifiers:
   - statType: 7
-    value: 5
+    value: 9
   - statType: 3
     value: 6

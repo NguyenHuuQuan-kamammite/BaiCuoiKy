@@ -34,3 +34,5 @@ MonoBehaviour:
   modifiers:
   - statType: 4
     value: 3
+  - statType: 12
+    value: 5

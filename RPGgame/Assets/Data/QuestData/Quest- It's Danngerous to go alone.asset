@@ -28,3 +28,6 @@ MonoBehaviour:
   - itemData: {fileID: 11400000, guid: ae036aa300128014ca6b0d8fba0c0d2c, type: 2}
     stackSize: 1
     itemEffect: {fileID: 0}
+  - itemData: {fileID: 11400000, guid: d6fa4ef27bb552a429ba3da7821d902e, type: 2}
+    stackSize: 1
+    itemEffect: {fileID: 0}

@@ -27,10 +27,10 @@ MonoBehaviour:
   itemEffects: {fileID: 11400000, guid: e6102f9a38a483b4f98b8c8777e4b295, type: 2}
   modifiers:
   - statType: 0
-    value: 250
+    value: 200
   - statType: 14
     value: 20
   - statType: 16
     value: 35
   - statType: 2
-    value: 14
+    value: 10

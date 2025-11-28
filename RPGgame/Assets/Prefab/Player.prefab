@@ -849,9 +849,9 @@ MonoBehaviour:
   comboResetTime: 1
   riseSpeed: 25
   riseMaxDistance: 3
-  moveSpeed: 8
+  moveSpeed: 7
   jumpForce: 13
-  wallJumpForce: {x: 6, y: 12}
+  wallJumpForce: {x: 6, y: 13}
   inAirMoveMultiplier: 0.8
   wallSlideSlowMultiplier: 0.4
   dashDuration: 0.25
@@ -992,7 +992,7 @@ MonoBehaviour:
       baseValue: 1
       modifiers: []
     damage:
-      baseValue: 1
+      baseValue: 10
       modifiers: []
     critPower:
       baseValue: 0
@@ -1107,7 +1107,7 @@ MonoBehaviour:
   entity: {fileID: 0}
   regenInterval: 1
   canRegenerateHealth: 1
-  currentHp: 0
+  currentHp: 100
   knockbackDuration: 0.2
   onDamageKnockback: {x: 1, y: 0.5}
   heavyKnockbackThreshold: 0.3

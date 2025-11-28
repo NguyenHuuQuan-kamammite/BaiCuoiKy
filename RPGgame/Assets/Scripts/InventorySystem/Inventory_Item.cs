@@ -74,12 +74,18 @@ public float sellPrice{ get; private set; }
         if (itemData.itemType == Item_Type.Consumable)
         {
             sb.AppendLine("");
-            sb.AppendLine(itemEffect.effectDescription);
+            if (itemEffect != null)  // Add this null check
+            {
+                sb.AppendLine(itemEffect.effectDescription);
+            }
+            else
+            {
+                sb.AppendLine("No effect description available");  // Optional fallback
+            }
             sb.AppendLine("");
             sb.AppendLine("");
             return sb.ToString();
         }
-
 
         sb.AppendLine("");
 

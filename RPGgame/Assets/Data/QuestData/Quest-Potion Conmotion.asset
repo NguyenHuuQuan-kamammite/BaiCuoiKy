@@ -21,7 +21,7 @@ MonoBehaviour:
     mine is crawling with giant rats, and I'm no fighter. He's hiding in the first
     storage chamber, just past the entrance. Please, take this and bring it to him
     before it's too late
-  questGoal: '-Deliver health potion to ...:'
+  questGoal: '-Deliver health potion to Joe:'
   questTargetId: merchant_bob
   requiredAmount: 4
   itemToDeliver: {fileID: 11400000, guid: b492f4c5e21d5974e8df0623727bb199, type: 2}
@@ -29,4 +29,7 @@ MonoBehaviour:
   rewardItems:
   - itemData: {fileID: 11400000, guid: 181efa60ba25f5b408102a2242922fa2, type: 2}
     stackSize: 1
+    itemEffect: {fileID: 0}
+  - itemData: {fileID: 11400000, guid: d6fa4ef27bb552a429ba3da7821d902e, type: 2}
+    stackSize: 2
     itemEffect: {fileID: 0}

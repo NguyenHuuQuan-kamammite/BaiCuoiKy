@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b57a6af53b636d45b1f994c34885a10, type: 3}
+  m_Name: Quest- Bow Hunt 1
+  m_EditorClassIdentifier: 
+  questSaveId: dc389034a10663e4a96dd808ce6f0f4d
+  questName: Bow Hunt 2
+  questType: 0
+  description: You there! Adventurer! We've got a problem. The old cemetery on the
+    eastern hill, just outside town, has become... active. elf they're starting to
+    wander too close to the farmsteads. We're stretched thin as it is. Could you
+    help us?
+  questGoal: '-Eleminate Archers: '
+  questTargetId: enemy_archerElf
+  requiredAmount: 6
+  itemToDeliver: {fileID: 0}
+  rewardType: 2
+  rewardItems:
+  - itemData: {fileID: 11400000, guid: 181efa60ba25f5b408102a2242922fa2, type: 2}
+    stackSize: 2
+    itemEffect: {fileID: 0}
+  - itemData: {fileID: 11400000, guid: 2b2586fd9d0e03f4da1b800eafba98c6, type: 2}
+    stackSize: 1
+    itemEffect: {fileID: 0}
+  - itemData: {fileID: 11400000, guid: d6fa4ef27bb552a429ba3da7821d902e, type: 2}
+    stackSize: 2
+    itemEffect: {fileID: 0}

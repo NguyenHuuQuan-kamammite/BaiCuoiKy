@@ -618,6 +618,7 @@ MonoBehaviour:
     m_Bits: 128
   playerCheck: {fileID: 2429982980625234365}
   playerCheckDistance: 9
+  playerCheckYOffset: 0
   stunnedDuration: 1
   stunnedVelocity: {x: 5, y: 5}
   canBeStunned: 0
@@ -735,6 +736,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8f61882fd672946b8a13684083896c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  entity: {fileID: 0}
   regenInterval: 1
   canRegenerateHealth: 1
   currentHp: 0
@@ -743,6 +745,7 @@ MonoBehaviour:
   heavyKnockbackThreshold: 0.3
   heavyKnockbackDuration: 0.5
   onHeavyKnockback: {x: 7, y: 2.5}
+  waypointToActivate: {fileID: 0}
 --- !u!114 &8097967196591986331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -885,6 +888,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackHit: player_attackHit
   attackMiss: player_attackMiss
+  walkStone: player_walk
+  dash: 
+  jump: 
+  dead: 
+  domainExpand: 
   soundDistance: 15
   showGizmo: 0
 --- !u!1 &3338968388750677116

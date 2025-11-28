@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Consumable data- big health potion 1
   m_EditorClassIdentifier: 
   saveID: cd24094b381cb7f41869d557129c852e
-  itemPrice: 999
+  itemPrice: 888
   minStackSizeAtShop: 1
   maxStackSizeAtShop: 3
   itemRarity: 661

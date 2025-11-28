@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b57a6af53b636d45b1f994c34885a10, type: 3}
+  m_Name: Quest-The Coven's Heart 1
+  m_EditorClassIdentifier: 
+  questSaveId: 1ec24d779112ba54eb07910516365518
+  questName: The Coven's Heart 2
+  questType: 0
+  description: 'The roads near [Town Name] are no longer safe. Travelers speak of
+    a coordinated trio of monsters: a Corrosive Slime that devours armor and flesh
+    alike, a Cunning Archer who never misses from the shadows, and a Devious Mage
+    who bends the very elements to his will. They have formed a deadly symbiosis,
+    picking off caravans and anyone who dares to travel alone. For the safety of
+    the region, this Triad of Turmoil must be eliminated. Find their lair and put
+    an end to their reign.'
+  questGoal: '-Eleminate Mage: '
+  questTargetId: enemy_mage
+  requiredAmount: 6
+  itemToDeliver: {fileID: 0}
+  rewardType: 2
+  rewardItems:
+  - itemData: {fileID: 11400000, guid: 413bd659a3ed04f4785414894d3675ff, type: 2}
+    stackSize: 1
+    itemEffect: {fileID: 0}
+  - itemData: {fileID: 11400000, guid: 2bb2076b498871640b7a7459ca40c3c4, type: 2}
+    stackSize: 2
+    itemEffect: {fileID: 0}
+  - itemData: {fileID: 11400000, guid: 181efa60ba25f5b408102a2242922fa2, type: 2}
+    stackSize: 2
+    itemEffect: {fileID: 0}

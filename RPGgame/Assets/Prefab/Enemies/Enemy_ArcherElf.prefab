@@ -485,6 +485,7 @@ MonoBehaviour:
   heavyKnockbackThreshold: 0.3
   heavyKnockbackDuration: 0.5
   onHeavyKnockback: {x: 7, y: 2.5}
+  waypointToActivate: {fileID: 0}
 --- !u!114 &7022503460108717802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -627,7 +628,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackHit: player_attackHit
   attackMiss: player_attackMiss
-  walkStone: 
+  walkStone: player_walk
   dash: 
   jump: 
   dead: 

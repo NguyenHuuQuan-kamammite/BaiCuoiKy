@@ -21,13 +21,16 @@ MonoBehaviour:
     farmsteads. We're stretched thin as it is. Could you help us?
   questGoal: '-Eleminate skeleton: '
   questTargetId: enemy_skeleton
-  requiredAmount: 2
+  requiredAmount: 3
   itemToDeliver: {fileID: 0}
-  rewardType: 0
+  rewardType: 2
   rewardItems:
   - itemData: {fileID: 11400000, guid: 181efa60ba25f5b408102a2242922fa2, type: 2}
     stackSize: 2
     itemEffect: {fileID: 0}
-  - itemData: {fileID: 11400000, guid: 413bd659a3ed04f4785414894d3675ff, type: 2}
+  - itemData: {fileID: 11400000, guid: d1e4439e2600a3149af6047c7920b4c4, type: 2}
+    stackSize: 1
+    itemEffect: {fileID: 0}
+  - itemData: {fileID: 11400000, guid: d6fa4ef27bb552a429ba3da7821d902e, type: 2}
     stackSize: 1
     itemEffect: {fileID: 0}
