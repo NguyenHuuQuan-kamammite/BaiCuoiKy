@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c24336d6eee04c4dbe15a0b234f2018, type: 3}
   m_Name: Material data - Leather
   m_EditorClassIdentifier: 
-  itemPrice: 100
+  saveID: 5ccbaae60e86d5f44a27718026a5e403
+  itemPrice: 50
   minStackSizeAtShop: 1
   maxStackSizeAtShop: 5
   itemRarity: 112

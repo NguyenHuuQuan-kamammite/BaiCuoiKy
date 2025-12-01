@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Material data-Cloth
   m_EditorClassIdentifier: 
   saveID: ecde258c0227adb49b923d98705f050a
-  itemPrice: 300
+  itemPrice: 100
   minStackSizeAtShop: 5
   maxStackSizeAtShop: 5
   itemRarity: 265

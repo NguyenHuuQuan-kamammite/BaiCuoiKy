@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Material data-Thread
   m_EditorClassIdentifier: 
   saveID: 192c642bc74bab540aac319c6c0ec1de
-  itemPrice: 300
+  itemPrice: 100
   minStackSizeAtShop: 5
   maxStackSizeAtShop: 5
   itemRarity: 235

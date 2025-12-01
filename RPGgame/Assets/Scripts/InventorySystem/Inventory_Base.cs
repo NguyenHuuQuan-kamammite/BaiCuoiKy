@@ -19,10 +19,24 @@ public class Inventory_Base : MonoBehaviour, ISaveable
     {
         Inventory_Item consumable = itemList.Find(item => item == itemToUse);
         if (consumable == null) return;
+
+        
+        if (consumable.itemEffect == null)
+        {
+            Debug.LogError("Item has no effect!");
+            return;
+        }
+
+        
+        if (consumable.itemEffect.CanBeUsed(player) == false)
+        {
+            Debug.Log("Cannot use this item right now!");
+            return;
+        }
+
+        
         consumable.itemEffect.ExecuteEffect();
 
-        if (consumable.itemEffect.CanBeUsed( player) == false)
-            return;
         if (consumable.stackSize > 1)
             consumable.RemoveStack();
         else

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Material data-Glue
   m_EditorClassIdentifier: 
   saveID: be6f3c9e53748d741926baf96336e8dd
-  itemPrice: 500
+  itemPrice: 120
   minStackSizeAtShop: 5
   maxStackSizeAtShop: 5
   itemRarity: 500

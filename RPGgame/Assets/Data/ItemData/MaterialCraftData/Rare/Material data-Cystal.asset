@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Material data-Cystal
   m_EditorClassIdentifier: 
   saveID: 797bdee4d84d45a49909737f5b9d98f8
-  itemPrice: 500
+  itemPrice: 120
   minStackSizeAtShop: 5
   maxStackSizeAtShop: 5
   itemRarity: 500

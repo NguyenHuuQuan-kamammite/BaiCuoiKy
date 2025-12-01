@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Material data-Fire herb
   m_EditorClassIdentifier: 
   saveID: e089f3de3fd2ca043952d718b7d21dbe
-  itemPrice: 300
+  itemPrice: 50
   minStackSizeAtShop: 5
   maxStackSizeAtShop: 5
   itemRarity: 235
@@ -21,7 +21,7 @@ MonoBehaviour:
   maxDropChance: 38
   craftRecipe: []
   itemName: Fire herb
-  itemIcon: {fileID: 512948173, guid: 8b91d8dde6c55504a95c06632a759734, type: 3}
+  itemIcon: {fileID: 1037897659, guid: 8b91d8dde6c55504a95c06632a759734, type: 3}
   itemType: 0
   maxStackSize: 5
   itemEffects: {fileID: 0}

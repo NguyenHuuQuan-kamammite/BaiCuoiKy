@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Material data-Iron
   m_EditorClassIdentifier: 
   saveID: 5896855d861113e4a9bb936cc939feb8
-  itemPrice: 100
+  itemPrice: 50
   minStackSizeAtShop: 5
   maxStackSizeAtShop: 5
   itemRarity: 100

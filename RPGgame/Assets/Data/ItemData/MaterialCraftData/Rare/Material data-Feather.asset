@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Material data-Feather
   m_EditorClassIdentifier: 
   saveID: fa144c9920de89e4ab77271ef775194c
-  itemPrice: 460
+  itemPrice: 120
   minStackSizeAtShop: 5
   maxStackSizeAtShop: 5
   itemRarity: 500

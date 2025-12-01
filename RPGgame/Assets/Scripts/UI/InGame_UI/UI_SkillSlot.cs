@@ -87,7 +87,7 @@ public class UI_SkillSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         // Set to default empty sprite
         if (skillIcon != null)
         {
-            skillIcon.sprite = defaultEmptySprite; // Or set to null if you prefer
+            skillIcon.sprite = defaultEmptySprite;
             Color color = skillIcon.color;
             color.a = 0.6f; // Semi-transparent to show it's empty
             skillIcon.color = color;
@@ -100,10 +100,10 @@ public class UI_SkillSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         // Reset cooldown
         ResetCooldown();
 
-        // Show conflict slot if it exists
+        // Keep conflict slot hidden when clearing
         if (conflicSlot != null)
         {
-            conflicSlot.SetActive(true);
+            conflicSlot.SetActive(false); // Changed from true to false
         }
     }
 }

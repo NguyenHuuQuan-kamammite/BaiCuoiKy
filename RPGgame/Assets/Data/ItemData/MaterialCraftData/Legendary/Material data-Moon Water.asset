@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Material data-Moon Water
   m_EditorClassIdentifier: 
   saveID: 286ae44d5a727a44694376e6d523ee83
-  itemPrice: 1000
+  itemPrice: 200
   minStackSizeAtShop: 1
   maxStackSizeAtShop: 3
   itemRarity: 800

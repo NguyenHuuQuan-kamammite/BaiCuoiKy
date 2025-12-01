@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Material data-Cotton
   m_EditorClassIdentifier: 
   saveID: 329541a4e4964aa4e8bb1589319e7435
-  itemPrice: 500
+  itemPrice: 120
   minStackSizeAtShop: 5
   maxStackSizeAtShop: 5
   itemRarity: 500

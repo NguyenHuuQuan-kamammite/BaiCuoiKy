@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Material data-Gold
   m_EditorClassIdentifier: 
   saveID: a49356d4eab855149a20503f1dec7c43
-  itemPrice: 1000
+  itemPrice: 200
   minStackSizeAtShop: 1
   maxStackSizeAtShop: 3
   itemRarity: 800

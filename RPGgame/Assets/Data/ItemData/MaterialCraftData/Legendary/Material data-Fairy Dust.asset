@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Material data-Fairy Dust
   m_EditorClassIdentifier: 
   saveID: 540b1956b3f7bf64db4a2db5d302b65b
-  itemPrice: 1000
+  itemPrice: 200
   minStackSizeAtShop: 1
   maxStackSizeAtShop: 3
   itemRarity: 800

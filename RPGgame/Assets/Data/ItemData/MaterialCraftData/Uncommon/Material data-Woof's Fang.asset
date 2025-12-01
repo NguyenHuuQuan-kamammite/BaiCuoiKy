@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Material data-Woof's Fang
   m_EditorClassIdentifier: 
   saveID: 4cc54fa3d00703448af9c7980d2f79d7
-  itemPrice: 300
+  itemPrice: 100
   minStackSizeAtShop: 5
   maxStackSizeAtShop: 5
   itemRarity: 235

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Material data-Glass
   m_EditorClassIdentifier: 
   saveID: 34a00b023e09d5e4fad78997e3dcc522
-  itemPrice: 100
+  itemPrice: 50
   minStackSizeAtShop: 5
   maxStackSizeAtShop: 5
   itemRarity: 100
