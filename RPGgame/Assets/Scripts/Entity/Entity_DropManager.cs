@@ -13,8 +13,7 @@ public class Entity_DropManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X))
-            DropItems();
+        
     }
 
     public virtual void DropItems()

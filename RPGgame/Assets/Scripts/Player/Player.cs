@@ -21,11 +21,6 @@ public class Player : Entity
     public float riseMaxDistance = 3f;
 
 
-
-
-
-
-
     [Header("Movement details")]
     public float moveSpeed;
     public float jumpForce = 5;
