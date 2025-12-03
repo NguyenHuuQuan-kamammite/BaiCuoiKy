@@ -4,6 +4,8 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 public class FinalPanelController : MonoBehaviour
 {
+
+    public string sceneToLoad = "MainMenu";
     [Header("Text Settings")]
     public TMP_Text textMeshPro;
     [TextArea] public string fullText;
@@ -12,6 +14,9 @@ public class FinalPanelController : MonoBehaviour
     public float panelDuration = 6f;     // tổng thời gian panel hiển thị
     public float fadeInTime = 0.5f;      // thời gian fade in
     public float fadeOutTime = 0.5f;     // thời gian fade out
+
+
+
 
     [Header("Flash Settings")]
     public string wordToFlash = "terror";
@@ -120,7 +125,7 @@ public class FinalPanelController : MonoBehaviour
         }
 
         // ---- Chuyển sang MainMenu ----
-        SceneManager.LoadScene("MainMenu"); // đổi tên scene nếu khác
+        SceneManager.LoadScene(sceneToLoad); // đổi tên scene nếu khác
     }
 
     // Skip typewriter manually

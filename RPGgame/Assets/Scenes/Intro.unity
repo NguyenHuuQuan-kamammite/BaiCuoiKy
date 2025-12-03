@@ -445,18 +445,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9706508e48be47e4e83f333ab09823e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textMeshPro: {fileID: 260299169}
-  typeSpeed: 0.05
-  wordToFlash: terror
-  flashColor:
-    r: 1
-    g: 0.92156863
-    b: 0.015686275
-    a: 1
-  flashCount: 3
-  flashDuration: 0.2
-  fullText: 
-  isTyping: 0
 --- !u!1 &356031597
 GameObject:
   m_ObjectHideFlags: 0
@@ -682,11 +670,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9ce4dfb35f2c641b4751369c283805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textMeshPro: {fileID: 437987704}
-  speed: 0.02
-  panelCanvasGroup: {fileID: 378367795}
-  fadeSpeed: 1
-  isTyping: 0
 --- !u!114 &378367800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1714,11 +1697,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9ce4dfb35f2c641b4751369c283805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textMeshPro: {fileID: 260299169}
-  speed: 0.02
-  panelCanvasGroup: {fileID: 1671340346}
-  fadeSpeed: 1
-  isTyping: 0
 --- !u!114 &1671340351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2007,11 +1985,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9ce4dfb35f2c641b4751369c283805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textMeshPro: {fileID: 832117769}
-  speed: 0.02
-  panelCanvasGroup: {fileID: 1921702843}
-  fadeSpeed: 1
-  isTyping: 0
 --- !u!114 &1921702848
 MonoBehaviour:
   m_ObjectHideFlags: 0

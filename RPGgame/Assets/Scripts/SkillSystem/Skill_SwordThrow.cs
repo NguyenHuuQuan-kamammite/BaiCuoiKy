@@ -122,14 +122,14 @@ public class Skill_SwordThrow : Skill_Base
     {
         float scaledThrowPower = currentThrowPower * 10f;
 
-        // This gives us the initial velocity – the starting speed and direction of the throw
+        // This gives  the initial velocity – the starting speed and direction of the throw
         Vector2 initialVelocity = direction * scaledThrowPower;
 
         // Gravity pulls the sword down over time. The longer it’s in the air, the more it drops.
         Vector2 gravityEffect = 0.5f * Physics2D.gravity * swordGravity * (t * t);
 
 
-        // We calculate how far the sword will travel after time 't',
+        // calculate how far the sword will travel after time 't',
         // by combining the initial throw direction with the gravity pull.
         Vector2 predictedPoint = (initialVelocity * t) + gravityEffect;
 
