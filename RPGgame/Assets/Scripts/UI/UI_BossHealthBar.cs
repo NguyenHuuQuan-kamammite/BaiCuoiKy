@@ -1,4 +1,4 @@
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 public class UI_BossHealthBar : MonoBehaviour
@@ -36,9 +36,20 @@ public class UI_BossHealthBar : MonoBehaviour
         float current = Mathf.RoundToInt(bossHealth.GetCurrentHealth());
         float max = bossHealth.GetMaxHealth();
 
-        // Resize bar automatically to match max HP
-        healthRect.sizeDelta = new Vector2(max, healthRect.sizeDelta.y);
+        // If boss died → hide UI and stop listening
+        if (current <= 0)
+        {
+            Hide();
 
+            // Unsubscribe to avoid memory leaks
+            bossHealth.OnHealthUpdate -= UpdateBossUI;
+            bossHealth = null;
+
+            return;
+        }
+
+        // Update normal boss UI
+        healthRect.sizeDelta = new Vector2(max, healthRect.sizeDelta.y);
         healthText.text = current + "/" + max;
         healthSlider.value = bossHealth.GetHealthPercent();
     }
