@@ -29,8 +29,8 @@ public class Enemy_Reaper : Enemy, ICounterable
     private float defaultTeleportChance;
     public bool teleporTrigger { get; private set; }
     [SerializeField] private float minDistanceFromPlayer = 5f;
-   
-   
+    private Enemy_Health health;
+
 
     protected override void Awake()
     {
@@ -52,6 +52,10 @@ public class Enemy_Reaper : Enemy, ICounterable
     protected override void Start()
     {
         base.Start();
+        health = GetComponent<Enemy_Health>();
+
+       
+      
         defaultTeleportChance = chanceToTeleport;
         arenaBounds.transform.parent = null; // Detach from enemy
         stateMachine.Initialize(idleState);

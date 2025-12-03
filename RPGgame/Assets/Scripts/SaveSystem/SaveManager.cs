@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class SaveManager : MonoBehaviour
 {
@@ -19,7 +21,9 @@ public class SaveManager : MonoBehaviour
     private IEnumerator Start()
     {
         Debug.Log(Application.persistentDataPath);
+        //  Create the file handler with the save path
         dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, encryptData);
+        // Find all saveable objects in the scene
         allSaveables = FindISaveables();
 
 
@@ -51,14 +55,18 @@ public class SaveManager : MonoBehaviour
     [ContextMenu("*** Delete save data ***")]
     public void DeleteSaveData()
     {
+        // Recreate file handler 
         dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, encryptData);
+        //Delete the physical save file
         dataHandler.Delete();
 
-        
+        //Create fresh GameData with default values
         gameData = new GameData();
 
-   
+        //Find all saveable objects in the scene
         allSaveables = FindISaveables();
+
+        //Load default data into all game systems
         foreach (var saveable in allSaveables)
             saveable.LoadData(gameData);
 

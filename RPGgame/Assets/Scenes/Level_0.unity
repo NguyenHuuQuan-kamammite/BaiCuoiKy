@@ -4782,6 +4782,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 806424604861711541, guid: 455efc3c8f75cdc4cad3483832e5b6c5, type: 3}
+      propertyPath: damagePercentHealed
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 2994325217412167333, guid: 455efc3c8f75cdc4cad3483832e5b6c5, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -59744,7 +59748,7 @@ GameObject:
   - component: {fileID: 1323871966}
   - component: {fileID: 1323871965}
   m_Layer: 9
-  m_Name: Object_ItemPickup -Sack of Gold
+  m_Name: Object_ItemPickup -Book of Oblivion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59855,7 +59859,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1732592169, guid: 8b91d8dde6c55504a95c06632a759734, type: 3}
+  m_Sprite: {fileID: -1350423772, guid: 8b91d8dde6c55504a95c06632a759734, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -59878,7 +59882,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b16ee906b4233e4fb9545a86e885f71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemData: {fileID: 11400000, guid: d6fa4ef27bb552a429ba3da7821d902e, type: 2}
+  itemData: {fileID: 11400000, guid: e6cc9d6619a9f4949a30c5db811d6c7a, type: 2}
   dropForce: {x: 3, y: 10}
   rb: {fileID: 0}
   sr: {fileID: 1323871966}
@@ -63735,6 +63739,10 @@ PrefabInstance:
     - target: {fileID: 3903113909730449624, guid: 5c0ec0884eb92f74a9808089671a98c6, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3914042034953396394, guid: 5c0ec0884eb92f74a9808089671a98c6, type: 3}
+      propertyPath: skillPoints
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3950223067718551391, guid: 5c0ec0884eb92f74a9808089671a98c6, type: 3}
       propertyPath: m_AnchorMax.y

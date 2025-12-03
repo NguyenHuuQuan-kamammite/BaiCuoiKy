@@ -23,6 +23,11 @@ public class Entity_Health : MonoBehaviour, IDamgable
     public float lastDamegeTaken { get; private set; }
     protected bool canTakeDamage = true;
 
+
+
+
+
+
     [Header("On Damage Knockback")]
     [SerializeField] private float knockbackDuration = 0.2f;
     [SerializeField] private Vector2 onDamageKnockback = new Vector2(1f, 0.5f);
@@ -176,7 +181,7 @@ public class Entity_Health : MonoBehaviour, IDamgable
     public float GetCurrentHealth() => currentHp;
     protected void UpdateHealthBar()
     {
-        if (healthBar == null && healthBar.transform.parent.gameObject.activeSelf == false)
+        if (healthBar == null || healthBar.transform.parent.gameObject.activeSelf == false)
             return;
         healthBar.value = currentHp / stats.GetMaxHealth();
     }
@@ -216,4 +221,8 @@ public class Entity_Health : MonoBehaviour, IDamgable
     {
         OnHealthUpdate?.Invoke();
     }
+
+
+  
+    public float GetMaxHealth() => stats.GetMaxHealth();
 }

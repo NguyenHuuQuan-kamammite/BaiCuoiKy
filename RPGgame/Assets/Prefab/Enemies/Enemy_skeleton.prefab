@@ -318,6 +318,8 @@ MonoBehaviour:
   questTargetId: enemy_skeleton
   battleMoveSpeed: 3
   attackDistance: 2
+  attackCooldown: 0.5
+  canChasePlayer: 1
   battleTimeDuration: 5
   minRetreatDistance: 1
   retreatVelocity: {x: 3, y: 0}
@@ -329,6 +331,7 @@ MonoBehaviour:
     m_Bits: 128
   playerCheck: {fileID: 2389275548146833267}
   playerCheckDistance: 10
+  playerCheckYOffset: 0
   stunnedDuration: 1
   stunnedVelocity: {x: 4, y: 4}
   canBeStunned: 0
@@ -437,6 +440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8f61882fd672946b8a13684083896c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  entity: {fileID: 0}
   regenInterval: 1
   canRegenerateHealth: 1
   currentHp: 0
@@ -445,6 +449,7 @@ MonoBehaviour:
   heavyKnockbackThreshold: 0.3
   heavyKnockbackDuration: 0.5
   onHeavyKnockback: {x: 7, y: 2.5}
+  waypointToActivate: {fileID: 0}
 --- !u!114 &5032868754842394265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -457,6 +462,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5fa3d1a9552319459da7f1458854d5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeEchoInterval: 0.05
+  imageEchoPrefab: {fileID: 0}
   onDamageMaterial: {fileID: 2100000, guid: 6e215e3484f9c3a48acc00ff71b5bbed, type: 2}
   onDamageVfxDuration: 0.2
   hitVfx: {fileID: 7274362693920113760, guid: eeac29f4e2682694a8d110964229a77a, type: 3}
@@ -585,6 +592,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackHit: player_attackHit
   attackMiss: player_attackMiss
+  walkStone: enemy_skeletonwalk
+  dash: 
+  jump: 
+  dead: 
+  domainExpand: 
   soundDistance: 15
   showGizmo: 0
 --- !u!1 &1895953376075105451

@@ -15,7 +15,7 @@ public class SkillObject_TimeEcho : SkillObject_Base
     private SkillObject_Health echoHealth;
     private Player_SkillManager skillManager;
     private Entity_StatusHandler statusHandler;
-
+    private bool hasHealed;
     [Header("Sound Effects")]
     [SerializeField] private string wispAbsorbSFX = "wisp_absorb"; 
     [SerializeField] private float soundDistance = 15f;
@@ -64,6 +64,10 @@ public class SkillObject_TimeEcho : SkillObject_Base
     private void HandlePlayerTouch()
     {
         Debug.Log("Wisp touched player!"); // Check if this prints
+        if (hasHealed) // Prevent multiple calls
+            return;
+
+        hasHealed = true;
 
         if (audioSource == null)
             Debug.LogError("AudioSource is null!");

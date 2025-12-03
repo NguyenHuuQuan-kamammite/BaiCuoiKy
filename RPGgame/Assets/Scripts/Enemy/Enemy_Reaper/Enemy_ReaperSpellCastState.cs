@@ -23,7 +23,6 @@ public class Enemy_ReaperSpellCastState : EnemyState
     {
         base.Update();
 
-
         stateTimer += Time.deltaTime;
 
       
